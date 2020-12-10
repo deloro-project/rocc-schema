@@ -48,9 +48,9 @@
       <xs:attribute name="writingType" use="required">
 	<xs:simpleType>
 	  <xs:restriction base="xs:string">
-	    <xs:enumeration value="manuscript"/>
-	    <xs:enumeration value="uncial" />
-	    <xs:enumeration value="print" />
+	    <xs:enumeration value="Manuscript"/>
+	    <xs:enumeration value="Uncial" />
+	    <xs:enumeration value="Print" />
 	  </xs:restriction>
 	</xs:simpleType>
       </xs:attribute>

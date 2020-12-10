@@ -45,7 +45,15 @@
       <xs:attribute name="difficultyLevel" use="required"/>
       <xs:attribute name="fiftyYears" use="required"/>
       <xs:attribute name="printingYear" use="required"/>
-      <xs:attribute name="writingType" use="required"/>
+      <xs:attribute name="writingType" use="required">
+	<xs:simpleType>
+	  <xs:restriction base="xs:string">
+	    <xs:enumeration value="manuscript"/>
+	    <xs:enumeration value="uncial" />
+	    <xs:enumeration value="print" />
+	  </xs:restriction>
+	</xs:simpleType>
+      </xs:attribute>
       <xs:attribute name="zone" use="required"/>
     </xs:complexType>
   </xs:element>

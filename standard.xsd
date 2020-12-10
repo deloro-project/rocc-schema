@@ -42,12 +42,15 @@
     <xs:complexType>
       <xs:attribute name="annotationLevel" use="required"/>
       <xs:attribute name="century" use="required">
-	<xs:restriction base="xs:string">
-	  <xs:enumeration value="XVI" />
-	  <xs:enumeration value="XVII" />
-	  <xs:enumeration value="XVIII" />
-	  <xs:enumeration value="XIX" />
-	</xs:restriction>
+	<xs:simpleType>
+	  <xs:restriction base="xs:string">
+	    <xs:enumeration value="XVI" />
+	    <xs:enumeration value="XVII" />
+	    <xs:enumeration value="XVIII" />
+	    <xs:enumeration value="XIX" />
+	  </xs:restriction>
+	</xs:simpleType>
+      </xs:attribute>
       </xs:attribute>
       <xs:attribute name="difficultyLevel" use="required"/>
       <xs:attribute name="fiftyYears" use="required"/>

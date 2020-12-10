@@ -2,7 +2,7 @@
 <ROCC>
     <pageCollection id="">
         <pageCollectionMetadata rocc_id="" title="" shortTitle="" language="" metadataCreator="" distribution="">
-            <ROCC-code difficultyLevel="" writingType="" annotationLevel="" century="" printingYear="" fiftyYears ="" zone =""> </ROCC-code>
+            <ROCC-code difficultyLevel="" writingType="Print" annotationLevel="" century="" printingYear="" fiftyYears ="" zone =""> </ROCC-code>
             <translation originalLanguage="" originalAuthor="" translator ="" secTranslator = ""> </translation>
             <scannedCopy library ="" libraryCode =""> </scannedCopy>
             <creation author ="" secAuthors ="" creationYear ="">
@@ -11,7 +11,7 @@
             <publishing>
                 <publishingLocation publishingCountry ="" publishingProvince="" publishingTown ="" publishingHouse =""> </publishingLocation>
                 <publishingYear> </publishingYear>
-            </publishing> 
+            </publishing>
             <description style="" subject =""> </description>
         </pageCollectionMetadata>
 
@@ -31,12 +31,12 @@
             <graphicalObjectFrontispiece frontispieceId="">
                 <objectCoordinates leftUpHoriz="" leftUpVert ="" rightDownHoriz ="" rightDownVert =""> </objectCoordinates>
             </graphicalObjectFrontispiece>
-            
+
             <pageSegmentation pageID="">
                 <objectTitle titlelId ="" objectContent ="">
                     <objectCoordinates leftUpHoriz="" leftUpVert ="" rightDownHoriz ="" rightDownVert =""> </objectCoordinates>
                 </objectTitle>
-                
+
                 <objectColumns>
                     <objectColumnCoordinates leftUpHoriz="" leftUpVert ="" rightDownHoriz ="" rightDownVert =""> </objectColumnCoordinates>
                     <objectColumn columnId="" columnPosition="">
@@ -58,35 +58,35 @@
                     </objectLines>
                     </objectColumn>
                 </objectColumns>
-                
+
                 <objectMarginal marginalId ="" objectContent ="">
                     <objectCoordinates leftUpHoriz="" leftUpVert ="" rightDownHoriz ="" rightDownVert =""> </objectCoordinates>
                 </objectMarginal>
-                
+
                 <objectModifier modifierId ="" objectContent ="">
                     <objectCoordinates leftUpHoriz="" leftUpVert ="" rightDownHoriz ="" rightDownVert =""> </objectCoordinates>
                 </objectModifier>
-                
+
                 <objectInitialLetter initialLetterId ="" objectContent ="">
                     <objectCoordinates leftUpHoriz="" leftUpVert ="" rightDownHoriz ="" rightDownVert =""> </objectCoordinates>
                 </objectInitialLetter>
-                
+
                 <objectReferenceMarkOnMargin referenceMarkOnMarginId="" objectContent ="">
                     <objectCoordinates leftUpHoriz="" leftUpVert ="" rightDownHoriz ="" rightDownVert =""> </objectCoordinates>
                 </objectReferenceMarkOnMargin>
-                
+
                 <objectReferenceMarkAboveLine referenceMarkAboveLineId ="" objectContent ="">
                     <objectCoordinates leftUpHoriz="" leftUpVert ="" rightDownHoriz ="" rightDownVert =""> </objectCoordinates>
                 </objectReferenceMarkAboveLine>
-                
+
                 <graphicalObjectAccolade accoladeId ="">
                     <objectCoordinates leftUpHoriz="" leftUpVert ="" rightDownHoriz ="" rightDownVert ="" direction ="" horizCoordOfPeak="" vertCoordOfPeak =""> </objectCoordinates>
                 </graphicalObjectAccolade>
-                
+
                 <graphicalObjectOrnament ornamentId ="" >
                     <objectCoordinates leftUpHoriz="" leftUpVert ="" rightDownHoriz ="" rightDownVert =""> </objectCoordinates>
                 </graphicalObjectOrnament>
-                
+
                 <graphicalObjectFrame frameId="">
                     <objectCoordinates extFrameLeftUpHoriz="" extFrameLeftUpVert="" extFrameRightDownHoriz="" extFrameRightDownVert="" intFrameLeftUpHoriz ="" intFrameLeftUpVert ="" intFrameRightDownHoriz ="" intFrameRightDownVert =""> </objectCoordinates>
                 </graphicalObjectFrame>
@@ -127,6 +127,6 @@
                 </onePageAlignments>
             </sequance>
         </alignmentsImage2Text>
-        
+
     </pageCollection>
 </ROCC>

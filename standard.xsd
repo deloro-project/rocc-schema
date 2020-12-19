@@ -60,7 +60,14 @@
 	  </xs:restriction>
 	</xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="fiftyYears" use="required"/>
+      <xs:attribute name="fiftyYears" use="required">
+	<xs:simpleType>
+	  <xs:restriction base="xs:integer">
+	    <xs:enumeration value="1" />
+	    <xs:enumeration value="2" />
+	  </xs:restriction>
+	</xs:simpleType>
+      </xs:attribute>
       <xs:attribute name="printingYear" use="required"/>
       <xs:attribute name="writingType" use="required">
 	<xs:simpleType>

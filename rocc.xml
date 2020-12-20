@@ -118,12 +118,12 @@
         <alignmentsImage2Text>
             <letter pageId="">
                 <onePageAlignments pageId="">
-                    <alignment letterId="" characterOffset="1" goldTestAligment="test" length="1"></alignment>
+                    <alignment letterId="" characterOffset="1" alignmentType="test" length="1"></alignment>
                 </onePageAlignments>
             </letter>
             <sequence>
                 <onePageAlignments pageId="">
-                    <aalignment seqLetterId="" seqLetterLength="1" seqCharOffset="2" seqCharLength="2" goldTestAligment="test"></aalignment>
+                    <aalignment seqLetterId="" seqLetterLength="1" seqCharOffset="2" seqCharLength="2" alignmentType="test"></aalignment>
                 </onePageAlignments>
             </sequence>
         </alignmentsImage2Text>

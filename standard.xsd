@@ -416,7 +416,7 @@
   </xs:element>
   <xs:element name="aalignment">
     <xs:complexType>
-      <xs:attribute name="goldTestAligment" type="AlignmentType" use="required" />
+      <xs:attribute name="alignmentType" type="AlignmentType" use="required" />
       <xs:attribute name="seqCharLength" type="xs:integer" use="required"/>
       <xs:attribute name="seqCharOffset" type="xs:integer" use="required"/>
       <xs:attribute name="seqLetterId" use="required"/>
@@ -426,7 +426,7 @@
   <xs:element name="alignment">
     <xs:complexType>
       <xs:attribute name="characterOffset" type="xs:integer" use="required"/>
-      <xs:attribute name="goldTestAligment" type="AlignmentType" use="required"/>
+      <xs:attribute name="alignmentType" type="AlignmentType" use="required"/>
       <xs:attribute name="length" type="xs:integer" use="required"/>
       <xs:attribute name="letterId" use="required"/>
     </xs:complexType>

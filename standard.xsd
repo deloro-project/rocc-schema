@@ -449,7 +449,15 @@
         <xs:element ref="objectLetters"/>
       </xs:sequence>
       <xs:attribute name="id"/>
-      <xs:attribute name="inColumn"/>
+      <xs:attribute name="inColumn">
+	<xs:simpleType>
+	  <xs:restriction base="xs:string">
+	    <xs:enumeration value="Ordinary" /> <!-- The line is from a column of the page. -->
+	    <xs:enumeration value="Header" />	<!-- The line is from page header. -->
+	    <xs:enumeration value="Footer" />	<!-- The line is from page footer. -->
+	  </xs:restriction>
+	</xs:simpleType>
+      </xs:attribute>
       <xs:attribute name="objectContent"/>
     </xs:complexType>
   </xs:element>

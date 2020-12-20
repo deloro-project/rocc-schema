@@ -1,0 +1,41 @@
+#+title: ROCC-Schema: Romanian Old Cyrillic Corpus schema
+#+author: Echipa DeLORo
+#+description: Schema de adnotare pentru ROCC.
+#+language: ro
+#+select_tags: export
+#+exclude_tags: noexport
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: timestamp:nil title:t toc:t todo:t |:t
+#+options: d:(not "LOGBOOK") date:nil e:t email:nil f:t inline:t num:nil
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+setupfile: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+html_mathjax: align: left indent: 5em tagside: left font: Neo-Euler
+* Standardul intern al corpusului =ROCC=
+  :PROPERTIES:
+  :CUSTOM_ID: intro
+  :END:
+  Corpusul ROCC este format dintr-o mulțime de documente (colecții de pagini), fiecare colecție de acest gen având în componența sa:
+  - o secțiune care descrie metadatele colecției: =<pageCollectionMetadata/>=,
+  - o secțiune dedicată imaginilor de pagină: =<imagesOfPages/>=,
+  - o secțiune dedicată segmentărilor făcute deopotrivă de adnotatori și de tehnologie asupra paginilor: =<segmentationOfImages>=,
+  - o secțiune dedicată textelor în alfabet latin care decodifică înscrisul chirilic: =<textsOfPages>=,
+  - o secțiune dedicată alinierilor între imagini și text; propunem două variante:
+    - una în care alinierile sunt în perechi slovă-la-literă --- =<letterAlignmentsImage2Text>=
+    - una în care ele sunt prezentate ca perechi de sevențențe de slove la secvențe de litere, =<seqAlignmentsImage2Text>=.
+
+  În conformitate cu această structurare, o pagină din conținutul unui document se înregistrează în ROCC prin următoarele componente:
+  - metadatele atașate paginii (obligatoriu),
+  - imaginea propriu-zisă (obligatoriu),
+  - segmentările imaginii (opțional),
+  - textul transcris (opțional),
+  - alinierile imagine-text (opțional).
+
+* Descrierea schemei de adnotare
+  :PROPERTIES:
+  :CUSTOM_ID: schema
+  :END:
+* =ROCC=
+  :PROPERTIES:
+  :CUSTOM_ID: rocc
+  :END:
+  Elementul rădăcină al schemei.

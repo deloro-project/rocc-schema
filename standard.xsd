@@ -304,7 +304,15 @@
         <xs:element ref="objectLines"/>
       </xs:sequence>
       <xs:attribute name="columnId" use="required"/>
-      <xs:attribute name="columnPosition" use="required"/>
+      <xs:attribute name="columnPosition" use="required">
+	<xs:simpleType>
+	  <xs:restriction base="xs:string">
+	    <xs:enumeration value="U" /> <!-- Single (unique) column within the page -->
+	    <xs:enumeration value="L" /> <!-- Left column -->
+	    <xs:enumeration value="R" /> <!-- Right column -->
+	  </xs:restriction>
+	</xs:simpleType>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element name="objectLines">

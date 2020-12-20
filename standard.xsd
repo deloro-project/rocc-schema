@@ -166,14 +166,30 @@
   </xs:element>
   <xs:element name="difficultyCriteria">
     <xs:complexType>
-      <xs:attribute name="corrections" use="required"/>
-      <xs:attribute name="damaged" use="required"/>
-      <xs:attribute name="interlineWriting" use="required"/>
-      <xs:attribute name="marginalWriting" use="required"/>
-      <xs:attribute name="opaqueSpots" use="required"/>
-      <xs:attribute name="overlayPrint" use="required"/>
-      <xs:attribute name="palimpsest" use="required"/>
-      <xs:attribute name="transparentPaper" use="required"/>
+      <xs:attribute name="corrections" use="required">
+	<xs:simpleType>
+	  <xs:restriction base="xs:string">
+	    <xs:enumeration value="None"/> <!-- No corrections within the page -->
+	    <xs:enumeration value="Few" /> <!-- Between 1 and 5 corrections within the page -->
+	    <xs:enumeration value="Many" /> <!-- More than 5 corrections within the page -->
+	  </xs:restriction>
+	</xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="damaged" use="required" type="xs:boolean" />
+      <xs:attribute name="interlineWriting" use="required" type="xs:boolean" />
+      <xs:attribute name="marginalWriting" use="required">
+	<xs:simpleType>
+	  <xs:restriction base="xs:string">
+	    <xs:enumeration value="None"/> <!-- No writings within the page -->
+	    <xs:enumeration value="Few" /> <!-- Between 1 and 5 writings within the page -->
+	    <xs:enumeration value="Many" /> <!-- More than 5 writings within the page -->
+	  </xs:restriction>
+	</xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="opaqueSpots" use="required" type="xs:boolean" />
+      <xs:attribute name="overlayPrint" use="required" type="xs:boolean" />
+      <xs:attribute name="palimpsest" use="required" type="xs:boolean" />
+      <xs:attribute name="transparentPaper" use="required" type="xs:boolean" />
     </xs:complexType>
   </xs:element>
   <xs:element name="manualSegmentationOfImages">

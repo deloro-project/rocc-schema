@@ -397,6 +397,14 @@
       <xs:element ref="onePageAlignments"/>
     </xs:sequence>
   </xs:complexType>
+  <xs:simpleType name="AlignmentType">
+    <xs:restriction base="xs:string">
+       <!-- The alignment was generated automatically and not validated. -->
+       <xs:enumeration value="test" />
+       <!-- The alignment was made or validated by human expert. -->
+       <xs:enumeration value="gold" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:element name="onePageAlignments">
     <xs:complexType>
       <xs:choice>
@@ -408,18 +416,18 @@
   </xs:element>
   <xs:element name="aalignment">
     <xs:complexType>
-      <xs:attribute name="goldTestAligment" use="required"/>
-      <xs:attribute name="seqCharLength" use="required"/>
-      <xs:attribute name="seqCharOffset" use="required"/>
+      <xs:attribute name="goldTestAligment" type="AlignmentType" use="required" />
+      <xs:attribute name="seqCharLength" type="xs:integer" use="required"/>
+      <xs:attribute name="seqCharOffset" type="xs:integer" use="required"/>
       <xs:attribute name="seqLetterId" use="required"/>
-      <xs:attribute name="seqLetterLength" use="required"/>
+      <xs:attribute name="seqLetterLength" type="xs:integer" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="alignment">
     <xs:complexType>
-      <xs:attribute name="characterOffset" use="required"/>
-      <xs:attribute name="goldTestAligment" use="required"/>
-      <xs:attribute name="length" use="required"/>
+      <xs:attribute name="characterOffset" type="xs:integer" use="required"/>
+      <xs:attribute name="goldTestAligment" type="AlignmentType" use="required"/>
+      <xs:attribute name="length" type="xs:integer" use="required"/>
       <xs:attribute name="letterId" use="required"/>
     </xs:complexType>
   </xs:element>

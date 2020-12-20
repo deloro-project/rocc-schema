@@ -16,13 +16,13 @@
         </pageCollectionMetadata>
 
         <imagesOfPages>
-            <onePageImage pageID ="1" pageImageFile="">
+            <onePageImage pageId ="1" pageImageFile="">
                 <difficultyCriteria damaged="false" opaqueSpots="false" transparentPaper="false" overlayPrint="false" interlineWriting="false" palimpsest="false" corrections="None" marginalWriting ="None"></difficultyCriteria>
             </onePageImage>
-            <onePageImage pageID ="2" pageImageFile="">
+            <onePageImage pageId ="2" pageImageFile="">
                 <difficultyCriteria damaged="true" opaqueSpots="true" transparentPaper="false" overlayPrint="false" interlineWriting="false" palimpsest="false" corrections="Few" marginalWriting="None"></difficultyCriteria>
             </onePageImage>
-            <onePageImage pageID ="3" pageImageFile="">
+            <onePageImage pageId ="3" pageImageFile="">
                 <difficultyCriteria damaged="false" opaqueSpots="true" transparentPaper="false" overlayPrint="false" interlineWriting="true" palimpsest="false" corrections="Few" marginalWriting="Few"></difficultyCriteria>
             </onePageImage>
         </imagesOfPages>
@@ -32,7 +32,7 @@
                 <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert=""></objectCoordinates>
             </graphicalObjectFrontispiece>
 
-            <pageSegmentation pageID="">
+            <pageSegmentation pageId="">
                 <objectTitle titlelId ="" objectContent ="">
                     <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert=""></objectCoordinates>
                 </objectTitle>
@@ -95,7 +95,7 @@
 
         <automaticSegmentationOfImages>
             <graphicalObjectFrontispiece></graphicalObjectFrontispiece>
-            <pageSegmentation pageID="">
+            <pageSegmentation pageId="">
                 <objectTitle></objectTitle>
                 <objectLine></objectLine>
                 <objectLetter></objectLetter>
@@ -112,17 +112,17 @@
         </automaticSegmentationOfImages>
 
         <textsOfPages integralTrinscribedTextFile="">
-            <textPage pageID="" textPageFile="" endOfPage=""></textPage>
+            <textPage pageId="" textPageFile="" endOfPage=""></textPage>
         </textsOfPages>
 
         <alignmentsImage2Text>
-            <letter pageID="">
-                <onePageAlignments pageID="">
+            <letter pageId="">
+                <onePageAlignments pageId="">
                     <alignment letterId="" characterOffset="" goldTestAligment="" length=""></alignment>
                 </onePageAlignments>
             </letter>
             <sequance>
-                <onePageAlignments pageID="">
+                <onePageAlignments pageId="">
                     <aalignment seqLetterId="" seqLetterLength="" seqCharOffset="" seqCharLength="" goldTestAligment=""></aalignment>
                 </onePageAlignments>
             </sequance>

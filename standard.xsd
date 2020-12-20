@@ -160,7 +160,7 @@
       <xs:sequence>
         <xs:element ref="difficultyCriteria"/>
       </xs:sequence>
-      <xs:attribute name="pageID" use="required" type="xs:integer"/>
+      <xs:attribute name="pageId" use="required" type="xs:integer"/>
       <xs:attribute name="pageImageFile" use="required"/>
     </xs:complexType>
   </xs:element>
@@ -219,7 +219,7 @@
   <xs:element name="textPage">
     <xs:complexType>
       <xs:attribute name="endOfPage" use="required"/>
-      <xs:attribute name="pageID" use="required"/>
+      <xs:attribute name="pageId" use="required"/>
       <xs:attribute name="textPageFile" use="required"/>
     </xs:complexType>
   </xs:element>
@@ -235,7 +235,7 @@
     <xs:complexType>
       <xs:complexContent>
         <xs:extension base="onePageAlignments">
-          <xs:attribute name="pageID" use="required"/>
+          <xs:attribute name="pageId" use="required"/>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
@@ -270,7 +270,7 @@
         <xs:element ref="graphicalObjectOrnament"/>
         <xs:element ref="graphicalObjectFrame"/>
       </xs:sequence>
-      <xs:attribute name="pageID" use="required"/>
+      <xs:attribute name="pageId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="objectTitle">
@@ -403,7 +403,7 @@
         <xs:element ref="aalignment"/>
         <xs:element ref="alignment"/>
       </xs:choice>
-      <xs:attribute name="pageID" use="required"/>
+      <xs:attribute name="pageId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="aalignment">

@@ -10,7 +10,7 @@
 #+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+setupfile: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 #+html_mathjax: align: left indent: 5em tagside: left font: Neo-Euler
-* Standardul intern al corpusului =ROCC=
+* Standardul intern al corpusului ROCC
   :PROPERTIES:
   :CUSTOM_ID: intro
   :END:
@@ -34,7 +34,7 @@
   :PROPERTIES:
   :CUSTOM_ID: schema
   :END:
-* =ROCC=
+* ROCC
   :PROPERTIES:
   :CUSTOM_ID: rocc
   :END:

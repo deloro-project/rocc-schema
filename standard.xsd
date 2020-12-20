@@ -227,7 +227,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="letter"/>
-        <xs:element ref="sequance"/>
+        <xs:element ref="sequence"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -240,7 +240,7 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
-  <xs:element name="sequance" type="onePageAlignments"/>
+  <xs:element name="sequence" type="onePageAlignments"/>
   <xs:element name="graphicalObjectFrontispiece">
     <xs:complexType>
       <xs:sequence>

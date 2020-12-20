@@ -34,8 +34,8 @@
   :PROPERTIES:
   :CUSTOM_ID: schema
   :END:
-* ROCC
-  :PROPERTIES:
-  :CUSTOM_ID: rocc
-  :END:
-  Elementul rădăcină al schemei.
+** ROCC
+   :PROPERTIES:
+   :CUSTOM_ID: rocc
+   :END:
+   Elementul rădăcină al schemei.

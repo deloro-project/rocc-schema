@@ -78,7 +78,19 @@
 	  </xs:restriction>
 	</xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="zone" use="required"/>
+      <xs:attribute name="zone" use="required">
+	<xs:simpleType>
+	  <xs:restriction base="xs:string">
+	    <!-- MD = Moldavia (for dates in XVI - XIX - 1812) -->
+	    <!-- W = Wallachia -->
+	    <!-- T = Transylvania -->
+	    <!-- MM = Maramureș -->
+	    <!-- BT = Banat -->
+	    <!-- BS = Bessarabia (for dates between 1812 - 1899) -->
+	    <xs:pattern value="(MD|W|T|MM|BT|BS)(,(MD|W|T|MM|BT|BS))+" />
+	  </xs:restriction>
+	</xs:simpleType>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element name="translation">

@@ -2,7 +2,7 @@
 <ROCC>
     <pageCollection id="">
         <pageCollectionMetadata rocc_id="" title="" shortTitle="" language="" metadataCreator="" distribution="">
-            <ROCC-code difficultyLevel="2" writingType="Print" annotationLevel="" century="XIX" printingYear="" fiftyYears ="1" zone =""> </ROCC-code>
+            <ROCC-code difficultyLevel="2" writingType="Print" annotationLevel="" century="XIX" printingYear="" fiftyYears ="1" zone ="MD,T,W"> </ROCC-code>
             <translation originalLanguage="" originalAuthor="" translator ="" secTranslator = ""> </translation>
             <scannedCopy library ="" libraryCode =""> </scannedCopy>
             <creation author ="" secAuthors ="" creationYear ="">

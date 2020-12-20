@@ -39,3 +39,40 @@
    :CUSTOM_ID: rocc
    :END:
    Elementul rădăcină al schemei.
+** pageCollection
+   :PROPERTIES:
+   :CUSTOM_ID: pageCollection
+   :END:
+   La nivelul cel mai de sus al corpusului ROCC se plasează elementele =<pageCollection>=. O astfel de colecție de pagini caracterizează un document, adică o carte, un număr de ziar, în general o unitate editorială ce are asociată un cod de identificare de bibliotecă. La nivelul metadatelor, această descriere combină informații preluate din site-urile bibliotecilor deținătoare de documente vechi românești, cu altele validate și completate apoi în discuțiile purtate între membrii consorțiului DeLORo.
+
+   Este în interesul proiectului ca imaginile scanate ale paginilor chirilice să fie prezentate în corpus în pereche cu transcrierile lor textuale romane. Unitatea de bază în alinierea imagine-text este pagina de carte, dar subîntinderi ale ei vor fi de asemenea considerate: coloana, rândul, cuvântul, litera etc.
+** pageCollectionMetadata
+   :PROPERTIES:
+   :CUSTOM_ID: pageCollectionMetadata
+   :END:
+   Elementul =<pageCollectionMetadata />= are următoarea structură:
+   #+begin_src xml
+     <pageCollectionMetadata rocc_id="" title="" shortTitle="" language="" metadataCreator="" distribution="">
+       <ROCC-code difficultyLevel="2" writingType="Print" annotationLevel="" century="XIX" printingYear="" fiftyYears ="1" zone ="MD,T,W"></ROCC-code>
+       <translation originalLanguage="" originalAuthor="" translator="" secTranslator=""></translation>
+       <scannedCopy library="" libraryCode=""></scannedCopy>
+       <creation author="" secAuthors="" creationYear="">
+	 <creationLocation creationProvince="" creationTown=""></creationLocation>
+       </creation>
+       <publishing>
+	 <publishingLocation publishingCountry="" publishingProvince="" publishingTown="" publishingHouse=""></publishingLocation>
+	 <publishingYear></publishingYear>
+       </publishing>
+       <description style="" subject=""></description>
+     </pageCollectionMetadata>
+   #+end_src
+*** Atribute
+    :PROPERTIES:
+    :CUSTOM_ID: pageCollectionMetadata-attr
+    :END:
+    - =rocc_id= (obligatoriu): identificatorul unic al documentului din corpusul =ROCC=;
+    - =title= (obligatoriu): itlul documentului (carte, ziar etc.);
+    - =shortTitle= (opțional): dacă documentul este cunoscut și sub un nume prescurtat (acest atribut corespunde câmpului UniTitle din codificarea Alef);
+    - =language= (obligatoriu): limba sau limbile folosite în document: “ro”, “sl” etc.;
+    - =metadataCreator= (obligatoriu): entitatea, una sau mai multe (persoane, instituții) care a editat metadatele colecției curente;
+    - =distribution= (obligatoriu): regimul de distribuție al acestei colecției ROCC, valorile fiind tipuri de licențe (ex. https://creativecommons.org/licenses/by-nc/3.0/).

@@ -234,6 +234,12 @@
 <li><a href="#schema">Descrierea schemei de adnotare</a>
 <ul>
 <li><a href="#rocc">ROCC</a></li>
+<li><a href="#pageCollection">pageCollection</a></li>
+<li><a href="#pageCollectionMetadata">pageCollectionMetadata</a>
+<ul>
+<li><a href="#pageCollectionMetadata-attr">Atribute</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -280,6 +286,55 @@ Corpusul ROCC este format dintr-o mulțime de documente (colecții de pagini), f
 <p>
 Elementul rădăcină al schemei.
 </p>
+</div>
+</div>
+<div id="outline-container-pageCollection" class="outline-3">
+<h3 id="pageCollection">pageCollection</h3>
+<div class="outline-text-3" id="text-pageCollection">
+<p>
+La nivelul cel mai de sus al corpusului ROCC se plasează elementele <code>&lt;pageCollection&gt;</code>. O astfel de colecție de pagini caracterizează un document, adică o carte, un număr de ziar, în general o unitate editorială ce are asociată un cod de identificare de bibliotecă. La nivelul metadatelor, această descriere combină informații preluate din site-urile bibliotecilor deținătoare de documente vechi românești, cu altele validate și completate apoi în discuțiile purtate între membrii consorțiului DeLORo.
+</p>
+
+<p>
+Este în interesul proiectului ca imaginile scanate ale paginilor chirilice să fie prezentate în corpus în pereche cu transcrierile lor textuale romane. Unitatea de bază în alinierea imagine-text este pagina de carte, dar subîntinderi ale ei vor fi de asemenea considerate: coloana, rândul, cuvântul, litera etc.
+</p>
+</div>
+</div>
+<div id="outline-container-pageCollectionMetadata" class="outline-3">
+<h3 id="pageCollectionMetadata">pageCollectionMetadata</h3>
+<div class="outline-text-3" id="text-pageCollectionMetadata">
+<p>
+Elementul <code>&lt;pageCollectionMetadata /&gt;</code> are următoarea structură:
+</p>
+<div class="org-src-container">
+<pre class="src src-xml">&lt;<span style="color: #f5871f;">pageCollectionMetadata</span> <span style="color: #eab700;">rocc_id</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">title</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">shortTitle</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">language</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">metadataCreator</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">distribution</span>=<span style="color: #3e999f;">""</span>&gt;
+  &lt;<span style="color: #f5871f;">ROCC-code</span> <span style="color: #eab700;">difficultyLevel</span>=<span style="color: #3e999f;">"2"</span> <span style="color: #eab700;">writingType</span>=<span style="color: #3e999f;">"Print"</span> <span style="color: #eab700;">annotationLevel</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">century</span>=<span style="color: #3e999f;">"XIX"</span> <span style="color: #eab700;">printingYear</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">fiftyYears</span> =<span style="color: #3e999f;">"1"</span> <span style="color: #eab700;">zone</span> =<span style="color: #3e999f;">"MD,T,W"</span>&gt;&lt;/<span style="color: #f5871f;">ROCC-code</span>&gt;
+  &lt;<span style="color: #f5871f;">translation</span> <span style="color: #eab700;">originalLanguage</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">originalAuthor</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">translator</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">secTranslator</span>=<span style="color: #3e999f;">""</span>&gt;&lt;/<span style="color: #f5871f;">translation</span>&gt;
+  &lt;<span style="color: #f5871f;">scannedCopy</span> <span style="color: #eab700;">library</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">libraryCode</span>=<span style="color: #3e999f;">""</span>&gt;&lt;/<span style="color: #f5871f;">scannedCopy</span>&gt;
+  &lt;<span style="color: #f5871f;">creation</span> <span style="color: #eab700;">author</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">secAuthors</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">creationYear</span>=<span style="color: #3e999f;">""</span>&gt;
+    &lt;<span style="color: #f5871f;">creationLocation</span> <span style="color: #eab700;">creationProvince</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">creationTown</span>=<span style="color: #3e999f;">""</span>&gt;&lt;/<span style="color: #f5871f;">creationLocation</span>&gt;
+  &lt;/<span style="color: #f5871f;">creation</span>&gt;
+  &lt;<span style="color: #f5871f;">publishing</span>&gt;
+    &lt;<span style="color: #f5871f;">publishingLocation</span> <span style="color: #eab700;">publishingCountry</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">publishingProvince</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">publishingTown</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">publishingHouse</span>=<span style="color: #3e999f;">""</span>&gt;&lt;/<span style="color: #f5871f;">publishingLocation</span>&gt;
+    &lt;<span style="color: #f5871f;">publishingYear</span>&gt;&lt;/<span style="color: #f5871f;">publishingYear</span>&gt;
+  &lt;/<span style="color: #f5871f;">publishing</span>&gt;
+  &lt;<span style="color: #f5871f;">description</span> <span style="color: #eab700;">style</span>=<span style="color: #3e999f;">""</span> <span style="color: #eab700;">subject</span>=<span style="color: #3e999f;">""</span>&gt;&lt;/<span style="color: #f5871f;">description</span>&gt;
+&lt;/<span style="color: #f5871f;">pageCollectionMetadata</span>&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-pageCollectionMetadata-attr" class="outline-4">
+<h4 id="pageCollectionMetadata-attr">Atribute</h4>
+<div class="outline-text-4" id="text-pageCollectionMetadata-attr">
+<ul class="org-ul">
+<li><code>rocc_id</code> (obligatoriu): identificatorul unic al documentului din corpusul <code>ROCC</code>;</li>
+<li><code>title</code> (obligatoriu): itlul documentului (carte, ziar etc.);</li>
+<li><code>shortTitle</code> (opțional): dacă documentul este cunoscut și sub un nume prescurtat (acest atribut corespunde câmpului UniTitle din codificarea Alef);</li>
+<li><code>language</code> (obligatoriu): limba sau limbile folosite în document: “ro”, “sl” etc.;</li>
+<li><code>metadataCreator</code> (obligatoriu): entitatea, una sau mai multe (persoane, instituții) care a editat metadatele colecției curente;</li>
+<li><code>distribution</code> (obligatoriu): regimul de distribuție al acestei colecției ROCC, valorile fiind tipuri de licențe (ex. <a href="https://creativecommons.org/licenses/by-nc/3.0/">https://creativecommons.org/licenses/by-nc/3.0/</a>).</li>
+</ul>
+</div>
 </div>
 </div>
 </div>

@@ -121,11 +121,11 @@
                     <alignment letterId="" characterOffset="" goldTestAligment="" length=""></alignment>
                 </onePageAlignments>
             </letter>
-            <sequance>
+            <sequence>
                 <onePageAlignments pageId="">
                     <aalignment seqLetterId="" seqLetterLength="" seqCharOffset="" seqCharLength="" goldTestAligment=""></aalignment>
                 </onePageAlignments>
-            </sequance>
+            </sequence>
         </alignmentsImage2Text>
 
     </pageCollection>

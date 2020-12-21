@@ -240,6 +240,11 @@
 <li><a href="#pageCollectionMetadata-attr">Atribute</a></li>
 </ul>
 </li>
+<li><a href="#rocc-code">ROCC-code</a>
+<ul>
+<li><a href="#rocc-code-attr">Atribute</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -333,6 +338,53 @@ Elementul <code>&lt;pageCollectionMetadata /&gt;</code> are următoarea structur
 <li><code>language</code> (obligatoriu): limba sau limbile folosite în document: “ro”, “sl” etc.;</li>
 <li><code>metadataCreator</code> (obligatoriu): entitatea, una sau mai multe (persoane, instituții) care a editat metadatele colecției curente;</li>
 <li><code>distribution</code> (obligatoriu): regimul de distribuție al acestei colecției ROCC, valorile fiind tipuri de licențe (ex. <a href="https://creativecommons.org/licenses/by-nc/3.0/">https://creativecommons.org/licenses/by-nc/3.0/</a>).</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-rocc-code" class="outline-3">
+<h3 id="rocc-code">ROCC-code</h3>
+<div class="outline-text-3" id="text-rocc-code">
+<div class="org-src-container">
+<pre class="src src-xml">&lt;<span style="color: #f5871f;">ROCC-code</span>
+    <span style="color: #eab700;">difficultyLevel</span>=<span style="color: #3e999f;">"2"</span>
+    <span style="color: #eab700;">writingType</span>=<span style="color: #3e999f;">"Print"</span>
+    <span style="color: #eab700;">annotationLevel</span>=<span style="color: #3e999f;">""</span>
+    <span style="color: #eab700;">century</span>=<span style="color: #3e999f;">"XIX"</span>
+    <span style="color: #eab700;">printingYear</span>=<span style="color: #3e999f;">"1812"</span>
+    <span style="color: #eab700;">fiftyYears</span> =<span style="color: #3e999f;">"1"</span>
+    <span style="color: #eab700;">zone</span> =<span style="color: #3e999f;">"MD,T,W"</span> /&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-rocc-code-attr" class="outline-4">
+<h4 id="rocc-code-attr">Atribute</h4>
+<div class="outline-text-4" id="text-rocc-code-attr">
+<ul class="org-ul">
+<li><code>difficultyLevel</code> (obligatoriu): codifică nivelul global de dificultate al colecției de pagini, cu valorile:
+<ul class="org-ul">
+<li>1 = ușor,</li>
+<li>2 = mediu,</li>
+<li>3 = dificil.</li>
+</ul></li>
+<li><code>writingType</code> (obligatoriu): completat manual, codifică tipul de scris, cu valorile:
+<ul class="org-ul">
+<li><code>Print</code> = tipăritură,</li>
+<li><code>Uncial</code> = manuscris uncial,</li>
+<li><code>Manuscript</code> = manuscris cu ligaturi între litere.</li>
+</ul></li>
+<li><p>
+<code>annotationLevel</code> (obligatoriu): codifică nivelul de adnotare, cu valorile:
+</p>
+<ul class="org-ul">
+<li><code>Original</code> = original, neadnotat;</li>
+<li><code>Gold</code> = adnotat (parțial sau în totalitate) de experți;</li>
+<li><code>Test</code> = adnotat de mașină;</li>
+<li><code>Mixt</code> = adnotat atât manual cât și de mașină (obiecte și transcriere).</li>
+</ul>
+<p>
+La includerea în ROCC, acest indicator are valoarea implicită “o”, apoi va fi modificat automat.
+</p></li>
 </ul>
 </div>
 </div>

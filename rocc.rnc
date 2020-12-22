@@ -1,0 +1,207 @@
+default namespace = "https://deloro.iit.academiaromana-is.ro/rocc"
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+namespace local = ""
+
+start =
+  element ROCC {
+    element pageCollection {
+      attribute id { text },
+      element pageCollectionMetadata {
+        attribute distribution { text },
+        attribute language { text },
+        attribute metadataCreator { text },
+        attribute rocc_id { text },
+        attribute shortTitle { text },
+        attribute title { text },
+        element ROCC-code {
+          attribute annotationLevel { xsd:NCName },
+          attribute century { xsd:NCName },
+          attribute difficultyLevel { xsd:integer },
+          attribute fiftyYears { xsd:integer },
+          attribute printingYear { text },
+          attribute writingType { xsd:NCName },
+          attribute zone { text }
+        },
+        element translation {
+          attribute originalAuthor { text },
+          attribute originalLanguage { text },
+          attribute secTranslator { text },
+          attribute translator { text }
+        },
+        element scannedCopy {
+          attribute library { text },
+          attribute libraryCode { text }
+        },
+        element creation {
+          attribute author { text },
+          attribute creationYear { text },
+          attribute secAuthors { text },
+          element creationLocation {
+            attribute creationProvince { text },
+            attribute creationTown { text }
+          }
+        },
+        element publishing {
+          attribute publishingYear { text },
+          element publishingLocation {
+            attribute publishingCountry { text },
+            attribute publishingHouse { text },
+            attribute publishingProvince { text },
+            attribute publishingTown { text }
+          }
+        },
+        element description {
+          attribute style { text },
+          attribute subject { text }
+        }
+      },
+      element imagesOfPages {
+        element onePageImage {
+          attribute pageID { text },
+          attribute pageImageFile { text },
+          element difficultyCriteria {
+            attribute corrections { text },
+            attribute damaged { text },
+            attribute interlineWriting { text },
+            attribute marginalWriting { text },
+            attribute opaqueSpots { text },
+            attribute overlayPrint { text },
+            attribute palimpsest { text },
+            attribute transparentPaper { text }
+          }
+        }
+      },
+      element segmentationOfImages {
+        element graphicalObjectFrontispiece {
+          attribute objectAnnotator { text },
+          attribute objectId { text },
+          objectCoordinates
+        },
+        element pageSegmentation {
+          attribute pageID { text },
+          element objectTitle {
+            attribute objectAnnotator { text },
+            attribute objectContent { text },
+            attribute objectId { text },
+            objectCoordinates
+          },
+          element objectColumn {
+            attribute columnPosition { text },
+            attribute objectAnnotator { text },
+            attribute objectId { text },
+            objectCoordinates
+          },
+          element objectLine {
+            attribute inColumn { text },
+            attribute objectAnnotator { text },
+            attribute objectContent { text },
+            attribute objectId { text },
+            objectCoordinates
+          },
+          element objectLetter {
+            attribute objectAnnotator { text },
+            attribute objectContent { text },
+            attribute objectId { text },
+            objectCoordinates
+          },
+          element objectMarginal {
+            attribute objectAnnotator { text },
+            attribute objectContent { text },
+            attribute objectId { text },
+            objectCoordinates
+          },
+          element objectoutOfLineLetters {
+            attribute objectAnnotator { text },
+            attribute objectContent { text },
+            attribute objectId { text },
+            objectCoordinates
+          },
+          element objectModifier {
+            attribute objectAnnotator { text },
+            attribute objectContent { text },
+            attribute objectId { text },
+            objectCoordinates
+          },
+          element objectInitialLetter {
+            attribute objectAnnotator { text },
+            attribute objectContent { text },
+            attribute objectId { text },
+            objectCoordinates
+          },
+          element objectReferenceMarkOnMargin {
+            attribute objectAnnotator { text },
+            attribute objectContent { text },
+            attribute objectId { text },
+            objectCoordinates
+          },
+          element objectReferenceMarkAboveLine {
+            attribute objectAnnotator { text },
+            attribute objectContent { text },
+            attribute objectId { text },
+            objectCoordinates
+          },
+          element graphicalObjectAccolade {
+            attribute objectAnnotator { text },
+            attribute objectId { text },
+            objectCoordinates
+          },
+          element graphicalObjectOrnament {
+            attribute objectAnnotator { text },
+            attribute objectId { text },
+            objectCoordinates
+          },
+          element graphicalObjectFrame {
+            attribute objectAnnotator { text },
+            attribute objectId { text },
+            objectCoordinates
+          }
+        }
+      },
+      element textsOfPages {
+        attribute integralTrinscribedTextFile { text },
+        element textPage {
+          attribute beginningOfPage { text },
+          attribute endOfPage { text },
+          attribute pageID { text },
+          attribute textPageFile { text }
+        }
+      },
+      element letterAlignmentsImage2Text { onePageAlignments },
+      element seqAlignmentsImage2Text { onePageAlignments }
+    }
+  }
+objectCoordinates =
+  element objectCoordinates {
+    attribute direction { text }?,
+    attribute extFrameLeftUpHoriz { text }?,
+    attribute extFrameLeftUpVert { text }?,
+    attribute extFrameRightDownHoriz { text }?,
+    attribute extFrameRightDownVert { text }?,
+    attribute horizCoordOfPeak { text }?,
+    attribute intFrameLeftUpHoriz { text }?,
+    attribute intFrameLeftUpVert { text }?,
+    attribute intFrameRightDownHoriz { text }?,
+    attribute intFrameRightDownVert { text }?,
+    attribute leftUpHoriz { text }?,
+    attribute leftUpVert { text }?,
+    attribute rightDownHoriz { text }?,
+    attribute rightDownVert { text }?,
+    attribute vertCoordOfPeak { text }?
+  }
+onePageAlignments =
+  element onePageAlignments {
+    attribute pageID { text },
+    (element letterAlignment {
+       attribute characterOffset { text },
+       attribute goldTestAligment { text },
+       attribute length { text },
+       attribute letterId { text }
+     }
+     | element seqAlignment {
+         attribute goldTestAligment { text },
+         attribute seqCharLength { text },
+         attribute seqCharOffset { text },
+         attribute seqLetterIds { text },
+         attribute seqLetterLength { text }
+       })
+  }

@@ -70,7 +70,7 @@ grammar {
   ## MM = Maramureș
   ## BT = Banat
   ## BS = Bessarabia (for dates between 1812 - 1899)
-  rocCodeZone = xsd:string { pattern = "(MD|W|T|MM|BT|BS)(,(MD|W|T|MM|BT|BS))+" }
+  rocCodeZone = list{ ("MD" | "W" | "T" | "MM" | "BT" | "BS")+ }
 
   roccCode = element ROCC-code {
 		 attribute difficultyLevel { "1" | "2" | "3" },

@@ -1,207 +1,304 @@
 default namespace = "https://deloro.iit.academiaromana-is.ro/rocc"
 datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
-namespace local = ""
+namespace rnc = "http://relaxng.org/ns/compatibility/annotations/1.0"
 
-start =
-  element ROCC {
-    element pageCollection {
-      attribute id { text },
-      element pageCollectionMetadata {
-        attribute distribution { text },
-        attribute language { text },
-        attribute metadataCreator { text },
-        attribute rocc_id { text },
-        attribute shortTitle { text },
-        attribute title { text },
-        element ROCC-code {
-          attribute annotationLevel { xsd:NCName },
-          attribute century { xsd:NCName },
-          attribute difficultyLevel { xsd:integer },
-          attribute fiftyYears { xsd:integer },
-          attribute printingYear { text },
-          attribute writingType { xsd:NCName },
-          attribute zone { text }
-        },
-        element translation {
-          attribute originalAuthor { text },
-          attribute originalLanguage { text },
-          attribute secTranslator { text },
-          attribute translator { text }
-        },
-        element scannedCopy {
-          attribute library { text },
-          attribute libraryCode { text }
-        },
-        element creation {
-          attribute author { text },
-          attribute creationYear { text },
-          attribute secAuthors { text },
-          element creationLocation {
-            attribute creationProvince { text },
-            attribute creationTown { text }
-          }
-        },
-        element publishing {
-          attribute publishingYear { text },
-          element publishingLocation {
-            attribute publishingCountry { text },
-            attribute publishingHouse { text },
-            attribute publishingProvince { text },
-            attribute publishingTown { text }
-          }
-        },
-        element description {
-          attribute style { text },
-          attribute subject { text }
-        }
-      },
-      element imagesOfPages {
-        element onePageImage {
-          attribute pageID { text },
-          attribute pageImageFile { text },
-          element difficultyCriteria {
-            attribute corrections { text },
-            attribute damaged { text },
-            attribute interlineWriting { text },
-            attribute marginalWriting { text },
-            attribute opaqueSpots { text },
-            attribute overlayPrint { text },
-            attribute palimpsest { text },
-            attribute transparentPaper { text }
-          }
-        }
-      },
-      element segmentationOfImages {
-        element graphicalObjectFrontispiece {
-          attribute objectAnnotator { text },
-          attribute objectId { text },
-          objectCoordinates
-        },
-        element pageSegmentation {
-          attribute pageID { text },
-          element objectTitle {
-            attribute objectAnnotator { text },
-            attribute objectContent { text },
-            attribute objectId { text },
-            objectCoordinates
-          },
-          element objectColumn {
-            attribute columnPosition { text },
-            attribute objectAnnotator { text },
-            attribute objectId { text },
-            objectCoordinates
-          },
-          element objectLine {
-            attribute inColumn { text },
-            attribute objectAnnotator { text },
-            attribute objectContent { text },
-            attribute objectId { text },
-            objectCoordinates
-          },
-          element objectLetter {
-            attribute objectAnnotator { text },
-            attribute objectContent { text },
-            attribute objectId { text },
-            objectCoordinates
-          },
-          element objectMarginal {
-            attribute objectAnnotator { text },
-            attribute objectContent { text },
-            attribute objectId { text },
-            objectCoordinates
-          },
-          element objectoutOfLineLetters {
-            attribute objectAnnotator { text },
-            attribute objectContent { text },
-            attribute objectId { text },
-            objectCoordinates
-          },
-          element objectModifier {
-            attribute objectAnnotator { text },
-            attribute objectContent { text },
-            attribute objectId { text },
-            objectCoordinates
-          },
-          element objectInitialLetter {
-            attribute objectAnnotator { text },
-            attribute objectContent { text },
-            attribute objectId { text },
-            objectCoordinates
-          },
-          element objectReferenceMarkOnMargin {
-            attribute objectAnnotator { text },
-            attribute objectContent { text },
-            attribute objectId { text },
-            objectCoordinates
-          },
-          element objectReferenceMarkAboveLine {
-            attribute objectAnnotator { text },
-            attribute objectContent { text },
-            attribute objectId { text },
-            objectCoordinates
-          },
-          element graphicalObjectAccolade {
-            attribute objectAnnotator { text },
-            attribute objectId { text },
-            objectCoordinates
-          },
-          element graphicalObjectOrnament {
-            attribute objectAnnotator { text },
-            attribute objectId { text },
-            objectCoordinates
-          },
-          element graphicalObjectFrame {
-            attribute objectAnnotator { text },
-            attribute objectId { text },
-            objectCoordinates
-          }
-        }
-      },
-      element textsOfPages {
-        attribute integralTrinscribedTextFile { text },
-        element textPage {
-          attribute beginningOfPage { text },
-          attribute endOfPage { text },
-          attribute pageID { text },
-          attribute textPageFile { text }
-        }
-      },
-      element letterAlignmentsImage2Text { onePageAlignments },
-      element seqAlignmentsImage2Text { onePageAlignments }
-    }
-  }
-objectCoordinates =
-  element objectCoordinates {
-    attribute direction { text }?,
-    attribute extFrameLeftUpHoriz { text }?,
-    attribute extFrameLeftUpVert { text }?,
-    attribute extFrameRightDownHoriz { text }?,
-    attribute extFrameRightDownVert { text }?,
-    attribute horizCoordOfPeak { text }?,
-    attribute intFrameLeftUpHoriz { text }?,
-    attribute intFrameLeftUpVert { text }?,
-    attribute intFrameRightDownHoriz { text }?,
-    attribute intFrameRightDownVert { text }?,
-    attribute leftUpHoriz { text }?,
-    attribute leftUpVert { text }?,
-    attribute rightDownHoriz { text }?,
-    attribute rightDownVert { text }?,
-    attribute vertCoordOfPeak { text }?
-  }
-onePageAlignments =
-  element onePageAlignments {
-    attribute pageID { text },
-    (element letterAlignment {
-       attribute characterOffset { text },
-       attribute goldTestAligment { text },
-       attribute length { text },
-       attribute letterId { text }
-     }
-     | element seqAlignment {
-         attribute goldTestAligment { text },
-         attribute seqCharLength { text },
-         attribute seqCharOffset { text },
-         attribute seqLetterIds { text },
-         attribute seqLetterLength { text }
-       })
-  }
+grammar {
+  start = ROCC
+
+  # Root element of the ROCC file.
+  ROCC = element ROCC { pageCollection}
+
+  pageCollection = element pageCollection {
+		       attribute id { text },
+		       pageCollectionMetadata,
+		       imagesOfPages,
+		       segmentationOfImages?,
+		       textsOfPages?,
+		       letterAlignmentsImage2Text,
+		       seqAlignmentsImage2Text
+		   }
+
+  pageCollectionMetadata = element pageCollectionMetadata{
+			       attribute rocc_id { text },
+			       attribute title { text },
+			       attribute shortTitle { text },
+			       attribute language { text },
+			       attribute metadataCreator { text },
+			       attribute distribution { text },
+			       roccCode,
+			       translation?,
+			       scannedCopy,
+			       creation,
+			       publishing,
+			       description
+			   }
+
+  imagesOfPages = element imagesOfPages{
+		      onePageImage+
+		  }
+
+  segmentationOfImages = element segmentationOfImages {
+			     graphicalObjectFrontispiece?,
+			     pageSegmentation+
+			 }
+
+  textsOfPages = element textsOfPages{
+		     attribute integralTranscribedTextFile { xsd:anyURI },
+		     textPage+
+		 }
+
+  textPage = element textPage{
+		 attribute pageID { text },
+		 attribute textPageFile { text }?,
+		 attribute beginningOfPage { text }?,
+		 attribute endOfPage { text }?
+	     }
+
+  letterAlignmentsImage2Text = element letterAlignmentsImage2Text {
+				   letterOnePageAlignments+
+			       }
+
+  seqAlignmentsImage2Text = element seqAlignmentsImage2Text {
+				sequenceOnePageAlignments+
+			    }
+
+  ## Represents the zone of the origin of the document.
+  ## The value can any combination of the following:
+  ## MD = Moldavia
+  ## W = Wallachia
+  ## T = Transylvania
+  ## MM = Maramureș
+  ## BT = Banat
+  ## BS = Bessarabia (for dates between 1812 - 1899)
+  rocCodeZone = xsd:string { pattern = "(MD|W|T|MM|BT|BS)(,(MD|W|T|MM|BT|BS))+" }
+
+  roccCode = element ROCC-code {
+		 attribute difficultyLevel { "1" | "2" | "3" },
+		 attribute writingType { "Print" | "Uncial" | "Manuscript" },
+		 attribute annotationLevel { "Original" | "Gold" | "Test" | "Mixt" },
+		 attribute century { "XVI" | "XVII" | "XVIII" | "XIX" },
+		 attribute fiftyYears { "1" | "2" },
+		 attribute printingYear { xsd:integer },
+		 attribute zone { rocCodeZone }
+	     }
+
+  translation = element translation {
+		    attribute originalAuthor { text },
+		    attribute originalLanguage { text },
+		    attribute secTranslator { text },
+		    attribute translator { text }
+		}
+
+  scannedCopy = element scannedCopy {
+		    attribute library { text },
+		    attribute libraryCode { text }
+		}
+
+  creation = element creation {
+		 attribute author { text },
+		 attribute creationYear { text },
+		 attribute secAuthors { text },
+		 creationLocation?
+             }
+
+  creationLocation =  element creationLocation {
+			  attribute creationProvince { "Moldova" | "Țara Românească" | "Transilvania" },
+			  attribute creationTown { text }?
+		      }
+
+  publishing = element publishing {
+		   attribute publishingYear { xsd:integer },
+		   publishingLocation?
+               }
+
+  publishingLocation = element publishingLocation {
+			   attribute publishingCountry { text }?,
+			   attribute publishingProvince { "Moldova" | "Țara Românească" | "Basarabia" | "Transilvania" },
+			   attribute publishingHouse { text }?,
+			   attribute publishingTown { text }?
+		       }
+
+  description = element description {
+		    attribute style { "Juridic-administrativ" | "Bisericesc"| "Științific" | "Beletristic" | "Publicistic" },
+		    attribute subject { text }?
+		}
+
+  onePageImage = element onePageImage {
+		     attribute pageID { text },
+		     attribute pageImageFile { xsd:anyURI },
+		     difficultyCriteria
+		 }
+
+  difficultyCriteria = element difficultyCriteria {
+			   attribute damaged { xsd:boolean },
+			   attribute opaqueSpots { xsd:boolean },
+			   attribute transparentPaper { xsd:boolean },
+			   attribute overlayPrint { xsd:boolean }?,
+			   attribute interlineWriting { xsd:boolean },
+			   attribute palimpsest { xsd:boolean },
+			   attribute corrections { "none" | "few" | "many" },
+			   attribute marginalWriting { "none" | "few" | "many" }
+		       }
+
+  graphicalObjectFrontispiece = element graphicalObjectFrontispiece {
+				    attribute objectAnnotator { text },
+				    attribute objectId { text },
+				    objectCoordinates
+				}
+
+  pageSegmentation = element pageSegmentation {
+			 attribute pageID { text },
+			 (title
+			 & column
+			 & line
+			 & letter
+			 & marginalRemark
+			 & outOfLineLetter
+			 & modifier
+			 & initialLetter
+			 & referenceMarkOnMargin
+			 & referenceMarkAboveLine
+			 & accolade
+			 & ornament
+			 & frame)*
+		     }
+
+  title = element objectTitle {
+	      attribute objectId { text },
+	      attribute objectAnnotator { text },
+	      attribute objectContent { text }?,
+	      objectCoordinates
+	  }
+
+  column = element objectColumn {
+	       attribute columnPosition { "U" | "L" | "R"},
+	       attribute objectAnnotator { text },
+	       attribute objectId { text },
+	       objectCoordinates
+	   }
+
+  line = element objectLine {
+	     attribute objectId { text },
+	     attribute objectAnnotator { text },
+	     attribute objectContent { text }?,
+	     attribute inColumn { "header" | "footer" | "ordinary" },
+	     objectCoordinates
+	 }
+
+  letter = element objectLetter {
+	       attribute objectAnnotator { text },
+	       attribute objectContent { text }?,
+	       attribute objectId { text },
+	       objectCoordinates
+	   }
+
+  marginalRemark = element objectMarginal {
+		       attribute objectAnnotator { text },
+		       attribute objectContent { text }?,
+		       attribute objectId { text },
+		       objectCoordinates
+		   }
+
+  outOfLineLetter = element objectOutOfLineLetters {
+			attribute objectId { text },
+			attribute objectAnnotator { text },
+			attribute objectContent { text }?,
+			objectCoordinates
+		    }
+
+  modifier = element objectModifier {
+		 attribute objectId { text },
+		 attribute objectAnnotator { text },
+		 attribute objectContent { text }?,
+		 objectCoordinates
+	     }
+
+
+  initialLetter = element objectInitialLetter {
+		      attribute objectId { text },
+		      attribute objectAnnotator { text },
+		      attribute objectContent { text }?,
+		      objectCoordinates
+		  }
+
+  referenceMarkOnMargin = element objectReferenceMarkOnMargin {
+			      attribute objectId { text },
+			      attribute objectAnnotator { text },
+			      attribute objectContent { text }?,
+			      objectCoordinates
+			  }
+
+  referenceMarkAboveLine = element objectReferenceMarkAboveLine {
+			       attribute objectId { text },
+			       attribute objectAnnotator { text },
+			       attribute objectContent { text }?,
+			       objectCoordinates
+			   }
+
+  accolade = element graphicalObjectAccolade {
+		 attribute objectId { text },
+		 attribute objectAnnotator { text },
+		 accoladeCoordinates
+	     }
+
+  ornament = element graphicalObjectOrnament {
+		 attribute objectId { text },
+		 attribute objectAnnotator { text },
+		 objectCoordinates
+	     }
+
+  frame = element graphicalObjectFrame {
+	      attribute objectId { text },
+	      attribute objectAnnotator { text },
+	      frameCoordinates
+	  }
+
+  objectCoordinates = element objectCoordinates {
+			  attribute leftUpHoriz { xsd:decimal },
+			  attribute leftUpVert { xsd:decimal },
+			  attribute rightDownHoriz { xsd:decimal },
+			  attribute rightDownVert { xsd:decimal }
+		      }
+
+  accoladeCoordinates = element objectCoordinates{
+			    attribute leftUpHoriz { xsd:decimal },
+			    attribute leftUpVert { xsd:decimal },
+			    attribute rightDownHoriz { xsd:decimal },
+			    attribute rightDownVert { xsd:decimal },
+			    attribute direction { "right" | "left" },
+			    attribute horizCoordOfPeak { xsd:decimal },
+			    attribute vertCoordOfPeak { xsd:decimal }
+			}
+
+    frameCoordinates = element objectCoordinates {
+			   attribute extFrameLeftUpHoriz { xsd:decimal },
+			   attribute extFrameLeftUpVert { xsd:decimal },
+			   attribute extFrameRightDownHoriz { xsd:decimal },
+			   attribute extFrameRightDownVert { xsd:decimal },
+			   attribute intFrameLeftUpHoriz { xsd:decimal },
+			   attribute intFrameLeftUpVert { xsd:decimal },
+			   attribute intFrameRightDownHoriz { xsd:decimal },
+			   attribute intFrameRightDownVert { xsd:decimal }
+		       }
+
+    letterOnePageAlignments = element onePageAlignments {
+				  attribute pageID { text },
+				  element letterAlignment {
+				      attribute characterOffset { xsd:integer },
+				      attribute goldTestAligment { "test" | "gold" },
+				      attribute length { xsd:integer },
+				      attribute letterId { text }
+				  }
+			      }
+
+    sequenceOnePageAlignments =   element onePageAlignments {
+				      attribute pageID { text },
+				      element seqAlignment {
+					  attribute goldTestAligment { "test" | "gold" },
+					  attribute seqCharLength { xsd:integer },
+					  attribute seqCharOffset { xsd:integer },
+					  attribute seqLetterIds { text },
+					  attribute seqLetterLength { xsd:integer }
+				      }
+				  }
+}

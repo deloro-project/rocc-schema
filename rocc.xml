@@ -2,7 +2,7 @@
 <ROCC xmlns="https://deloro.iit.academiaromana-is.ro/rocc">
   <pageCollection id="">
     <pageCollectionMetadata rocc_id="" title="" shortTitle="" language="" metadataCreator="" distribution="">
-      <ROCC-code difficultyLevel="2" writingType="Print" annotationLevel="Test" century="XIX" printingYear="1815" fiftyYears="1" zone="MD,T,W"/>
+      <ROCC-code difficultyLevel="2" writingType="Print" annotationLevel="Test" century="XIX" printingYear="1815" fiftyYears="1" zone="MD T W"/>
       <translation originalLanguage="" originalAuthor="" translator="" secTranslator=""/>
       <scannedCopy library="" libraryCode=""/>
       <creation author="" secAuthors="" creationYear="">

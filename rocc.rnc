@@ -74,8 +74,8 @@ grammar {
 
   roccCode = element ROCC-code {
 		 attribute difficultyLevel { "1" | "2" | "3" },
-		 attribute writingType { "Print" | "Uncial" | "Manuscript" },
-		 attribute annotationLevel { "Original" | "Gold" | "Test" | "Mixt" },
+		 attribute writingType { "print" | "uncial" | "manuscript" },
+		 attribute annotationLevel { "original" | "gold" | "test" | "mixt" },
 		 attribute century { "XVI" | "XVII" | "XVIII" | "XIX" },
 		 attribute fiftyYears { "1" | "2" },
 		 attribute printingYear { xsd:integer },

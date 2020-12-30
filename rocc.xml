@@ -1,80 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ROCC>
+<ROCC xmlns="https://deloro.iit.academiaromana-is.ro/rocc">
   <pageCollection id="">
     <pageCollectionMetadata rocc_id="" title="" shortTitle="" language="" metadataCreator="" distribution="">
-      <ROCC-code difficultyLevel="2" writingType="Print" annotationLevel="Test" century="XIX" printingYear="" fiftyYears="1" zone="MD,T,W"/>
+      <ROCC-code difficultyLevel="2" writingType="Print" annotationLevel="Test" century="XIX" printingYear="1815" fiftyYears="1" zone="MD,T,W"/>
       <translation originalLanguage="" originalAuthor="" translator="" secTranslator=""/>
       <scannedCopy library="" libraryCode=""/>
       <creation author="" secAuthors="" creationYear="">
-        <creationLocation creationProvince="" creationTown=""/>
+        <creationLocation creationProvince="Moldova" creationTown=""/>
       </creation>
-      <publishing publishingYear="">
-        <publishingLocation publishingCountry="" publishingProvince="" publishingTown="" publishingHouse=""/>
+      <publishing publishingYear="1815">
+        <publishingLocation publishingCountry="" publishingProvince="Moldova" publishingTown="" publishingHouse=""/>
       </publishing>
-      <description style="" subject=""/>
+      <description style="Bisericesc" subject=""/>
     </pageCollectionMetadata>
     <imagesOfPages>
       <onePageImage pageID="" pageImageFile="">
-        <difficultyCriteria damaged="" opaqueSpots="" transparentPaper="" overlayPrint="" interlineWriting="" palimpsest="" corrections="" marginalWriting=""/>
+        <difficultyCriteria damaged="false" opaqueSpots="false" transparentPaper="false" overlayPrint="false" interlineWriting="false" palimpsest="false" corrections="none" marginalWriting="none"/>
       </onePageImage>
     </imagesOfPages>
     <segmentationOfImages>
       <graphicalObjectFrontispiece objectId="" objectAnnotator="">
-        <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert=""/>
+        <objectCoordinates leftUpHoriz="1.0" leftUpVert="1.0" rightDownHoriz="24.0" rightDownVert="14.0" />
       </graphicalObjectFrontispiece>
       <pageSegmentation pageID="">
         <objectTitle objectId="" objectAnnotator="" objectContent="">
-          <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert=""/>
+          <objectCoordinates leftUpHoriz="1.0" leftUpVert="1.0" rightDownHoriz="24.0" rightDownVert="14.0" />
         </objectTitle>
-        <objectColumn objectId="" objectAnnotator="" columnPosition="">
-          <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert=""/>
+        <objectColumn objectId="" objectAnnotator="" columnPosition="U">
+          <objectCoordinates leftUpHoriz="1.0" leftUpVert="1.0" rightDownHoriz="24.0" rightDownVert="14.0" />
         </objectColumn>
-        <objectLine objectId="" objectAnnotator="" objectContent="" inColumn="">
-          <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert=""/>
+        <objectLine objectId="" objectAnnotator="" objectContent="" inColumn="ordinary">
+          <objectCoordinates leftUpHoriz="1.0" leftUpVert="1.0" rightDownHoriz="24.0" rightDownVert="14.0" />
         </objectLine>
         <objectLetter objectId="" objectAnnotator="" objectContent="">
-          <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert=""/>
+          <objectCoordinates leftUpHoriz="1.0" leftUpVert="1.0" rightDownHoriz="24.0" rightDownVert="14.0" />
         </objectLetter>
         <objectMarginal objectId="" objectAnnotator="" objectContent="">
-          <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert=""/>
+          <objectCoordinates leftUpHoriz="1.0" leftUpVert="1.0" rightDownHoriz="24.0" rightDownVert="14.0" />
         </objectMarginal>
-        <objectoutOfLineLetters objectId="" objectAnnotator="" objectContent="">
-          <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert=""/>
-        </objectoutOfLineLetters>
+        <objectOutOfLineLetters objectId="" objectAnnotator="" objectContent="">
+          <objectCoordinates leftUpHoriz="1.0" leftUpVert="1.0" rightDownHoriz="24.0" rightDownVert="14.0" />
+        </objectOutOfLineLetters>
         <objectModifier objectId="" objectAnnotator="" objectContent="">
-          <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert=""/>
+          <objectCoordinates leftUpHoriz="1.0" leftUpVert="1.0" rightDownHoriz="24.0" rightDownVert="14.0" />
         </objectModifier>
         <objectInitialLetter objectId="" objectAnnotator="" objectContent="">
-          <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert=""/>
+          <objectCoordinates leftUpHoriz="1.0" leftUpVert="1.0" rightDownHoriz="24.0" rightDownVert="14.0" />
         </objectInitialLetter>
         <objectReferenceMarkOnMargin objectId="" objectAnnotator="" objectContent="">
-          <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert=""/>
+          <objectCoordinates leftUpHoriz="1.0" leftUpVert="1.0" rightDownHoriz="24.0" rightDownVert="14.0" />
         </objectReferenceMarkOnMargin>
         <objectReferenceMarkAboveLine objectId="" objectAnnotator="" objectContent="">
-          <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert=""/>
+          <objectCoordinates leftUpHoriz="1.0" leftUpVert="1.0" rightDownHoriz="24.0" rightDownVert="14.0" />
         </objectReferenceMarkAboveLine>
         <graphicalObjectAccolade objectId="" objectAnnotator="">
-          <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert="" direction="" horizCoordOfPeak="" vertCoordOfPeak=""/>
+          <objectCoordinates leftUpHoriz="1.0" leftUpVert="10.2" rightDownHoriz="1.4" rightDownVert="16.2" direction="right" horizCoordOfPeak="1.4" vertCoordOfPeak="13.1"/>
         </graphicalObjectAccolade>
         <graphicalObjectOrnament objectId="" objectAnnotator="">
-          <objectCoordinates leftUpHoriz="" leftUpVert="" rightDownHoriz="" rightDownVert=""/>
+          <objectCoordinates leftUpHoriz="1.0" leftUpVert="1.0" rightDownHoriz="24.0" rightDownVert="14.0" />
         </graphicalObjectOrnament>
         <graphicalObjectFrame objectId="" objectAnnotator="">
-          <objectCoordinates extFrameLeftUpHoriz="" extFrameLeftUpVert="" extFrameRightDownHoriz="" extFrameRightDownVert="" intFrameLeftUpHoriz="" intFrameLeftUpVert="" intFrameRightDownHoriz="" intFrameRightDownVert=""/>
+          <objectCoordinates extFrameLeftUpHoriz="0.0" extFrameLeftUpVert="0.0" extFrameRightDownHoriz="16.0" extFrameRightDownVert="24.0" intFrameLeftUpHoriz="0.2" intFrameLeftUpVert="0.2" intFrameRightDownHoriz="15.8" intFrameRightDownVert="23.8"/>
         </graphicalObjectFrame>
       </pageSegmentation>
     </segmentationOfImages>
-    <textsOfPages integralTrinscribedTextFile="">
+    <textsOfPages integralTranscribedTextFile="">
       <textPage pageID="" textPageFile="" beginningOfPage="" endOfPage=""/>
     </textsOfPages>
     <letterAlignmentsImage2Text>
       <onePageAlignments pageID="">
-        <letterAlignment letterId="" characterOffset="" goldTestAligment="" length=""/>
+        <letterAlignment letterId="" characterOffset="1" goldTestAligment="test" length="1"/>
       </onePageAlignments>
     </letterAlignmentsImage2Text>
     <seqAlignmentsImage2Text>
       <onePageAlignments pageID="">
-        <seqAlignment seqLetterIds="" seqLetterLength="" seqCharOffset="" seqCharLength="" goldTestAligment=""/>
+        <seqAlignment seqLetterIds="" seqLetterLength="1" seqCharOffset="1" seqCharLength="0" goldTestAligment="test"/>
       </onePageAlignments>
     </seqAlignmentsImage2Text>
   </pageCollection>

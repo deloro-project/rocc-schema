@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="https://deloro.iit.academiaromana-is.ro/rocc" xmlns:rnc="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <ref name="ROCC"/>
+  </start>
+  <!-- Root element of the ROCC file. -->
+  <define name="ROCC">
+    <element name="ROCC">
+      <ref name="pageCollection"/>
+    </element>
+  </define>
+  <define name="pageCollection">
+    <element name="pageCollection">
+      <attribute name="id"/>
+      <ref name="pageCollectionMetadata"/>
+      <ref name="imagesOfPages"/>
+      <optional>
+        <ref name="segmentationOfImages"/>
+      </optional>
+      <optional>
+        <ref name="textsOfPages"/>
+      </optional>
+      <ref name="letterAlignmentsImage2Text"/>
+      <ref name="seqAlignmentsImage2Text"/>
+    </element>
+  </define>
+  <define name="pageCollectionMetadata">
+    <element name="pageCollectionMetadata">
+      <attribute name="rocc_id"/>
+      <attribute name="title"/>
+      <attribute name="shortTitle"/>
+      <attribute name="language"/>
+      <attribute name="metadataCreator"/>
+      <attribute name="distribution"/>
+      <ref name="roccCode"/>
+      <optional>
+        <ref name="translation"/>
+      </optional>
+      <ref name="scannedCopy"/>
+      <ref name="creation"/>
+      <ref name="publishing"/>
+      <ref name="description"/>
+    </element>
+  </define>
+  <define name="imagesOfPages">
+    <element name="imagesOfPages">
+      <oneOrMore>
+        <ref name="onePageImage"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="segmentationOfImages">
+    <element name="segmentationOfImages">
+      <optional>
+        <ref name="graphicalObjectFrontispiece"/>
+      </optional>
+      <oneOrMore>
+        <ref name="pageSegmentation"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="textsOfPages">
+    <element name="textsOfPages">
+      <attribute name="integralTranscribedTextFile">
+        <data type="anyURI"/>
+      </attribute>
+      <oneOrMore>
+        <ref name="textPage"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="textPage">
+    <element name="textPage">
+      <attribute name="pageID"/>
+      <optional>
+        <attribute name="textPageFile"/>
+      </optional>
+      <optional>
+        <attribute name="beginningOfPage"/>
+      </optional>
+      <optional>
+        <attribute name="endOfPage"/>
+      </optional>
+    </element>
+  </define>
+  <define name="letterAlignmentsImage2Text">
+    <element name="letterAlignmentsImage2Text">
+      <oneOrMore>
+        <ref name="letterOnePageAlignments"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="seqAlignmentsImage2Text">
+    <element name="seqAlignmentsImage2Text">
+      <oneOrMore>
+        <ref name="sequenceOnePageAlignments"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="rocCodeZone">
+    <rnc:documentation>Represents the zone of the origin of the document.
+The value can any combination of the following:
+MD = Moldavia
+W = Wallachia
+T = Transylvania
+MM = Maramureș
+BT = Banat
+BS = Bessarabia (for dates between 1812 - 1899)</rnc:documentation>
+    <list>
+      <oneOrMore>
+        <choice>
+          <value>MD</value>
+          <value>W</value>
+          <value>T</value>
+          <value>MM</value>
+          <value>BT</value>
+          <value>BS</value>
+        </choice>
+      </oneOrMore>
+    </list>
+  </define>
+  <define name="roccCode">
+    <element name="ROCC-code">
+      <attribute name="difficultyLevel">
+        <choice>
+          <value>1</value>
+          <value>2</value>
+          <value>3</value>
+        </choice>
+      </attribute>
+      <attribute name="writingType">
+        <choice>
+          <value>print</value>
+          <value>uncial</value>
+          <value>manuscript</value>
+        </choice>
+      </attribute>
+      <attribute name="annotationLevel">
+        <choice>
+          <value>original</value>
+          <value>gold</value>
+          <value>test</value>
+          <value>mixt</value>
+        </choice>
+      </attribute>
+      <attribute name="century">
+        <choice>
+          <value>XVI</value>
+          <value>XVII</value>
+          <value>XVIII</value>
+          <value>XIX</value>
+        </choice>
+      </attribute>
+      <attribute name="fiftyYears">
+        <choice>
+          <value>1</value>
+          <value>2</value>
+        </choice>
+      </attribute>
+      <attribute name="printingYear">
+        <data type="integer"/>
+      </attribute>
+      <attribute name="zone">
+        <ref name="rocCodeZone"/>
+      </attribute>
+    </element>
+  </define>
+  <define name="translation">
+    <element name="translation">
+      <attribute name="originalAuthor"/>
+      <attribute name="originalLanguage"/>
+      <attribute name="secTranslator"/>
+      <attribute name="translator"/>
+    </element>
+  </define>
+  <define name="scannedCopy">
+    <element name="scannedCopy">
+      <attribute name="library"/>
+      <attribute name="libraryCode"/>
+    </element>
+  </define>
+  <define name="creation">
+    <element name="creation">
+      <attribute name="author"/>
+      <attribute name="creationYear"/>
+      <attribute name="secAuthors"/>
+      <optional>
+        <ref name="creationLocation"/>
+      </optional>
+    </element>
+  </define>
+  <define name="creationLocation">
+    <element name="creationLocation">
+      <attribute name="creationProvince">
+        <choice>
+          <value>Moldova</value>
+          <value>Țara Românească</value>
+          <value>Transilvania</value>
+        </choice>
+      </attribute>
+      <optional>
+        <attribute name="creationTown"/>
+      </optional>
+    </element>
+  </define>
+  <define name="publishing">
+    <element name="publishing">
+      <attribute name="publishingYear">
+        <data type="integer"/>
+      </attribute>
+      <optional>
+        <ref name="publishingLocation"/>
+      </optional>
+    </element>
+  </define>
+  <define name="publishingLocation">
+    <element name="publishingLocation">
+      <optional>
+        <attribute name="publishingCountry"/>
+      </optional>
+      <attribute name="publishingProvince">
+        <choice>
+          <value>Moldova</value>
+          <value>Țara Românească</value>
+          <value>Basarabia</value>
+          <value>Transilvania</value>
+        </choice>
+      </attribute>
+      <optional>
+        <attribute name="publishingHouse"/>
+      </optional>
+      <optional>
+        <attribute name="publishingTown"/>
+      </optional>
+    </element>
+  </define>
+  <define name="description">
+    <element name="description">
+      <attribute name="style">
+        <choice>
+          <value>Juridic-administrativ</value>
+          <value>Bisericesc</value>
+          <value>Științific</value>
+          <value>Beletristic</value>
+          <value>Publicistic</value>
+        </choice>
+      </attribute>
+      <optional>
+        <attribute name="subject"/>
+      </optional>
+    </element>
+  </define>
+  <define name="onePageImage">
+    <element name="onePageImage">
+      <attribute name="pageID"/>
+      <attribute name="pageImageFile">
+        <data type="anyURI"/>
+      </attribute>
+      <ref name="difficultyCriteria"/>
+    </element>
+  </define>
+  <define name="difficultyCriteria">
+    <element name="difficultyCriteria">
+      <attribute name="damaged">
+        <data type="boolean"/>
+      </attribute>
+      <attribute name="opaqueSpots">
+        <data type="boolean"/>
+      </attribute>
+      <attribute name="transparentPaper">
+        <data type="boolean"/>
+      </attribute>
+      <optional>
+        <attribute name="overlayPrint">
+          <data type="boolean"/>
+        </attribute>
+      </optional>
+      <attribute name="interlineWriting">
+        <data type="boolean"/>
+      </attribute>
+      <attribute name="palimpsest">
+        <data type="boolean"/>
+      </attribute>
+      <attribute name="corrections">
+        <choice>
+          <value>none</value>
+          <value>few</value>
+          <value>many</value>
+        </choice>
+      </attribute>
+      <attribute name="marginalWriting">
+        <choice>
+          <value>none</value>
+          <value>few</value>
+          <value>many</value>
+        </choice>
+      </attribute>
+    </element>
+  </define>
+  <define name="graphicalObjectFrontispiece">
+    <element name="graphicalObjectFrontispiece">
+      <attribute name="objectAnnotator"/>
+      <attribute name="objectId"/>
+      <ref name="objectCoordinates"/>
+    </element>
+  </define>
+  <define name="pageSegmentation">
+    <element name="pageSegmentation">
+      <attribute name="pageID"/>
+      <zeroOrMore>
+        <interleave>
+          <ref name="title"/>
+          <ref name="column"/>
+          <ref name="line"/>
+          <ref name="letter"/>
+          <ref name="marginalRemark"/>
+          <ref name="outOfLineLetter"/>
+          <ref name="modifier"/>
+          <ref name="initialLetter"/>
+          <ref name="referenceMarkOnMargin"/>
+          <ref name="referenceMarkAboveLine"/>
+          <ref name="accolade"/>
+          <ref name="ornament"/>
+          <ref name="frame"/>
+        </interleave>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="title">
+    <element name="objectTitle">
+      <attribute name="objectId"/>
+      <attribute name="objectAnnotator"/>
+      <optional>
+        <attribute name="objectContent"/>
+      </optional>
+      <ref name="objectCoordinates"/>
+    </element>
+  </define>
+  <define name="column">
+    <element name="objectColumn">
+      <attribute name="columnPosition">
+        <choice>
+          <value>U</value>
+          <value>L</value>
+          <value>R</value>
+        </choice>
+      </attribute>
+      <attribute name="objectAnnotator"/>
+      <attribute name="objectId"/>
+      <ref name="objectCoordinates"/>
+    </element>
+  </define>
+  <define name="line">
+    <element name="objectLine">
+      <attribute name="objectId"/>
+      <attribute name="objectAnnotator"/>
+      <optional>
+        <attribute name="objectContent"/>
+      </optional>
+      <attribute name="inColumn">
+        <choice>
+          <value>header</value>
+          <value>footer</value>
+          <value>ordinary</value>
+        </choice>
+      </attribute>
+      <ref name="objectCoordinates"/>
+    </element>
+  </define>
+  <define name="letter">
+    <element name="objectLetter">
+      <attribute name="objectAnnotator"/>
+      <optional>
+        <attribute name="objectContent"/>
+      </optional>
+      <attribute name="objectId"/>
+      <ref name="objectCoordinates"/>
+    </element>
+  </define>
+  <define name="marginalRemark">
+    <element name="objectMarginal">
+      <attribute name="objectAnnotator"/>
+      <optional>
+        <attribute name="objectContent"/>
+      </optional>
+      <attribute name="objectId"/>
+      <ref name="objectCoordinates"/>
+    </element>
+  </define>
+  <define name="outOfLineLetter">
+    <element name="objectOutOfLineLetters">
+      <attribute name="objectId"/>
+      <attribute name="objectAnnotator"/>
+      <optional>
+        <attribute name="objectContent"/>
+      </optional>
+      <ref name="objectCoordinates"/>
+    </element>
+  </define>
+  <define name="modifier">
+    <element name="objectModifier">
+      <attribute name="objectId"/>
+      <attribute name="objectAnnotator"/>
+      <optional>
+        <attribute name="objectContent"/>
+      </optional>
+      <ref name="objectCoordinates"/>
+    </element>
+  </define>
+  <define name="initialLetter">
+    <element name="objectInitialLetter">
+      <attribute name="objectId"/>
+      <attribute name="objectAnnotator"/>
+      <optional>
+        <attribute name="objectContent"/>
+      </optional>
+      <ref name="objectCoordinates"/>
+    </element>
+  </define>
+  <define name="referenceMarkOnMargin">
+    <element name="objectReferenceMarkOnMargin">
+      <attribute name="objectId"/>
+      <attribute name="objectAnnotator"/>
+      <optional>
+        <attribute name="objectContent"/>
+      </optional>
+      <ref name="objectCoordinates"/>
+    </element>
+  </define>
+  <define name="referenceMarkAboveLine">
+    <element name="objectReferenceMarkAboveLine">
+      <attribute name="objectId"/>
+      <attribute name="objectAnnotator"/>
+      <optional>
+        <attribute name="objectContent"/>
+      </optional>
+      <ref name="objectCoordinates"/>
+    </element>
+  </define>
+  <define name="accolade">
+    <element name="graphicalObjectAccolade">
+      <attribute name="objectId"/>
+      <attribute name="objectAnnotator"/>
+      <ref name="accoladeCoordinates"/>
+    </element>
+  </define>
+  <define name="ornament">
+    <element name="graphicalObjectOrnament">
+      <attribute name="objectId"/>
+      <attribute name="objectAnnotator"/>
+      <ref name="objectCoordinates"/>
+    </element>
+  </define>
+  <define name="frame">
+    <element name="graphicalObjectFrame">
+      <attribute name="objectId"/>
+      <attribute name="objectAnnotator"/>
+      <ref name="frameCoordinates"/>
+    </element>
+  </define>
+  <define name="objectCoordinates">
+    <element name="objectCoordinates">
+      <attribute name="leftUpHoriz">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="leftUpVert">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="rightDownHoriz">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="rightDownVert">
+        <data type="decimal"/>
+      </attribute>
+    </element>
+  </define>
+  <define name="accoladeCoordinates">
+    <element name="objectCoordinates">
+      <attribute name="leftUpHoriz">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="leftUpVert">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="rightDownHoriz">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="rightDownVert">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="direction">
+        <choice>
+          <value>right</value>
+          <value>left</value>
+        </choice>
+      </attribute>
+      <attribute name="horizCoordOfPeak">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="vertCoordOfPeak">
+        <data type="decimal"/>
+      </attribute>
+    </element>
+  </define>
+  <define name="frameCoordinates">
+    <element name="objectCoordinates">
+      <attribute name="extFrameLeftUpHoriz">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="extFrameLeftUpVert">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="extFrameRightDownHoriz">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="extFrameRightDownVert">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="intFrameLeftUpHoriz">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="intFrameLeftUpVert">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="intFrameRightDownHoriz">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="intFrameRightDownVert">
+        <data type="decimal"/>
+      </attribute>
+    </element>
+  </define>
+  <define name="letterOnePageAlignments">
+    <element name="onePageAlignments">
+      <attribute name="pageID"/>
+      <element name="letterAlignment">
+        <attribute name="characterOffset">
+          <data type="integer"/>
+        </attribute>
+        <attribute name="goldTestAligment">
+          <choice>
+            <value>test</value>
+            <value>gold</value>
+          </choice>
+        </attribute>
+        <attribute name="length">
+          <data type="integer"/>
+        </attribute>
+        <attribute name="letterId"/>
+      </element>
+    </element>
+  </define>
+  <define name="sequenceOnePageAlignments">
+    <element name="onePageAlignments">
+      <attribute name="pageID"/>
+      <element name="seqAlignment">
+        <attribute name="goldTestAligment">
+          <choice>
+            <value>test</value>
+            <value>gold</value>
+          </choice>
+        </attribute>
+        <attribute name="seqCharLength">
+          <data type="integer"/>
+        </attribute>
+        <attribute name="seqCharOffset">
+          <data type="integer"/>
+        </attribute>
+        <attribute name="seqLetterIds"/>
+        <attribute name="seqLetterLength">
+          <data type="integer"/>
+        </attribute>
+      </element>
+    </element>
+  </define>
+</grammar>

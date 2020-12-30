@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="https://deloro.iit.academiaromana-is.ro/rocc" xmlns:rocc="https://deloro.iit.academiaromana-is.ro/rocc">
+  <!-- Root element of the ROCC file. -->
+  <xs:element name="ROCC" type="rocc:pageCollection"/>
+  <xs:complexType name="pageCollection">
+    <xs:sequence>
+      <xs:element ref="rocc:pageCollection"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="pageCollection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rocc:pageCollectionMetadata"/>
+        <xs:element ref="rocc:imagesOfPages"/>
+        <xs:element minOccurs="0" ref="rocc:segmentationOfImages"/>
+        <xs:element minOccurs="0" ref="rocc:textsOfPages"/>
+        <xs:element ref="rocc:letterAlignmentsImage2Text"/>
+        <xs:element ref="rocc:seqAlignmentsImage2Text"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="pageCollectionMetadata">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rocc:ROCC-code"/>
+        <xs:element minOccurs="0" ref="rocc:translation"/>
+        <xs:element ref="rocc:scannedCopy"/>
+        <xs:element ref="rocc:creation"/>
+        <xs:element ref="rocc:publishing"/>
+        <xs:element ref="rocc:description"/>
+      </xs:sequence>
+      <xs:attribute name="rocc_id" use="required"/>
+      <xs:attribute name="title" use="required"/>
+      <xs:attribute name="shortTitle" use="required"/>
+      <xs:attribute name="language" use="required"/>
+      <xs:attribute name="metadataCreator" use="required"/>
+      <xs:attribute name="distribution" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="imagesOfPages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="rocc:onePageImage"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="segmentationOfImages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="rocc:graphicalObjectFrontispiece"/>
+        <xs:element maxOccurs="unbounded" ref="rocc:pageSegmentation"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="textsOfPages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="rocc:textPage"/>
+      </xs:sequence>
+      <xs:attribute name="integralTranscribedTextFile" use="required" type="xs:anyURI"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="textPage">
+    <xs:complexType>
+      <xs:attribute name="pageID" use="required"/>
+      <xs:attribute name="textPageFile"/>
+      <xs:attribute name="beginningOfPage"/>
+      <xs:attribute name="endOfPage"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="letterAlignmentsImage2Text">
+    <xs:complexType>
+      <xs:group maxOccurs="unbounded" ref="rocc:letterOnePageAlignments"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="seqAlignmentsImage2Text">
+    <xs:complexType>
+      <xs:group maxOccurs="unbounded" ref="rocc:sequenceOnePageAlignments"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="rocCodeZone">
+    <xs:annotation>
+      <xs:documentation>Represents the zone of the origin of the document.
+The value can any combination of the following:
+MD = Moldavia
+W = Wallachia
+T = Transylvania
+MM = Maramureș
+BT = Banat
+BS = Bessarabia (for dates between 1812 - 1899)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction>
+      <xs:simpleType>
+        <xs:list>
+          <xs:simpleType>
+            <xs:restriction base="xs:token">
+              <xs:enumeration value="MD"/>
+              <xs:enumeration value="W"/>
+              <xs:enumeration value="T"/>
+              <xs:enumeration value="MM"/>
+              <xs:enumeration value="BT"/>
+              <xs:enumeration value="BS"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:list>
+      </xs:simpleType>
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ROCC-code">
+    <xs:complexType>
+      <xs:attribute name="difficultyLevel" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="writingType" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="print"/>
+            <xs:enumeration value="uncial"/>
+            <xs:enumeration value="manuscript"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="annotationLevel" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="original"/>
+            <xs:enumeration value="gold"/>
+            <xs:enumeration value="test"/>
+            <xs:enumeration value="mixt"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="century" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="XVI"/>
+            <xs:enumeration value="XVII"/>
+            <xs:enumeration value="XVIII"/>
+            <xs:enumeration value="XIX"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="fiftyYears" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="printingYear" use="required" type="xs:integer"/>
+      <xs:attribute name="zone" use="required" type="rocc:rocCodeZone"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="translation">
+    <xs:complexType>
+      <xs:attribute name="originalAuthor" use="required"/>
+      <xs:attribute name="originalLanguage" use="required"/>
+      <xs:attribute name="secTranslator" use="required"/>
+      <xs:attribute name="translator" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="scannedCopy">
+    <xs:complexType>
+      <xs:attribute name="library" use="required"/>
+      <xs:attribute name="libraryCode" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="creation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="rocc:creationLocation"/>
+      </xs:sequence>
+      <xs:attribute name="author" use="required"/>
+      <xs:attribute name="creationYear" use="required"/>
+      <xs:attribute name="secAuthors" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="creationLocation">
+    <xs:complexType>
+      <xs:attribute name="creationProvince" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Moldova"/>
+            <xs:enumeration value="Țara Românească"/>
+            <xs:enumeration value="Transilvania"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="creationTown"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="publishing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="rocc:publishingLocation"/>
+      </xs:sequence>
+      <xs:attribute name="publishingYear" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="publishingLocation">
+    <xs:complexType>
+      <xs:attribute name="publishingCountry"/>
+      <xs:attribute name="publishingProvince" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Moldova"/>
+            <xs:enumeration value="Țara Românească"/>
+            <xs:enumeration value="Basarabia"/>
+            <xs:enumeration value="Transilvania"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="publishingHouse"/>
+      <xs:attribute name="publishingTown"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="description">
+    <xs:complexType>
+      <xs:attribute name="style" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Juridic-administrativ"/>
+            <xs:enumeration value="Bisericesc"/>
+            <xs:enumeration value="Științific"/>
+            <xs:enumeration value="Beletristic"/>
+            <xs:enumeration value="Publicistic"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="subject"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="onePageImage">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:difficultyCriteria">
+          <xs:attribute name="pageID" use="required"/>
+          <xs:attribute name="pageImageFile" use="required" type="xs:anyURI"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="difficultyCriteria">
+    <xs:sequence>
+      <xs:element ref="rocc:difficultyCriteria"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="difficultyCriteria">
+    <xs:complexType>
+      <xs:attribute name="damaged" use="required" type="xs:boolean"/>
+      <xs:attribute name="opaqueSpots" use="required" type="xs:boolean"/>
+      <xs:attribute name="transparentPaper" use="required" type="xs:boolean"/>
+      <xs:attribute name="overlayPrint" type="xs:boolean"/>
+      <xs:attribute name="interlineWriting" use="required" type="xs:boolean"/>
+      <xs:attribute name="palimpsest" use="required" type="xs:boolean"/>
+      <xs:attribute name="corrections" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="few"/>
+            <xs:enumeration value="many"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="marginalWriting" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="few"/>
+            <xs:enumeration value="many"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="graphicalObjectFrontispiece">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:objectCoordinates">
+          <xs:attribute name="objectAnnotator" use="required"/>
+          <xs:attribute name="objectId" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="pageSegmentation">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="rocc:objectTitle"/>
+        <xs:element ref="rocc:objectColumn"/>
+        <xs:element ref="rocc:objectLine"/>
+        <xs:element ref="rocc:objectLetter"/>
+        <xs:element ref="rocc:objectMarginal"/>
+        <xs:element ref="rocc:objectOutOfLineLetters"/>
+        <xs:element ref="rocc:objectModifier"/>
+        <xs:element ref="rocc:objectInitialLetter"/>
+        <xs:element ref="rocc:objectReferenceMarkOnMargin"/>
+        <xs:element ref="rocc:objectReferenceMarkAboveLine"/>
+        <xs:element ref="rocc:graphicalObjectAccolade"/>
+        <xs:element ref="rocc:graphicalObjectOrnament"/>
+        <xs:element ref="rocc:graphicalObjectFrame"/>
+      </xs:choice>
+      <xs:attribute name="pageID" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="objectTitle">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:objectCoordinates">
+          <xs:attribute name="objectId" use="required"/>
+          <xs:attribute name="objectAnnotator" use="required"/>
+          <xs:attribute name="objectContent"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="objectColumn">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:objectCoordinates">
+          <xs:attribute name="columnPosition" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="U"/>
+                <xs:enumeration value="L"/>
+                <xs:enumeration value="R"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="objectAnnotator" use="required"/>
+          <xs:attribute name="objectId" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="objectLine">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:objectCoordinates">
+          <xs:attribute name="objectId" use="required"/>
+          <xs:attribute name="objectAnnotator" use="required"/>
+          <xs:attribute name="objectContent"/>
+          <xs:attribute name="inColumn" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="header"/>
+                <xs:enumeration value="footer"/>
+                <xs:enumeration value="ordinary"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="objectLetter">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:objectCoordinates">
+          <xs:attribute name="objectAnnotator" use="required"/>
+          <xs:attribute name="objectContent"/>
+          <xs:attribute name="objectId" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="objectMarginal">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:objectCoordinates">
+          <xs:attribute name="objectAnnotator" use="required"/>
+          <xs:attribute name="objectContent"/>
+          <xs:attribute name="objectId" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="objectOutOfLineLetters">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:objectCoordinates">
+          <xs:attribute name="objectId" use="required"/>
+          <xs:attribute name="objectAnnotator" use="required"/>
+          <xs:attribute name="objectContent"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="objectModifier">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:objectCoordinates">
+          <xs:attribute name="objectId" use="required"/>
+          <xs:attribute name="objectAnnotator" use="required"/>
+          <xs:attribute name="objectContent"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="objectInitialLetter">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:objectCoordinates">
+          <xs:attribute name="objectId" use="required"/>
+          <xs:attribute name="objectAnnotator" use="required"/>
+          <xs:attribute name="objectContent"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="objectReferenceMarkOnMargin">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:objectCoordinates">
+          <xs:attribute name="objectId" use="required"/>
+          <xs:attribute name="objectAnnotator" use="required"/>
+          <xs:attribute name="objectContent"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="objectReferenceMarkAboveLine">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:objectCoordinates">
+          <xs:attribute name="objectId" use="required"/>
+          <xs:attribute name="objectAnnotator" use="required"/>
+          <xs:attribute name="objectContent"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="graphicalObjectAccolade">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:accoladeCoordinates">
+          <xs:attribute name="objectId" use="required"/>
+          <xs:attribute name="objectAnnotator" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="graphicalObjectOrnament">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:objectCoordinates">
+          <xs:attribute name="objectId" use="required"/>
+          <xs:attribute name="objectAnnotator" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="graphicalObjectFrame">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="rocc:frameCoordinates">
+          <xs:attribute name="objectId" use="required"/>
+          <xs:attribute name="objectAnnotator" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="objectCoordinates">
+    <xs:sequence>
+      <xs:element name="objectCoordinates">
+        <xs:complexType>
+          <xs:attribute name="leftUpHoriz" use="required" type="xs:decimal"/>
+          <xs:attribute name="leftUpVert" use="required" type="xs:decimal"/>
+          <xs:attribute name="rightDownHoriz" use="required" type="xs:decimal"/>
+          <xs:attribute name="rightDownVert" use="required" type="xs:decimal"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="accoladeCoordinates">
+    <xs:sequence>
+      <xs:element name="objectCoordinates">
+        <xs:complexType>
+          <xs:attribute name="leftUpHoriz" use="required" type="xs:decimal"/>
+          <xs:attribute name="leftUpVert" use="required" type="xs:decimal"/>
+          <xs:attribute name="rightDownHoriz" use="required" type="xs:decimal"/>
+          <xs:attribute name="rightDownVert" use="required" type="xs:decimal"/>
+          <xs:attribute name="direction" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="right"/>
+                <xs:enumeration value="left"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="horizCoordOfPeak" use="required" type="xs:decimal"/>
+          <xs:attribute name="vertCoordOfPeak" use="required" type="xs:decimal"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="frameCoordinates">
+    <xs:sequence>
+      <xs:element name="objectCoordinates">
+        <xs:complexType>
+          <xs:attribute name="extFrameLeftUpHoriz" use="required" type="xs:decimal"/>
+          <xs:attribute name="extFrameLeftUpVert" use="required" type="xs:decimal"/>
+          <xs:attribute name="extFrameRightDownHoriz" use="required" type="xs:decimal"/>
+          <xs:attribute name="extFrameRightDownVert" use="required" type="xs:decimal"/>
+          <xs:attribute name="intFrameLeftUpHoriz" use="required" type="xs:decimal"/>
+          <xs:attribute name="intFrameLeftUpVert" use="required" type="xs:decimal"/>
+          <xs:attribute name="intFrameRightDownHoriz" use="required" type="xs:decimal"/>
+          <xs:attribute name="intFrameRightDownVert" use="required" type="xs:decimal"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="letterOnePageAlignments">
+    <xs:sequence>
+      <xs:element name="onePageAlignments">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="rocc:letterAlignment"/>
+          </xs:sequence>
+          <xs:attribute name="pageID" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="letterAlignment">
+    <xs:complexType>
+      <xs:attribute name="characterOffset" use="required" type="xs:integer"/>
+      <xs:attribute name="goldTestAligment" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="test"/>
+            <xs:enumeration value="gold"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="length" use="required" type="xs:integer"/>
+      <xs:attribute name="letterId" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:group name="sequenceOnePageAlignments">
+    <xs:sequence>
+      <xs:element name="onePageAlignments">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="rocc:seqAlignment"/>
+          </xs:sequence>
+          <xs:attribute name="pageID" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="seqAlignment">
+    <xs:complexType>
+      <xs:attribute name="goldTestAligment" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="test"/>
+            <xs:enumeration value="gold"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="seqCharLength" use="required" type="xs:integer"/>
+      <xs:attribute name="seqCharOffset" use="required" type="xs:integer"/>
+      <xs:attribute name="seqLetterIds" use="required"/>
+      <xs:attribute name="seqLetterLength" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

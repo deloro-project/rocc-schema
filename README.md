@@ -9,9 +9,9 @@
 - `rocc.xml` is a sample (dummy) XML file that contains a scheleton of how a file in `ROCC` format may look like. It validates against schema files.
 - `rocc.xsd` contains the definition of the `ROCC` schema in the XSD format. This file is generated from `rocc.rnc`.
 
-## Building the Docker image ##
+## Docker image ##
 
-In order to generate schema files int the XSD and RelaxNG format from the compact syntax schema definition (`rocc.rnc`) you will need to use [`jing`](https://relaxng.org/jclark/jing.html) utility. To avoid polluting your workstation this can be done using a Docker container.
+In order to generate schema files in the XSD and RelaxNG format from the compact syntax schema definition (`rocc.rnc`) you will need to use [`trang`](https://relaxng.org/jclark/trang.html) utility. To avoid polluting your workstation this can be done using a Docker container.
 
 The [`Dockerfile`](./Dockerfile) creates a Docker image based on Ubuntu 20.04, installs `OpenJdk` on it and builds the `jing` and `trang` utilities used for validating a file against a schema and respectively, generating XSD and RelaxNG schemas from the compact syntax schema.
 
@@ -20,6 +20,21 @@ To build the image, navigate to the directory containing the `Dockerfile` and ru
 ```sh
 docker build -t rocc .
 ```
+
+### Converting schemas ###
+To convert from RelaxNG compact syntax (`.rnc`) to RelaxNG syntax (`.rng`) run:
+```sh
+docker run --rm -v <path-to-this-repo>:/work rocc -jar /opt/jing-trang/trang.jar -I rnc -O rng /work/rocc.rnc /work/rocc.rng
+```
+
+To convert from RelaxNG compact syntax (`.rnc`) to XSD (`.xsd`) run:
+```sh
+docker run --rm -v <path-to-this-repo>:/work rocc -jar /opt/jing-trang/trang.jar -I rnc -O xsd /work/rocc.rnc /work/rocc.xsd
+```
+
+Make sure to replace `<path-to-this-repo>` with the path where the repository resides.
+
+The commands above will spin a Docker container from the image named `rocc`, will mount the curent repository (located at `<path-to-this-repo>`) inside the `/work` directory in the container, and will generate the output schema in the desired format by calling the `trang` utility.
 
 ## Validating a xml file against the ROCC schema ##
 

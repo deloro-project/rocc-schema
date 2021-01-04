@@ -62,16 +62,6 @@ grammar {
 				sequenceOnePageAlignments+
 			    }
 
-  ## Represents the zone of the origin of the document.
-  ## The value can any combination of the following:
-  ## MD = Moldavia
-  ## W = Wallachia
-  ## T = Transylvania
-  ## MM = Maramureș
-  ## BT = Banat
-  ## BS = Bessarabia (for dates between 1812 - 1899)
-  rocCodeZone = list{ ("MD" | "W" | "T" | "MM" | "BT" | "BS")+ }
-
   roccCode = element ROCC-code {
 		 attribute difficultyLevel { "1" | "2" | "3" },
 		 attribute writingType { "print" | "uncial" | "manuscript" },
@@ -79,7 +69,7 @@ grammar {
 		 attribute century { "XVI" | "XVII" | "XVIII" | "XIX" },
 		 attribute fiftyYears { "1" | "2" },
 		 attribute printingYear { xsd:integer },
-		 attribute zone { rocCodeZone }
+		 attribute locationRoot { xsd:anyURI }
 	     }
 
   translation = element translation {

@@ -79,35 +79,6 @@
       <xs:group maxOccurs="unbounded" ref="rocc:sequenceOnePageAlignments"/>
     </xs:complexType>
   </xs:element>
-  <xs:simpleType name="rocCodeZone">
-    <xs:annotation>
-      <xs:documentation>Represents the zone of the origin of the document.
-The value can any combination of the following:
-MD = Moldavia
-W = Wallachia
-T = Transylvania
-MM = Maramureș
-BT = Banat
-BS = Bessarabia (for dates between 1812 - 1899)</xs:documentation>
-    </xs:annotation>
-    <xs:restriction>
-      <xs:simpleType>
-        <xs:list>
-          <xs:simpleType>
-            <xs:restriction base="xs:token">
-              <xs:enumeration value="MD"/>
-              <xs:enumeration value="W"/>
-              <xs:enumeration value="T"/>
-              <xs:enumeration value="MM"/>
-              <xs:enumeration value="BT"/>
-              <xs:enumeration value="BS"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:list>
-      </xs:simpleType>
-      <xs:minLength value="1"/>
-    </xs:restriction>
-  </xs:simpleType>
   <xs:element name="ROCC-code">
     <xs:complexType>
       <xs:attribute name="difficultyLevel" use="required">
@@ -157,7 +128,7 @@ BS = Bessarabia (for dates between 1812 - 1899)</xs:documentation>
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="printingYear" use="required" type="xs:integer"/>
-      <xs:attribute name="zone" use="required" type="rocc:rocCodeZone"/>
+      <xs:attribute name="locationRoot" use="required" type="xs:anyURI"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="translation">

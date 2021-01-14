@@ -143,14 +143,28 @@ grammar {
 
   publishing = element publishing {
 		   attribute publishingYear { xsd:integer },
+		   attribute publisher { text },
+		   attribute noOfPagesOrSheets { xsd:integer },
+		   attribute pageOrSheet { "page" | "sheet" },
+		   element dimensions {
+		       attribute units { "mm" | "cm" },
+		       attribute width { xsd:decimal },
+		       attribute height { xsd:decimal }
+		   },
 		   publishingLocation?
                }
 
   publishingLocation = element publishingLocation {
-			   attribute publishingCountry { text }?,
 			   attribute publishingProvince { "Moldova" | "Țara Românească" | "Basarabia" | "Transilvania" },
-			   attribute publishingHouse { text }?,
-			   attribute publishingTown { text }?
+			   attribute publishingTown { text }?,
+			   element publishingHouse {
+			       attribute id { text },
+			       text
+			   }?,
+			   element publishingCountry {
+			       attribute id { text },
+			       text
+			   }?
 		       }
 
   description = element description {

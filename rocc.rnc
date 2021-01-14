@@ -20,11 +20,12 @@ grammar {
 
   pageCollectionMetadata = element pageCollectionMetadata{
 			       attribute rocc_id { text },
+			       attribute pageCollectionURL { xsd:anyURI },
 			       attribute title { text },
 			       attribute shortTitle { text },
 			       attribute language { text },
-			       attribute metadataCreator { text },
-			       attribute distribution { text },
+			       attribute metadataCreator { xsd:anyURI },
+			       attribute distribution { xsd:anyURI },
 			       roccCode,
 			       translation?,
 			       scannedCopy,

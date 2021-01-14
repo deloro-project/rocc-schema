@@ -31,7 +31,8 @@ grammar {
 			       scannedCopy,
 			       creation,
 			       publishing,
-			       description
+			       contentDescription,
+			       formatDescription*
 			   }
 
   imagesOfPages = element imagesOfPages{
@@ -167,10 +168,17 @@ grammar {
 			   }?
 		       }
 
-  description = element description {
-		    attribute style { "Juridic-administrativ" | "Bisericesc"| "Științific" | "Beletristic" | "Publicistic" },
-		    attribute subject { text }?
-		}
+  contentDescription = element contentDescription {
+			   attribute style { text },
+			   element subject { text }?
+		       }
+
+  formatDescription = element formatDescription {
+			  element content {
+			      attribute id { text },
+			      text
+			  }
+		      }
 
   onePageImage = element onePageImage {
 		     attribute pageID { text },

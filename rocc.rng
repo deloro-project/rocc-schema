@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grammar ns="https://deloro.iit.academiaromana-is.ro/rocc" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+<grammar ns="https://deloro.iit.academiaromana-is.ro/rocc" xmlns:rnc="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <start>
     <ref name="ROCC"/>
   </start>
   <!-- Root element of the ROCC file. -->
   <define name="ROCC">
     <element name="ROCC">
-      <ref name="pageCollection"/>
+      <oneOrMore>
+        <ref name="pageCollection"/>
+      </oneOrMore>
     </element>
   </define>
   <define name="pageCollection">
@@ -27,11 +29,18 @@
   <define name="pageCollectionMetadata">
     <element name="pageCollectionMetadata">
       <attribute name="rocc_id"/>
+      <attribute name="pageCollectionURL">
+        <data type="anyURI"/>
+      </attribute>
       <attribute name="title"/>
       <attribute name="shortTitle"/>
       <attribute name="language"/>
-      <attribute name="metadataCreator"/>
-      <attribute name="distribution"/>
+      <attribute name="metadataCreator">
+        <data type="anyURI"/>
+      </attribute>
+      <attribute name="distribution">
+        <data type="anyURI"/>
+      </attribute>
       <ref name="roccCode"/>
       <optional>
         <ref name="translation"/>
@@ -39,7 +48,10 @@
       <ref name="scannedCopy"/>
       <ref name="creation"/>
       <ref name="publishing"/>
-      <ref name="description"/>
+      <ref name="contentDescription"/>
+      <zeroOrMore>
+        <ref name="formatDescription"/>
+      </zeroOrMore>
     </element>
   </define>
   <define name="imagesOfPages">
@@ -97,6 +109,28 @@
       </oneOrMore>
     </element>
   </define>
+  <define name="roccCodeZone">
+    <rnc:documentation>Represents the zone of the origin of the document.
+The value can any combination of the following:
+MD = Moldavia
+W  = Wallachia
+T  = Transylvania
+MM = Maramureș
+BT = Banat
+BS = Bessarabia (for dates between 1812 - 1899)</rnc:documentation>
+    <list>
+      <oneOrMore>
+        <choice>
+          <value>MD</value>
+          <value>W</value>
+          <value>T</value>
+          <value>MM</value>
+          <value>BT</value>
+          <value>BS</value>
+        </choice>
+      </oneOrMore>
+    </list>
+  </define>
   <define name="roccCode">
     <element name="ROCC-code">
       <attribute name="difficultyLevel">
@@ -107,18 +141,31 @@
         </choice>
       </attribute>
       <attribute name="writingType">
+        <rnc:documentation>Denotes the type of writing of the page collection.
+Values for writingType attribute are:
+- p  = print;
+- u  = uncial;
+- su = semiuncial;
+- m  = manuscript.</rnc:documentation>
         <choice>
-          <value>print</value>
-          <value>uncial</value>
-          <value>manuscript</value>
+          <value>p</value>
+          <value>u</value>
+          <value>su</value>
+          <value>m</value>
         </choice>
       </attribute>
       <attribute name="annotationLevel">
+        <rnc:documentation>Denotes the annotation of the page collection.
+Values for annotationLevel attribute are:
+- o = original, unannotated;
+- g = gold - annotated fully or partially by experts;
+- t = test - annotated by the application;
+- m = mixt - annotated by both experts and applications.</rnc:documentation>
         <choice>
-          <value>original</value>
-          <value>gold</value>
-          <value>test</value>
-          <value>mixt</value>
+          <value>o</value>
+          <value>g</value>
+          <value>t</value>
+          <value>m</value>
         </choice>
       </attribute>
       <attribute name="century">
@@ -138,8 +185,8 @@
       <attribute name="printingYear">
         <data type="integer"/>
       </attribute>
-      <attribute name="locationRoot">
-        <data type="anyURI"/>
+      <attribute name="zone">
+        <ref name="roccCodeZone"/>
       </attribute>
     </element>
   </define>
@@ -159,11 +206,64 @@
   </define>
   <define name="creation">
     <element name="creation">
-      <attribute name="author"/>
       <attribute name="creationYear"/>
-      <attribute name="secAuthors"/>
+      <optional>
+        <ref name="author"/>
+      </optional>
+      <zeroOrMore>
+        <ref name="secondaryAuthor"/>
+      </zeroOrMore>
       <optional>
         <ref name="creationLocation"/>
+      </optional>
+    </element>
+  </define>
+  <define name="author">
+    <element name="author">
+      <optional>
+        <attribute name="name"/>
+      </optional>
+      <optional>
+        <attribute name="surname"/>
+      </optional>
+      <optional>
+        <attribute name="content"/>
+      </optional>
+      <optional>
+        <element name="addToName">
+          <text/>
+        </element>
+      </optional>
+      <optional>
+        <element name="bio">
+          <text/>
+        </element>
+      </optional>
+    </element>
+  </define>
+  <define name="secondaryAuthor">
+    <element name="secAuthor">
+      <attribute name="id"/>
+      <optional>
+        <attribute name="name"/>
+      </optional>
+      <optional>
+        <attribute name="surname"/>
+      </optional>
+      <optional>
+        <attribute name="authority"/>
+      </optional>
+      <optional>
+        <element name="addToName">
+          <attribute name="id"/>
+          <text/>
+        </element>
+      </optional>
+      <optional>
+        <element name="bio">
+          <attribute name="id"/>
+          <text/>
+        </element>
       </optional>
     </element>
   </define>
@@ -186,6 +286,30 @@
       <attribute name="publishingYear">
         <data type="integer"/>
       </attribute>
+      <attribute name="publisher"/>
+      <attribute name="noOfPagesOrSheets">
+        <data type="integer"/>
+      </attribute>
+      <attribute name="pageOrSheet">
+        <choice>
+          <value>page</value>
+          <value>sheet</value>
+        </choice>
+      </attribute>
+      <element name="dimensions">
+        <attribute name="units">
+          <choice>
+            <value>mm</value>
+            <value>cm</value>
+          </choice>
+        </attribute>
+        <attribute name="width">
+          <data type="decimal"/>
+        </attribute>
+        <attribute name="height">
+          <data type="decimal"/>
+        </attribute>
+      </element>
       <optional>
         <ref name="publishingLocation"/>
       </optional>
@@ -193,9 +317,6 @@
   </define>
   <define name="publishingLocation">
     <element name="publishingLocation">
-      <optional>
-        <attribute name="publishingCountry"/>
-      </optional>
       <attribute name="publishingProvince">
         <choice>
           <value>Moldova</value>
@@ -205,32 +326,44 @@
         </choice>
       </attribute>
       <optional>
-        <attribute name="publishingHouse"/>
+        <attribute name="publishingTown"/>
       </optional>
       <optional>
-        <attribute name="publishingTown"/>
+        <element name="publishingHouse">
+          <attribute name="id"/>
+          <text/>
+        </element>
+      </optional>
+      <optional>
+        <element name="publishingCountry">
+          <attribute name="id"/>
+          <text/>
+        </element>
       </optional>
     </element>
   </define>
-  <define name="description">
-    <element name="description">
-      <attribute name="style">
-        <choice>
-          <value>Juridic-administrativ</value>
-          <value>Bisericesc</value>
-          <value>Științific</value>
-          <value>Beletristic</value>
-          <value>Publicistic</value>
-        </choice>
-      </attribute>
+  <define name="contentDescription">
+    <element name="contentDescription">
+      <attribute name="style"/>
       <optional>
-        <attribute name="subject"/>
+        <element name="subject">
+          <text/>
+        </element>
       </optional>
+    </element>
+  </define>
+  <define name="formatDescription">
+    <element name="formatDescription">
+      <element name="content">
+        <attribute name="id"/>
+        <text/>
+      </element>
     </element>
   </define>
   <define name="onePageImage">
     <element name="onePageImage">
       <attribute name="pageID"/>
+      <attribute name="pageName"/>
       <attribute name="pageImageFile">
         <data type="anyURI"/>
       </attribute>

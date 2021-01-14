@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="https://deloro.iit.academiaromana-is.ro/rocc" xmlns:rocc="https://deloro.iit.academiaromana-is.ro/rocc">
   <!-- Root element of the ROCC file. -->
-  <xs:element name="ROCC" type="rocc:pageCollection"/>
-  <xs:complexType name="pageCollection">
-    <xs:sequence>
-      <xs:element ref="rocc:pageCollection"/>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:element name="ROCC">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="rocc:pageCollection"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="pageCollection">
     <xs:complexType>
       <xs:sequence>
@@ -28,14 +29,16 @@
         <xs:element ref="rocc:scannedCopy"/>
         <xs:element ref="rocc:creation"/>
         <xs:element ref="rocc:publishing"/>
-        <xs:element ref="rocc:description"/>
+        <xs:element ref="rocc:contentDescription"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="rocc:formatDescription"/>
       </xs:sequence>
       <xs:attribute name="rocc_id" use="required"/>
+      <xs:attribute name="pageCollectionURL" use="required" type="xs:anyURI"/>
       <xs:attribute name="title" use="required"/>
       <xs:attribute name="shortTitle" use="required"/>
       <xs:attribute name="language" use="required"/>
-      <xs:attribute name="metadataCreator" use="required"/>
-      <xs:attribute name="distribution" use="required"/>
+      <xs:attribute name="metadataCreator" use="required" type="xs:anyURI"/>
+      <xs:attribute name="distribution" use="required" type="xs:anyURI"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="imagesOfPages">
@@ -79,6 +82,35 @@
       <xs:group maxOccurs="unbounded" ref="rocc:sequenceOnePageAlignments"/>
     </xs:complexType>
   </xs:element>
+  <xs:simpleType name="roccCodeZone">
+    <xs:annotation>
+      <xs:documentation>Represents the zone of the origin of the document.
+The value can any combination of the following:
+MD = Moldavia
+W  = Wallachia
+T  = Transylvania
+MM = Maramureș
+BT = Banat
+BS = Bessarabia (for dates between 1812 - 1899)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction>
+      <xs:simpleType>
+        <xs:list>
+          <xs:simpleType>
+            <xs:restriction base="xs:token">
+              <xs:enumeration value="MD"/>
+              <xs:enumeration value="W"/>
+              <xs:enumeration value="T"/>
+              <xs:enumeration value="MM"/>
+              <xs:enumeration value="BT"/>
+              <xs:enumeration value="BS"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:list>
+      </xs:simpleType>
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:element name="ROCC-code">
     <xs:complexType>
       <xs:attribute name="difficultyLevel" use="required">
@@ -91,21 +123,38 @@
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="writingType" use="required">
+        <xs:annotation>
+          <xs:documentation>Denotes the type of writing of the page collection.
+Values for writingType attribute are:
+- p  = print;
+- u  = uncial;
+- su = semiuncial;
+- m  = manuscript.</xs:documentation>
+        </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:token">
-            <xs:enumeration value="print"/>
-            <xs:enumeration value="uncial"/>
-            <xs:enumeration value="manuscript"/>
+            <xs:enumeration value="p"/>
+            <xs:enumeration value="u"/>
+            <xs:enumeration value="su"/>
+            <xs:enumeration value="m"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="annotationLevel" use="required">
+        <xs:annotation>
+          <xs:documentation>Denotes the annotation of the page collection.
+Values for annotationLevel attribute are:
+- o = original, unannotated;
+- g = gold - annotated fully or partially by experts;
+- t = test - annotated by the application;
+- m = mixt - annotated by both experts and applications.</xs:documentation>
+        </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:token">
-            <xs:enumeration value="original"/>
-            <xs:enumeration value="gold"/>
-            <xs:enumeration value="test"/>
-            <xs:enumeration value="mixt"/>
+            <xs:enumeration value="o"/>
+            <xs:enumeration value="g"/>
+            <xs:enumeration value="t"/>
+            <xs:enumeration value="m"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -128,7 +177,7 @@
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="printingYear" use="required" type="xs:integer"/>
-      <xs:attribute name="locationRoot" use="required" type="xs:anyURI"/>
+      <xs:attribute name="zone" use="required" type="rocc:roccCodeZone"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="translation">
@@ -148,11 +197,42 @@
   <xs:element name="creation">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" ref="rocc:author"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="rocc:secAuthor"/>
         <xs:element minOccurs="0" ref="rocc:creationLocation"/>
       </xs:sequence>
-      <xs:attribute name="author" use="required"/>
       <xs:attribute name="creationYear" use="required"/>
-      <xs:attribute name="secAuthors" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="author">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addToName" type="xs:string"/>
+        <xs:element minOccurs="0" name="bio" type="xs:string"/>
+      </xs:sequence>
+      <xs:attribute name="name"/>
+      <xs:attribute name="surname"/>
+      <xs:attribute name="content"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="secAuthor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addToName">
+          <xs:complexType mixed="true">
+            <xs:attribute name="id" use="required"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="bio">
+          <xs:complexType mixed="true">
+            <xs:attribute name="id" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="name"/>
+      <xs:attribute name="surname"/>
+      <xs:attribute name="authority"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="creationLocation">
@@ -172,14 +252,42 @@
   <xs:element name="publishing">
     <xs:complexType>
       <xs:sequence>
+        <xs:element ref="rocc:dimensions"/>
         <xs:element minOccurs="0" ref="rocc:publishingLocation"/>
       </xs:sequence>
       <xs:attribute name="publishingYear" use="required" type="xs:integer"/>
+      <xs:attribute name="publisher" use="required"/>
+      <xs:attribute name="noOfPagesOrSheets" use="required" type="xs:integer"/>
+      <xs:attribute name="pageOrSheet" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="page"/>
+            <xs:enumeration value="sheet"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dimensions">
+    <xs:complexType>
+      <xs:attribute name="units" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="mm"/>
+            <xs:enumeration value="cm"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="width" use="required" type="xs:decimal"/>
+      <xs:attribute name="height" use="required" type="xs:decimal"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="publishingLocation">
     <xs:complexType>
-      <xs:attribute name="publishingCountry"/>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="rocc:publishingHouse"/>
+        <xs:element minOccurs="0" ref="rocc:publishingCountry"/>
+      </xs:sequence>
       <xs:attribute name="publishingProvince" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:token">
@@ -190,24 +298,38 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="publishingHouse"/>
       <xs:attribute name="publishingTown"/>
     </xs:complexType>
   </xs:element>
-  <xs:element name="description">
+  <xs:element name="publishingHouse">
+    <xs:complexType mixed="true">
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="publishingCountry">
+    <xs:complexType mixed="true">
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="contentDescription">
     <xs:complexType>
-      <xs:attribute name="style" use="required">
-        <xs:simpleType>
-          <xs:restriction base="xs:token">
-            <xs:enumeration value="Juridic-administrativ"/>
-            <xs:enumeration value="Bisericesc"/>
-            <xs:enumeration value="Științific"/>
-            <xs:enumeration value="Beletristic"/>
-            <xs:enumeration value="Publicistic"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
-      <xs:attribute name="subject"/>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="rocc:subject"/>
+      </xs:sequence>
+      <xs:attribute name="style" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="subject" type="xs:string"/>
+  <xs:element name="formatDescription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rocc:content"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="content">
+    <xs:complexType mixed="true">
+      <xs:attribute name="id" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="onePageImage">
@@ -215,6 +337,7 @@
       <xs:complexContent>
         <xs:extension base="rocc:difficultyCriteria">
           <xs:attribute name="pageID" use="required"/>
+          <xs:attribute name="pageName" use="required"/>
           <xs:attribute name="pageImageFile" use="required" type="xs:anyURI"/>
         </xs:extension>
       </xs:complexContent>

@@ -107,11 +107,34 @@ grammar {
 		}
 
   creation = element creation {
-		 attribute author { text },
 		 attribute creationYear { text },
-		 attribute secAuthors { text },
+		 author?,
+		 secondaryAuthor*,
 		 creationLocation?
              }
+
+  author = element author {
+	       attribute name { text }?,
+	       attribute surname { text }?,
+	       attribute content { text }?,
+	       element addToName { text }?,
+	       element bio { text }?
+	   }
+
+  secondaryAuthor = element secAuthor {
+			attribute id { text },
+			attribute name { text }?,
+			attribute surname { text }?,
+			attribute authority { text }?,
+			element addToName {
+			    attribute id { text },
+			    text
+			}?,
+			element bio {
+			    attribute id { text },
+			    text
+			}?
+		    }
 
   creationLocation =  element creationLocation {
 			  attribute creationProvince { "Moldova" | "Țara Românească" | "Transilvania" },

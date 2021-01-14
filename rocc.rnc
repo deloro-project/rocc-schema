@@ -182,6 +182,7 @@ grammar {
 
   onePageImage = element onePageImage {
 		     attribute pageID { text },
+		     attribute pageName { text },
 		     attribute pageImageFile { xsd:anyURI },
 		     difficultyCriteria
 		 }

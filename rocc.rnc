@@ -6,7 +6,7 @@ grammar {
   start = ROCC
 
   # Root element of the ROCC file.
-  ROCC = element ROCC { pageCollection}
+  ROCC = element ROCC { pageCollection+ }
 
   pageCollection = element pageCollection {
 		       attribute id { text },

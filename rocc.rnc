@@ -62,15 +62,36 @@ grammar {
   seqAlignmentsImage2Text = element seqAlignmentsImage2Text {
 				sequenceOnePageAlignments+
 			    }
+  ## Represents the zone of the origin of the document.
+  ## The value can any combination of the following:
+  ## MD = Moldavia
+  ## W  = Wallachia
+  ## T  = Transylvania
+  ## MM = Maramureș
+  ## BT = Banat
+  ## BS = Bessarabia (for dates between 1812 - 1899)
+  roccCodeZone = list{ ("MD" | "W" | "T" | "MM" | "BT" | "BS")+ }
 
   roccCode = element ROCC-code {
 		 attribute difficultyLevel { "1" | "2" | "3" },
-		 attribute writingType { "print" | "uncial" | "manuscript" },
-		 attribute annotationLevel { "original" | "gold" | "test" | "mixt" },
+		 ## Denotes the type of writing of the page collection.
+		 ## Values for writingType attribute are:
+		 ## - p  = print;
+		 ## - u  = uncial;
+		 ## - su = semiuncial;
+		 ## - m  = manuscript.
+		 attribute writingType { "p" | "u" | "su" | "m" },
+		 ## Denotes the annotation of the page collection.
+		 ## Values for annotationLevel attribute are:
+		 ## - o = original, unannotated;
+		 ## - g = gold - annotated fully or partially by experts;
+		 ## - t = test - annotated by the application;
+		 ## - m = mixt - annotated by both experts and applications.
+		 attribute annotationLevel { "o" | "g" | "t" | "m" },
 		 attribute century { "XVI" | "XVII" | "XVIII" | "XIX" },
 		 attribute fiftyYears { "1" | "2" },
 		 attribute printingYear { xsd:integer },
-		 attribute locationRoot { xsd:anyURI }
+		 attribute zone { roccCodeZone }
 	     }
 
   translation = element translation {

@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ROCC xmlns="https://deloro.iit.academiaromana-is.ro/rocc">
   <pageCollection id="">
-    <pageCollectionMetadata rocc_id="" title="" shortTitle="" language="" metadataCreator="" distribution="">
-      <ROCC-code difficultyLevel="2" writingType="print" annotationLevel="test" century="XIX" printingYear="1815" fiftyYears="1" locationRoot="./data/sec-xix/print/crv-1376-plesoianu-abecedar"/>
+    <pageCollectionMetadata rocc_id="" title="" shortTitle="" language="" metadataCreator="" distribution="" pageCollectionURL="https://deloro.iit.academiaromana-is.ro/rocc/sec-xix-1/tipar/crv-859-tichindeal/">
+      <ROCC-code difficultyLevel="2" writingType="p" annotationLevel="t" century="XIX" printingYear="1815" fiftyYears="1" zone="MD" />
       <translation originalLanguage="" originalAuthor="" translator="" secTranslator=""/>
       <scannedCopy library="" libraryCode=""/>
-      <creation author="" secAuthors="" creationYear="">
+      <creation creationYear="1814">
+	<author name="" surname="" content="" />
         <creationLocation creationProvince="Moldova" creationTown=""/>
       </creation>
-      <publishing publishingYear="1815">
-        <publishingLocation publishingCountry="" publishingProvince="Moldova" publishingTown="" publishingHouse=""/>
+      <publishing publishingYear="1814" publisher="" noOfPagesOrSheets="100" pageOrSheet="page">
+	<dimensions units="cm" width="9" height="14" />
+        <publishingLocation publishingProvince="Moldova" publishingTown="" >
+	  <publishingHouse id="1"></publishingHouse>
+	  <publishingCountry id="1"></publishingCountry>
+	</publishingLocation>
       </publishing>
-      <description style="Bisericesc" subject=""/>
+      <contentDescription style="Bisericesc">
+	<subject />
+      </contentDescription>
+      <formatDescription>
+	<content id="" />
+      </formatDescription>
     </pageCollectionMetadata>
     <imagesOfPages>
-      <onePageImage pageID="" pageImageFile="">
+      <onePageImage pageID="" pageName="tichindeal-1-pagina-1.png" pageImageFile="">
         <difficultyCriteria damaged="false" opaqueSpots="false" transparentPaper="false" overlayPrint="false" interlineWriting="false" palimpsest="false" corrections="none" marginalWriting="none"/>
       </onePageImage>
     </imagesOfPages>

@@ -96,10 +96,10 @@ grammar {
 	     }
 
   translation = element translation {
-		    attribute originalAuthor { text },
+		    attribute originalAuthor { text }?,
 		    attribute originalLanguage { text },
-		    attribute secTranslator { text },
-		    attribute translator { text }
+		    attribute secTranslator { text }?,
+		    attribute translator { text }?
 		}
 
   scannedCopy = element scannedCopy {

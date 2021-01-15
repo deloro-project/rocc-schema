@@ -182,10 +182,10 @@ Values for annotationLevel attribute are:
   </xs:element>
   <xs:element name="translation">
     <xs:complexType>
-      <xs:attribute name="originalAuthor" use="required"/>
+      <xs:attribute name="originalAuthor"/>
       <xs:attribute name="originalLanguage" use="required"/>
-      <xs:attribute name="secTranslator" use="required"/>
-      <xs:attribute name="translator" use="required"/>
+      <xs:attribute name="secTranslator"/>
+      <xs:attribute name="translator"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="scannedCopy">

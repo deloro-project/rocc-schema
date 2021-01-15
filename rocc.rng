@@ -192,10 +192,16 @@ Values for annotationLevel attribute are:
   </define>
   <define name="translation">
     <element name="translation">
-      <attribute name="originalAuthor"/>
+      <optional>
+        <attribute name="originalAuthor"/>
+      </optional>
       <attribute name="originalLanguage"/>
-      <attribute name="secTranslator"/>
-      <attribute name="translator"/>
+      <optional>
+        <attribute name="secTranslator"/>
+      </optional>
+      <optional>
+        <attribute name="translator"/>
+      </optional>
     </element>
   </define>
   <define name="scannedCopy">

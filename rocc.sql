@@ -48,6 +48,15 @@ CREATE TABLE IF NOT EXISTS `contentDescriptions` (
   `subject` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `corrections` (
+  `id` varchar(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `corrections` (`id`) VALUES
+('few'),
+('many'),
+('none');
+
 CREATE TABLE IF NOT EXISTS `creations` (
   `id` int(11) NOT NULL,
   `metadataId` int(11) NOT NULL,
@@ -59,6 +68,19 @@ CREATE TABLE IF NOT EXISTS `creations` (
 CREATE TABLE IF NOT EXISTS `creationSecondaryAuthors` (
   `creationId` int(11) NOT NULL,
   `authorId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `difficultyCriteria` (
+  `id` int(11) NOT NULL,
+  `pageId` int(11) NOT NULL,
+  `damaged` tinyint(1) NOT NULL,
+  `opaqueSpots` tinyint(1) NOT NULL,
+  `transparentPaper` tinyint(1) NOT NULL,
+  `overlayPrint` tinyint(1) DEFAULT NULL,
+  `interlineWriting` tinyint(1) NOT NULL,
+  `palimpsest` tinyint(1) NOT NULL,
+  `corrections` varchar(4) NOT NULL,
+  `marginalWriting` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `difficultyLevels` (
@@ -99,6 +121,22 @@ CREATE TABLE IF NOT EXISTS `locations` (
   `country` varchar(100) DEFAULT NULL,
   `town` varchar(100) DEFAULT NULL,
   `house` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `marginalWritings` (
+  `id` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `marginalWritings` (`id`) VALUES
+('few'),
+('many'),
+('none');
+
+CREATE TABLE IF NOT EXISTS `onePageImages` (
+  `pageId` int(11) NOT NULL,
+  `pageCollectionId` int(11) NOT NULL,
+  `pageName` varchar(100) NOT NULL,
+  `pageImageFile` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `pageCollectionMetadata` (
@@ -233,6 +271,9 @@ ALTER TABLE `contentDescriptions`
   ADD KEY `metadataId` (`metadataId`),
   ADD KEY `style` (`style`);
 
+ALTER TABLE `corrections`
+  ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `creations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `metadataId` (`metadataId`),
@@ -242,6 +283,12 @@ ALTER TABLE `creations`
 ALTER TABLE `creationSecondaryAuthors`
   ADD PRIMARY KEY (`creationId`,`authorId`),
   ADD KEY `fk_creationSecondaryAuthors_authors` (`authorId`);
+
+ALTER TABLE `difficultyCriteria`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `corrections` (`corrections`),
+  ADD KEY `marginalWriting` (`marginalWriting`),
+  ADD KEY `pageId` (`pageId`);
 
 ALTER TABLE `difficultyLevels`
   ADD PRIMARY KEY (`id`),
@@ -262,6 +309,13 @@ ALTER TABLE `halfCenturies`
 ALTER TABLE `locations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `provinceId` (`provinceId`);
+
+ALTER TABLE `marginalWritings`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `onePageImages`
+  ADD PRIMARY KEY (`pageId`),
+  ADD KEY `pageCollectionId` (`pageCollectionId`);
 
 ALTER TABLE `pageCollectionMetadata`
   ADD PRIMARY KEY (`roccId`),
@@ -327,12 +381,16 @@ ALTER TABLE `contentDescriptions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `creations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `difficultyCriteria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `dimensions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `formatDescriptions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `onePageImages`
+  MODIFY `pageId` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `pageCollectionMetadata`
   MODIFY `roccId` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `pageCollections`
@@ -366,6 +424,11 @@ ALTER TABLE `creationSecondaryAuthors`
   ADD CONSTRAINT `fk_creationSecondaryAuthors_creations` FOREIGN KEY (`creationId`) REFERENCES `creations` (`id`),
   ADD CONSTRAINT `fk_creationSecondaryAuthors_authors` FOREIGN KEY (`authorId`) REFERENCES `authors` (`id`);
 
+ALTER TABLE `difficultyCriteria`
+  ADD CONSTRAINT `fk_difficultyCriteria_onePageImages` FOREIGN KEY (`pageId`) REFERENCES `onePageImages` (`pageId`),
+  ADD CONSTRAINT `fk_difficultyCriteria_corrections` FOREIGN KEY (`corrections`) REFERENCES `corrections` (`id`),
+  ADD CONSTRAINT `fk_difficultyCriteria_marginalWritings` FOREIGN KEY (`marginalWriting`) REFERENCES `writingTypes` (`id`);
+
 ALTER TABLE `dimensions`
   ADD CONSTRAINT `fk_dimensions_unitTypes` FOREIGN KEY (`units`) REFERENCES `unitTypes` (`id`),
   ADD CONSTRAINT `fk_dimensions_publishing` FOREIGN KEY (`publishingId`) REFERENCES `publishing` (`id`);
@@ -375,6 +438,9 @@ ALTER TABLE `formatDescriptions`
 
 ALTER TABLE `locations`
   ADD CONSTRAINT `fk_locations_provinces` FOREIGN KEY (`provinceId`) REFERENCES `provinces` (`id`);
+
+ALTER TABLE `onePageImages`
+  ADD CONSTRAINT `fk_onePageImages_pageCollections` FOREIGN KEY (`pageCollectionId`) REFERENCES `pageCollections` (`id`);
 
 ALTER TABLE `pageCollectionMetadata`
   ADD CONSTRAINT `fk_pageCollectionMetadata_pageCollections` FOREIGN KEY (`pageCollectionId`) REFERENCES `pageCollections` (`id`);

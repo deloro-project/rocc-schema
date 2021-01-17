@@ -79,6 +79,12 @@ CREATE TABLE IF NOT EXISTS `dimensions` (
   `height` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `formatDescriptions` (
+  `id` int(11) NOT NULL,
+  `metadataId` int(11) NOT NULL,
+  `content` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `halfCenturies` (
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -223,7 +229,7 @@ ALTER TABLE `centuries`
 
 ALTER TABLE `contentDescriptions`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `ux_contentDescriptions_metadataId` (`metadataId`),
+  ADD UNIQUE KEY `ux_contentDescriptions_metadataId` (`metadataId`) USING BTREE,
   ADD KEY `metadataId` (`metadataId`),
   ADD KEY `style` (`style`);
 
@@ -245,6 +251,10 @@ ALTER TABLE `dimensions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `publishingId` (`publishingId`),
   ADD KEY `units` (`units`);
+
+ALTER TABLE `formatDescriptions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `metadataId` (`metadataId`);
 
 ALTER TABLE `halfCenturies`
   ADD PRIMARY KEY (`id`);
@@ -319,6 +329,8 @@ ALTER TABLE `creations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `dimensions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `formatDescriptions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `pageCollectionMetadata`
@@ -357,6 +369,9 @@ ALTER TABLE `creationSecondaryAuthors`
 ALTER TABLE `dimensions`
   ADD CONSTRAINT `fk_dimensions_unitTypes` FOREIGN KEY (`units`) REFERENCES `unitTypes` (`id`),
   ADD CONSTRAINT `fk_dimensions_publishing` FOREIGN KEY (`publishingId`) REFERENCES `publishing` (`id`);
+
+ALTER TABLE `formatDescriptions`
+  ADD CONSTRAINT `fk_formatDescriptions_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`);
 
 ALTER TABLE `locations`
   ADD CONSTRAINT `fk_locations_provinces` FOREIGN KEY (`provinceId`) REFERENCES `provinces` (`id`);

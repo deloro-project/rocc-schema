@@ -41,6 +41,13 @@ INSERT INTO `centuries` (`id`) VALUES
 ('XVII'),
 ('XVIII');
 
+CREATE TABLE IF NOT EXISTS `contentDescriptions` (
+  `id` int(11) NOT NULL,
+  `metadataId` int(11) NOT NULL,
+  `style` varchar(100) NOT NULL,
+  `subject` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `creations` (
   `id` int(11) NOT NULL,
   `metadataId` int(11) NOT NULL,
@@ -214,6 +221,12 @@ ALTER TABLE `authors`
 ALTER TABLE `centuries`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `contentDescriptions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `ux_contentDescriptions_metadataId` (`metadataId`),
+  ADD KEY `metadataId` (`metadataId`),
+  ADD KEY `style` (`style`);
+
 ALTER TABLE `creations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `metadataId` (`metadataId`),
@@ -300,6 +313,8 @@ ALTER TABLE `authorNameAdditions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `authors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `contentDescriptions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `creations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `dimensions`
@@ -326,6 +341,9 @@ ALTER TABLE `authorBiographyLines`
 
 ALTER TABLE `authorNameAdditions`
   ADD CONSTRAINT `fk_authorNameAdditions_authors` FOREIGN KEY (`authorId`) REFERENCES `authors` (`id`);
+
+ALTER TABLE `contentDescriptions`
+  ADD CONSTRAINT `fk_contentDescriptions_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`);
 
 ALTER TABLE `creations`
   ADD CONSTRAINT `fk_creationInfo_locations` FOREIGN KEY (`locationId`) REFERENCES `locations` (`id`),

@@ -41,6 +41,16 @@ INSERT INTO `centuries` (`id`) VALUES
 ('XVII'),
 ('XVIII');
 
+CREATE TABLE IF NOT EXISTS `columnPositions` (
+  `id` varchar(1) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `columnPositions` (`id`, `name`) VALUES
+('L', 'Left'),
+('R', 'Right'),
+('U', 'Unique');
+
 CREATE TABLE IF NOT EXISTS `contentDescriptions` (
   `id` int(11) NOT NULL,
   `metadataId` int(11) NOT NULL,
@@ -141,6 +151,17 @@ INSERT INTO `marginalWritings` (`id`) VALUES
 ('few'),
 ('many'),
 ('none');
+
+CREATE TABLE IF NOT EXISTS `objectsColumn` (
+  `id` int(11) NOT NULL,
+  `pageId` int(11) NOT NULL,
+  `columnPosition` varchar(1) NOT NULL,
+  `objectAnnotator` varchar(256) NOT NULL,
+  `leftUpHoriz` decimal(10,0) NOT NULL,
+  `leftUpVert` decimal(10,0) NOT NULL,
+  `rightDownHoriz` decimal(10,0) NOT NULL,
+  `rightDownVert` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `objectsTitle` (
   `id` int(11) NOT NULL,
@@ -290,6 +311,10 @@ ALTER TABLE `authors`
 ALTER TABLE `centuries`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `columnPositions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `ux_columnPositions_name` (`name`);
+
 ALTER TABLE `contentDescriptions`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `ux_contentDescriptions_metadataId` (`metadataId`) USING BTREE,
@@ -341,6 +366,11 @@ ALTER TABLE `locations`
 
 ALTER TABLE `marginalWritings`
   ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `objectsColumn`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pageId` (`pageId`),
+  ADD KEY `columnPosition` (`columnPosition`);
 
 ALTER TABLE `objectsTitle`
   ADD PRIMARY KEY (`id`),
@@ -424,6 +454,8 @@ ALTER TABLE `graphicalObjectsFrontispiece`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `objectsColumn`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `objectsTitle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `pageCollectionMetadata`
@@ -478,6 +510,10 @@ ALTER TABLE `graphicalObjectsFrontispiece`
 
 ALTER TABLE `locations`
   ADD CONSTRAINT `fk_locations_provinces` FOREIGN KEY (`provinceId`) REFERENCES `provinces` (`id`);
+
+ALTER TABLE `objectsColumn`
+  ADD CONSTRAINT `fk_objectsColumn_columnPositions` FOREIGN KEY (`columnPosition`) REFERENCES `columnPositions` (`id`),
+  ADD CONSTRAINT `fk_objectsColumn_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
 
 ALTER TABLE `objectsTitle`
   ADD CONSTRAINT `fk_objectsTitle_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);

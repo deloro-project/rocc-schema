@@ -107,6 +107,16 @@ CREATE TABLE IF NOT EXISTS `formatDescriptions` (
   `content` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `graphicalObjectsFrontispiece` (
+  `id` int(11) NOT NULL,
+  `pageId` int(11) NOT NULL,
+  `objectAnnotator` varchar(256) NOT NULL,
+  `leftUpHoriz` decimal(10,0) NOT NULL,
+  `leftUpVert` decimal(10,0) NOT NULL,
+  `rightDownHoriz` decimal(10,0) NOT NULL,
+  `rightDownVert` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `halfCenturies` (
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -307,6 +317,10 @@ ALTER TABLE `formatDescriptions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `metadataId` (`metadataId`);
 
+ALTER TABLE `graphicalObjectsFrontispiece`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pageId` (`pageId`);
+
 ALTER TABLE `halfCenturies`
   ADD PRIMARY KEY (`id`);
 
@@ -391,6 +405,8 @@ ALTER TABLE `dimensions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `formatDescriptions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `graphicalObjectsFrontispiece`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `pageCollectionMetadata`
@@ -439,6 +455,9 @@ ALTER TABLE `dimensions`
 
 ALTER TABLE `formatDescriptions`
   ADD CONSTRAINT `fk_formatDescriptions_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`);
+
+ALTER TABLE `graphicalObjectsFrontispiece`
+  ADD CONSTRAINT `fk_graphicalObjectsFrontispiece_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
 
 ALTER TABLE `locations`
   ADD CONSTRAINT `fk_locations_provinces` FOREIGN KEY (`provinceId`) REFERENCES `provinces` (`id`);

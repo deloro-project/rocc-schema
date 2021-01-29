@@ -51,9 +51,9 @@ grammar {
 
   textPage = element textPage{
 		 attribute pageID { text },
-		 attribute textPageFile { text }?,
-		 attribute beginningOfPage { text }?,
-		 attribute endOfPage { text }?
+		 attribute textPageFile { xsd:anyURI }?,
+		 attribute beginningOfPage { xsd:integer }?,
+		 attribute endOfPage { xsd:integer }?
 	     }
 
   letterAlignmentsImage2Text = element letterAlignmentsImage2Text {

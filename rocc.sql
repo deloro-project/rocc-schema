@@ -132,13 +132,6 @@ INSERT INTO `marginalWritings` (`id`) VALUES
 ('many'),
 ('none');
 
-CREATE TABLE IF NOT EXISTS `onePageImages` (
-  `pageId` int(11) NOT NULL,
-  `pageCollectionId` int(11) NOT NULL,
-  `pageName` varchar(100) NOT NULL,
-  `pageImageFile` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE IF NOT EXISTS `pageCollectionMetadata` (
   `roccId` int(11) NOT NULL,
   `pageCollectionId` int(11) NOT NULL,
@@ -151,7 +144,18 @@ CREATE TABLE IF NOT EXISTS `pageCollectionMetadata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `pageCollections` (
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `integralTranscribedTextFile` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `pages` (
+  `pageId` int(11) NOT NULL,
+  `pageCollectionId` int(11) NOT NULL,
+  `pageName` varchar(100) NOT NULL,
+  `pageImageFile` varchar(255) NOT NULL,
+  `textPageFile` varchar(256) DEFAULT NULL,
+  `beginningOfPage` int(11) DEFAULT NULL,
+  `endOfPage` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `provinces` (
@@ -313,10 +317,6 @@ ALTER TABLE `locations`
 ALTER TABLE `marginalWritings`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `onePageImages`
-  ADD PRIMARY KEY (`pageId`),
-  ADD KEY `pageCollectionId` (`pageCollectionId`);
-
 ALTER TABLE `pageCollectionMetadata`
   ADD PRIMARY KEY (`roccId`),
   ADD UNIQUE KEY `pageCollectionURL` (`pageCollectionURL`),
@@ -324,6 +324,10 @@ ALTER TABLE `pageCollectionMetadata`
 
 ALTER TABLE `pageCollections`
   ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `pages`
+  ADD PRIMARY KEY (`pageId`),
+  ADD KEY `pageCollectionId` (`pageCollectionId`);
 
 ALTER TABLE `provinces`
   ADD PRIMARY KEY (`id`),
@@ -389,12 +393,12 @@ ALTER TABLE `formatDescriptions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `onePageImages`
-  MODIFY `pageId` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `pageCollectionMetadata`
   MODIFY `roccId` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `pageCollections`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `pages`
+  MODIFY `pageId` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `provinces`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 ALTER TABLE `publishing`
@@ -425,9 +429,9 @@ ALTER TABLE `creationSecondaryAuthors`
   ADD CONSTRAINT `fk_creationSecondaryAuthors_authors` FOREIGN KEY (`authorId`) REFERENCES `authors` (`id`);
 
 ALTER TABLE `difficultyCriteria`
-  ADD CONSTRAINT `fk_difficultyCriteria_onePageImages` FOREIGN KEY (`pageId`) REFERENCES `onePageImages` (`pageId`),
+  ADD CONSTRAINT `fk_difficultyCriteria_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`),
   ADD CONSTRAINT `fk_difficultyCriteria_corrections` FOREIGN KEY (`corrections`) REFERENCES `corrections` (`id`),
-  ADD CONSTRAINT `fk_difficultyCriteria_marginalWritings` FOREIGN KEY (`marginalWriting`) REFERENCES `writingTypes` (`id`);
+  ADD CONSTRAINT `fk_difficultyCriteria_marginalWritings` FOREIGN KEY (`marginalWriting`) REFERENCES `marginalWritings` (`id`);
 
 ALTER TABLE `dimensions`
   ADD CONSTRAINT `fk_dimensions_unitTypes` FOREIGN KEY (`units`) REFERENCES `unitTypes` (`id`),
@@ -439,11 +443,11 @@ ALTER TABLE `formatDescriptions`
 ALTER TABLE `locations`
   ADD CONSTRAINT `fk_locations_provinces` FOREIGN KEY (`provinceId`) REFERENCES `provinces` (`id`);
 
-ALTER TABLE `onePageImages`
-  ADD CONSTRAINT `fk_onePageImages_pageCollections` FOREIGN KEY (`pageCollectionId`) REFERENCES `pageCollections` (`id`);
-
 ALTER TABLE `pageCollectionMetadata`
   ADD CONSTRAINT `fk_pageCollectionMetadata_pageCollections` FOREIGN KEY (`pageCollectionId`) REFERENCES `pageCollections` (`id`);
+
+ALTER TABLE `pages`
+  ADD CONSTRAINT `fk_onePageImages_pageCollections` FOREIGN KEY (`pageCollectionId`) REFERENCES `pageCollections` (`id`);
 
 ALTER TABLE `publishing`
   ADD CONSTRAINT `fk_publishing_locations` FOREIGN KEY (`publishingLocation`) REFERENCES `locations` (`id`),

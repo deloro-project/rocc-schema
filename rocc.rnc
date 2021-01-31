@@ -239,7 +239,7 @@ grammar {
 	     attribute objectId { text },
 	     attribute objectAnnotator { text },
 	     attribute objectContent { text }?,
-	     attribute inColumn { "header" | "footer" | "ordinary" },
+	     attribute inColumn { "header" | "footer" | "ordinary" }?,
 	     objectCoordinates
 	 }
 

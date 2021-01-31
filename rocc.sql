@@ -187,6 +187,17 @@ CREATE TABLE IF NOT EXISTS `locations` (
   `house` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `marginals` (
+  `id` int(11) NOT NULL,
+  `pageId` int(11) NOT NULL,
+  `objectAnnotator` varchar(256) NOT NULL,
+  `content` varchar(100) DEFAULT NULL,
+  `leftUpHoriz` decimal(10,0) NOT NULL,
+  `leftUpVert` decimal(10,0) NOT NULL,
+  `rightDownHoriz` decimal(10,0) NOT NULL,
+  `rightDownVert` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `marginalWritings` (
   `id` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -416,6 +427,11 @@ ALTER TABLE `locations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `provinceId` (`provinceId`);
 
+ALTER TABLE `marginals`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pageId` (`pageId`),
+  ADD KEY `objectAnnotator` (`objectAnnotator`(255));
+
 ALTER TABLE `marginalWritings`
   ADD PRIMARY KEY (`id`);
 
@@ -507,6 +523,8 @@ ALTER TABLE `lines`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `marginals`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `pageCollectionMetadata`
   MODIFY `roccId` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `pageCollections`
@@ -572,6 +590,9 @@ ALTER TABLE `lines`
 
 ALTER TABLE `locations`
   ADD CONSTRAINT `fk_locations_provinces` FOREIGN KEY (`provinceId`) REFERENCES `provinces` (`id`);
+
+ALTER TABLE `marginals`
+  ADD CONSTRAINT `fk_marginals_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
 
 ALTER TABLE `pageCollectionMetadata`
   ADD CONSTRAINT `fk_pageCollectionMetadata_pageCollections` FOREIGN KEY (`pageCollectionId`) REFERENCES `pageCollections` (`id`);

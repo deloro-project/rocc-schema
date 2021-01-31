@@ -247,6 +247,7 @@ grammar {
 	       attribute objectAnnotator { text },
 	       attribute objectContent { text }?,
 	       attribute objectId { text },
+	       attribute objectAccuracy {xsd:decimal}?,
 	       objectCoordinates
 	   }
 

@@ -135,6 +135,27 @@ INSERT INTO `halfCenturies` (`id`) VALUES
 (1),
 (2);
 
+CREATE TABLE IF NOT EXISTS `lines` (
+  `id` int(11) NOT NULL,
+  `pageId` int(11) NOT NULL,
+  `objectAnnotator` varchar(256) NOT NULL,
+  `inColumn` varchar(10) DEFAULT NULL,
+  `content` text,
+  `leftUpHoriz` decimal(10,0) NOT NULL,
+  `leftUpVert` decimal(10,0) NOT NULL,
+  `rightDownHoriz` decimal(10,0) NOT NULL,
+  `rightDownVert` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `lineTypes` (
+  `id` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `lineTypes` (`id`) VALUES
+('footer'),
+('header'),
+('ordinary');
+
 CREATE TABLE IF NOT EXISTS `locations` (
   `id` int(11) NOT NULL,
   `provinceId` int(11) NOT NULL,
@@ -360,6 +381,15 @@ ALTER TABLE `graphicalObjectsFrontispiece`
 ALTER TABLE `halfCenturies`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `lines`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `objectAnnotator` (`objectAnnotator`(255)),
+  ADD KEY `inColumn` (`inColumn`),
+  ADD KEY `pageId` (`pageId`);
+
+ALTER TABLE `lineTypes`
+  ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `locations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `provinceId` (`provinceId`);
@@ -452,6 +482,8 @@ ALTER TABLE `formatDescriptions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `graphicalObjectsFrontispiece`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `lines`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `objectsColumn`
@@ -507,6 +539,10 @@ ALTER TABLE `formatDescriptions`
 
 ALTER TABLE `graphicalObjectsFrontispiece`
   ADD CONSTRAINT `fk_graphicalObjectsFrontispiece_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
+
+ALTER TABLE `lines`
+  ADD CONSTRAINT `fk_lines_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`),
+  ADD CONSTRAINT `fk_lines_lineTypes` FOREIGN KEY (`inColumn`) REFERENCES `lineTypes` (`id`);
 
 ALTER TABLE `locations`
   ADD CONSTRAINT `fk_locations_provinces` FOREIGN KEY (`provinceId`) REFERENCES `provinces` (`id`);

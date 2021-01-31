@@ -51,6 +51,17 @@ INSERT INTO `columnPositions` (`id`, `name`) VALUES
 ('R', 'Right'),
 ('U', 'Unique');
 
+CREATE TABLE IF NOT EXISTS `columns` (
+  `id` int(11) NOT NULL,
+  `pageId` int(11) NOT NULL,
+  `columnPosition` varchar(1) NOT NULL,
+  `objectAnnotator` varchar(256) NOT NULL,
+  `leftUpHoriz` decimal(10,0) NOT NULL,
+  `leftUpVert` decimal(10,0) NOT NULL,
+  `rightDownHoriz` decimal(10,0) NOT NULL,
+  `rightDownVert` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `contentDescriptions` (
   `id` int(11) NOT NULL,
   `metadataId` int(11) NOT NULL,
@@ -117,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `formatDescriptions` (
   `content` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS `graphicalObjectsFrontispiece` (
+CREATE TABLE IF NOT EXISTS `frontispieces` (
   `id` int(11) NOT NULL,
   `pageId` int(11) NOT NULL,
   `objectAnnotator` varchar(256) NOT NULL,
@@ -172,28 +183,6 @@ INSERT INTO `marginalWritings` (`id`) VALUES
 ('few'),
 ('many'),
 ('none');
-
-CREATE TABLE IF NOT EXISTS `objectsColumn` (
-  `id` int(11) NOT NULL,
-  `pageId` int(11) NOT NULL,
-  `columnPosition` varchar(1) NOT NULL,
-  `objectAnnotator` varchar(256) NOT NULL,
-  `leftUpHoriz` decimal(10,0) NOT NULL,
-  `leftUpVert` decimal(10,0) NOT NULL,
-  `rightDownHoriz` decimal(10,0) NOT NULL,
-  `rightDownVert` decimal(10,0) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE IF NOT EXISTS `objectsTitle` (
-  `id` int(11) NOT NULL,
-  `pageId` int(11) NOT NULL,
-  `objectAnnotator` varchar(256) NOT NULL,
-  `objectContent` varchar(1024) NOT NULL,
-  `leftUpHoriz` decimal(10,0) NOT NULL,
-  `leftUpVert` decimal(10,0) NOT NULL,
-  `rightDownHoriz` decimal(10,0) NOT NULL,
-  `rightDownVert` decimal(10,0) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `pageCollectionMetadata` (
   `roccId` int(11) NOT NULL,
@@ -272,6 +261,17 @@ INSERT INTO `sheetTypes` (`id`) VALUES
 ('page'),
 ('sheet');
 
+CREATE TABLE IF NOT EXISTS `titles` (
+  `id` int(11) NOT NULL,
+  `pageId` int(11) NOT NULL,
+  `objectAnnotator` varchar(256) NOT NULL,
+  `objectContent` varchar(1024) NOT NULL,
+  `leftUpHoriz` decimal(10,0) NOT NULL,
+  `leftUpVert` decimal(10,0) NOT NULL,
+  `rightDownHoriz` decimal(10,0) NOT NULL,
+  `rightDownVert` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `translations` (
   `id` int(11) NOT NULL,
   `metadataId` int(11) NOT NULL,
@@ -336,6 +336,11 @@ ALTER TABLE `columnPositions`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `ux_columnPositions_name` (`name`);
 
+ALTER TABLE `columns`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pageId` (`pageId`),
+  ADD KEY `columnPosition` (`columnPosition`);
+
 ALTER TABLE `contentDescriptions`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `ux_contentDescriptions_metadataId` (`metadataId`) USING BTREE,
@@ -374,7 +379,7 @@ ALTER TABLE `formatDescriptions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `metadataId` (`metadataId`);
 
-ALTER TABLE `graphicalObjectsFrontispiece`
+ALTER TABLE `frontispieces`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pageId` (`pageId`);
 
@@ -396,15 +401,6 @@ ALTER TABLE `locations`
 
 ALTER TABLE `marginalWritings`
   ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `objectsColumn`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `pageId` (`pageId`),
-  ADD KEY `columnPosition` (`columnPosition`);
-
-ALTER TABLE `objectsTitle`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `pageId` (`pageId`);
 
 ALTER TABLE `pageCollectionMetadata`
   ADD PRIMARY KEY (`roccId`),
@@ -448,6 +444,10 @@ ALTER TABLE `scannedCopies`
 ALTER TABLE `sheetTypes`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `titles`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pageId` (`pageId`);
+
 ALTER TABLE `translations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `metadataId` (`metadataId`);
@@ -470,6 +470,8 @@ ALTER TABLE `authorNameAdditions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `authors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `columns`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `contentDescriptions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `creations`
@@ -480,15 +482,11 @@ ALTER TABLE `dimensions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `formatDescriptions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `graphicalObjectsFrontispiece`
+ALTER TABLE `frontispieces`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `lines`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `locations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `objectsColumn`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `objectsTitle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `pageCollectionMetadata`
   MODIFY `roccId` int(11) NOT NULL AUTO_INCREMENT;
@@ -504,6 +502,8 @@ ALTER TABLE `roccCodes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `scannedCopies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `titles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `translations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
@@ -512,6 +512,10 @@ ALTER TABLE `authorBiographyLines`
 
 ALTER TABLE `authorNameAdditions`
   ADD CONSTRAINT `fk_authorNameAdditions_authors` FOREIGN KEY (`authorId`) REFERENCES `authors` (`id`);
+
+ALTER TABLE `columns`
+  ADD CONSTRAINT `fk_columns_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`),
+  ADD CONSTRAINT `fk_columns_columnPositions` FOREIGN KEY (`columnPosition`) REFERENCES `columnPositions` (`id`);
 
 ALTER TABLE `contentDescriptions`
   ADD CONSTRAINT `fk_contentDescriptions_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`);
@@ -537,8 +541,8 @@ ALTER TABLE `dimensions`
 ALTER TABLE `formatDescriptions`
   ADD CONSTRAINT `fk_formatDescriptions_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`);
 
-ALTER TABLE `graphicalObjectsFrontispiece`
-  ADD CONSTRAINT `fk_graphicalObjectsFrontispiece_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
+ALTER TABLE `frontispieces`
+  ADD CONSTRAINT `fk_frontispieces_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
 
 ALTER TABLE `lines`
   ADD CONSTRAINT `fk_lines_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`),
@@ -546,13 +550,6 @@ ALTER TABLE `lines`
 
 ALTER TABLE `locations`
   ADD CONSTRAINT `fk_locations_provinces` FOREIGN KEY (`provinceId`) REFERENCES `provinces` (`id`);
-
-ALTER TABLE `objectsColumn`
-  ADD CONSTRAINT `fk_objectsColumn_columnPositions` FOREIGN KEY (`columnPosition`) REFERENCES `columnPositions` (`id`),
-  ADD CONSTRAINT `fk_objectsColumn_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
-
-ALTER TABLE `objectsTitle`
-  ADD CONSTRAINT `fk_objectsTitle_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
 
 ALTER TABLE `pageCollectionMetadata`
   ADD CONSTRAINT `fk_pageCollectionMetadata_pageCollections` FOREIGN KEY (`pageCollectionId`) REFERENCES `pageCollections` (`id`);
@@ -579,6 +576,9 @@ ALTER TABLE `roccCodeZones`
 
 ALTER TABLE `scannedCopies`
   ADD CONSTRAINT `fk_scannedCopies_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`);
+
+ALTER TABLE `titles`
+  ADD CONSTRAINT `fk_titles_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
 
 ALTER TABLE `translations`
   ADD CONSTRAINT `fk_translations_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`);

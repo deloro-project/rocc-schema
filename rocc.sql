@@ -146,6 +146,17 @@ INSERT INTO `halfCenturies` (`id`) VALUES
 (1),
 (2);
 
+CREATE TABLE IF NOT EXISTS `initialLetters` (
+  `id` int(11) NOT NULL,
+  `pageid` int(11) NOT NULL,
+  `objectannotator` varchar(256) NOT NULL,
+  `content` varchar(100) DEFAULT NULL,
+  `leftuphoriz` decimal(10,0) NOT NULL,
+  `leftupvert` decimal(10,0) NOT NULL,
+  `rightdownhoriz` decimal(10,0) NOT NULL,
+  `rightdownvert` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `letters` (
   `id` int(11) NOT NULL,
   `pageId` int(11) NOT NULL,
@@ -431,6 +442,10 @@ ALTER TABLE `frontispieces`
 ALTER TABLE `halfCenturies`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `initialLetters`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pageid` (`pageid`);
+
 ALTER TABLE `letters`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pageId` (`pageId`),
@@ -547,6 +562,8 @@ ALTER TABLE `formatDescriptions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `frontispieces`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `initialLetters`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `letters`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `lines`
@@ -614,6 +631,9 @@ ALTER TABLE `formatDescriptions`
 
 ALTER TABLE `frontispieces`
   ADD CONSTRAINT `fk_frontispieces_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
+
+ALTER TABLE `initialLetters`
+  ADD CONSTRAINT `fk_initialLetters_pages` FOREIGN KEY (`pageid`) REFERENCES `pages` (`pageId`);
 
 ALTER TABLE `letters`
   ADD CONSTRAINT `fk_letters_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);

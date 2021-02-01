@@ -207,6 +207,17 @@ INSERT INTO `marginalWritings` (`id`) VALUES
 ('many'),
 ('none');
 
+CREATE TABLE IF NOT EXISTS `modifiers` (
+  `id` int(11) NOT NULL,
+  `pageId` int(11) NOT NULL,
+  `objectAnnotator` varchar(256) NOT NULL,
+  `content` varchar(100) DEFAULT NULL,
+  `leftUpHoriz` decimal(10,0) NOT NULL,
+  `leftUpVert` decimal(10,0) NOT NULL,
+  `rightDownHoriz` decimal(10,0) NOT NULL,
+  `rightDownVert` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `outOfLineLetters` (
   `id` int(11) NOT NULL,
   `pageId` int(11) NOT NULL,
@@ -446,6 +457,10 @@ ALTER TABLE `marginals`
 ALTER TABLE `marginalWritings`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `modifiers`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pageId` (`pageId`);
+
 ALTER TABLE `outOfLineLetters`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pageId` (`pageId`);
@@ -540,6 +555,8 @@ ALTER TABLE `locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `marginals`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `modifiers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `outOfLineLetters`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `pageCollectionMetadata`
@@ -610,6 +627,9 @@ ALTER TABLE `locations`
 
 ALTER TABLE `marginals`
   ADD CONSTRAINT `fk_marginals_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
+
+ALTER TABLE `modifiers`
+  ADD CONSTRAINT `fk_modifiers_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
 
 ALTER TABLE `outOfLineLetters`
   ADD CONSTRAINT `fk_outOfLineLetters_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);

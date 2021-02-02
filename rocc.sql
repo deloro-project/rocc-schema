@@ -149,6 +149,20 @@ CREATE TABLE IF NOT EXISTS `formatDescriptions` (
   `content` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `frames` (
+  `id` int(11) NOT NULL,
+  `pageid` int(11) NOT NULL,
+  `objectannotator` varchar(256) NOT NULL,
+  `extFrameLeftUpHoriz` decimal(10,0) NOT NULL,
+  `extFrameLeftUpVert` decimal(10,0) NOT NULL,
+  `extFrameRightDownHoriz` decimal(10,0) NOT NULL,
+  `extFrameRightDownVert` decimal(10,0) NOT NULL,
+  `intFrameLeftUpHoriz` decimal(10,0) NOT NULL,
+  `intFrameLeftUpVert` decimal(10,0) NOT NULL,
+  `intFrameRightDownHoriz` decimal(10,0) NOT NULL,
+  `intFrameRightDownVert` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `frontispieces` (
   `id` int(11) NOT NULL,
   `pageId` int(11) NOT NULL,
@@ -497,6 +511,10 @@ ALTER TABLE `formatDescriptions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `metadataId` (`metadataId`);
 
+ALTER TABLE `frames`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pageid` (`pageid`);
+
 ALTER TABLE `frontispieces`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pageId` (`pageId`);
@@ -636,6 +654,8 @@ ALTER TABLE `dimensions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `formatDescriptions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `frames`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `frontispieces`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `initialLetters`
@@ -714,6 +734,9 @@ ALTER TABLE `dimensions`
 
 ALTER TABLE `formatDescriptions`
   ADD CONSTRAINT `fk_formatDescriptions_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`);
+
+ALTER TABLE `frames`
+  ADD CONSTRAINT `fk_frames_pages` FOREIGN KEY (`pageid`) REFERENCES `pages` (`pageId`);
 
 ALTER TABLE `frontispieces`
   ADD CONSTRAINT `fk_frontispieces_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);

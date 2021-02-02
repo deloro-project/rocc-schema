@@ -1,6 +1,27 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+CREATE TABLE IF NOT EXISTS `accoladeDirections` (
+  `id` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `accoladeDirections` (`id`) VALUES
+('left'),
+('right');
+
+CREATE TABLE IF NOT EXISTS `accolades` (
+  `id` int(11) NOT NULL,
+  `pageid` int(11) NOT NULL,
+  `objectannotator` varchar(256) NOT NULL,
+  `leftuphoriz` decimal(10,0) NOT NULL,
+  `leftupvert` decimal(10,0) NOT NULL,
+  `rightdownhoriz` decimal(10,0) NOT NULL,
+  `rightdownvert` decimal(10,0) NOT NULL,
+  `direction` varchar(10) NOT NULL,
+  `horizCoordOfPeak` decimal(10,0) NOT NULL,
+  `vertCoordOfPeak` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `annotationLevels` (
   `id` char(1) NOT NULL,
   `name` varchar(100) NOT NULL
@@ -392,6 +413,14 @@ INSERT INTO `zones` (`id`, `name`) VALUES
 ('W', 'Wallachia');
 
 
+ALTER TABLE `accoladeDirections`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `accolades`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pageid` (`pageid`),
+  ADD KEY `direction` (`direction`);
+
 ALTER TABLE `annotationLevels`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `ux_annotationLevels_name` (`name`);
@@ -572,6 +601,8 @@ ALTER TABLE `zones`
   ADD UNIQUE KEY `ux_zones_name` (`name`);
 
 
+ALTER TABLE `accolades`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `authorBiographyLines`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `authorNameAdditions`
@@ -628,6 +659,10 @@ ALTER TABLE `titles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `translations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `accolades`
+  ADD CONSTRAINT `fk_accolades_accoladeDirections` FOREIGN KEY (`direction`) REFERENCES `accoladeDirections` (`id`),
+  ADD CONSTRAINT `fk_accolades_pages` FOREIGN KEY (`pageid`) REFERENCES `pages` (`pageId`);
 
 ALTER TABLE `authorBiographyLines`
   ADD CONSTRAINT `fk_authorBiographyLines_authors` FOREIGN KEY (`authorId`) REFERENCES `authors` (`id`);

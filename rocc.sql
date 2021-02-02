@@ -22,6 +22,14 @@ CREATE TABLE IF NOT EXISTS `accolades` (
   `vertCoordOfPeak` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `alignmentTypes` (
+  `id` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `alignmentTypes` (`id`) VALUES
+('gold'),
+('test');
+
 CREATE TABLE IF NOT EXISTS `annotationLevels` (
   `id` char(1) NOT NULL,
   `name` varchar(100) NOT NULL
@@ -190,6 +198,14 @@ CREATE TABLE IF NOT EXISTS `initialLetters` (
   `leftupvert` decimal(10,0) NOT NULL,
   `rightdownhoriz` decimal(10,0) NOT NULL,
   `rightdownvert` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `letterAlignments` (
+  `id` int(11) NOT NULL,
+  `letterId` int(11) NOT NULL,
+  `alignmentType` varchar(10) NOT NULL,
+  `characterOffset` int(11) NOT NULL,
+  `length` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `letters` (
@@ -446,6 +462,9 @@ ALTER TABLE `accolades`
   ADD KEY `pageid` (`pageid`),
   ADD KEY `direction` (`direction`);
 
+ALTER TABLE `alignmentTypes`
+  ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `annotationLevels`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `ux_annotationLevels_name` (`name`);
@@ -525,6 +544,11 @@ ALTER TABLE `halfCenturies`
 ALTER TABLE `initialLetters`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pageid` (`pageid`);
+
+ALTER TABLE `letterAlignments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `letterId` (`letterId`),
+  ADD KEY `alignmentType` (`alignmentType`);
 
 ALTER TABLE `letters`
   ADD PRIMARY KEY (`id`),
@@ -660,6 +684,8 @@ ALTER TABLE `frontispieces`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `initialLetters`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `letterAlignments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `letters`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `lines`
@@ -743,6 +769,10 @@ ALTER TABLE `frontispieces`
 
 ALTER TABLE `initialLetters`
   ADD CONSTRAINT `fk_initialLetters_pages` FOREIGN KEY (`pageid`) REFERENCES `pages` (`pageId`);
+
+ALTER TABLE `letterAlignments`
+  ADD CONSTRAINT `fk_letterAlignments_alignmentTypes` FOREIGN KEY (`alignmentType`) REFERENCES `alignmentTypes` (`id`),
+  ADD CONSTRAINT `fk_letterAlignments_letters` FOREIGN KEY (`letterId`) REFERENCES `letters` (`id`);
 
 ALTER TABLE `letters`
   ADD CONSTRAINT `fk_letters_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);

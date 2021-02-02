@@ -286,6 +286,17 @@ CREATE TABLE IF NOT EXISTS `publishing` (
   `publishingLocation` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `referenceMarksAboveLines` (
+  `id` int(11) NOT NULL,
+  `pageid` int(11) NOT NULL,
+  `objectannotator` varchar(256) NOT NULL,
+  `content` varchar(100) DEFAULT NULL,
+  `leftuphoriz` decimal(10,0) NOT NULL,
+  `leftupvert` decimal(10,0) NOT NULL,
+  `rightdownhoriz` decimal(10,0) NOT NULL,
+  `rightdownvert` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `referenceMarksOnMargin` (
   `id` int(11) NOT NULL,
   `pageid` int(11) NOT NULL,
@@ -513,6 +524,10 @@ ALTER TABLE `publishing`
   ADD KEY `publishingLocation` (`publishingLocation`),
   ADD KEY `pageOrSheet` (`pageOrSheet`);
 
+ALTER TABLE `referenceMarksAboveLines`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pageid` (`pageid`);
+
 ALTER TABLE `referenceMarksOnMargin`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pageid` (`pageid`);
@@ -601,6 +616,8 @@ ALTER TABLE `provinces`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 ALTER TABLE `publishing`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `referenceMarksAboveLines`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `referenceMarksOnMargin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `roccCodes`
@@ -681,6 +698,9 @@ ALTER TABLE `publishing`
   ADD CONSTRAINT `fk_publishing_locations` FOREIGN KEY (`publishingLocation`) REFERENCES `locations` (`id`),
   ADD CONSTRAINT `fk_publishing_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`),
   ADD CONSTRAINT `fk_publishing_sheetTypes` FOREIGN KEY (`pageOrSheet`) REFERENCES `sheetTypes` (`id`);
+
+ALTER TABLE `referenceMarksAboveLines`
+  ADD CONSTRAINT `fk_referenceMarksAboveLines_pages` FOREIGN KEY (`pageid`) REFERENCES `pages` (`pageId`);
 
 ALTER TABLE `referenceMarksOnMargin`
   ADD CONSTRAINT `fk_referenceMarksOnMargin_pages` FOREIGN KEY (`pageid`) REFERENCES `pages` (`pageId`);

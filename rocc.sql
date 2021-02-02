@@ -250,6 +250,17 @@ CREATE TABLE IF NOT EXISTS `modifiers` (
   `rightDownVert` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `ornaments` (
+  `id` int(11) NOT NULL,
+  `pageid` int(11) NOT NULL,
+  `objectannotator` varchar(256) NOT NULL,
+  `content` varchar(100) DEFAULT NULL,
+  `leftuphoriz` decimal(10,0) NOT NULL,
+  `leftupvert` decimal(10,0) NOT NULL,
+  `rightdownhoriz` decimal(10,0) NOT NULL,
+  `rightdownvert` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `outOfLineLetters` (
   `id` int(11) NOT NULL,
   `pageId` int(11) NOT NULL,
@@ -527,6 +538,10 @@ ALTER TABLE `modifiers`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pageId` (`pageId`);
 
+ALTER TABLE `ornaments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pageid` (`pageid`);
+
 ALTER TABLE `outOfLineLetters`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pageId` (`pageId`);
@@ -635,6 +650,8 @@ ALTER TABLE `marginals`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `modifiers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ornaments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `outOfLineLetters`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `pageCollectionMetadata`
@@ -719,6 +736,9 @@ ALTER TABLE `marginals`
 
 ALTER TABLE `modifiers`
   ADD CONSTRAINT `fk_modifiers_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
+
+ALTER TABLE `ornaments`
+  ADD CONSTRAINT `fk_ornaments_pages` FOREIGN KEY (`pageid`) REFERENCES `pages` (`pageId`);
 
 ALTER TABLE `outOfLineLetters`
   ADD CONSTRAINT `fk_outOfLineLetters_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);

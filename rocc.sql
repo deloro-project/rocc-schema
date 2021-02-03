@@ -327,6 +327,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `pageId` int(11) NOT NULL,
   `pageCollectionId` int(11) NOT NULL,
   `pageName` varchar(100) NOT NULL,
+  `pageLuminosity` decimal(10,0) NOT NULL,
   `pageImageFile` varchar(255) NOT NULL,
   `textPageFile` varchar(256) DEFAULT NULL,
   `beginningOfPage` int(11) DEFAULT NULL,

@@ -60,6 +60,16 @@ CREATE TABLE IF NOT EXISTS `authors` (
   `content` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `bookFormats` (
+  `id` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `bookFormats` (`id`) VALUES
+('duo'),
+('folio'),
+('octavo'),
+('quarto');
+
 CREATE TABLE IF NOT EXISTS `centuries` (
   `id` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -351,6 +361,7 @@ CREATE TABLE IF NOT EXISTS `publishing` (
   `publisher` text NOT NULL,
   `noOfPagesOrSheets` int(11) NOT NULL,
   `pageOrSheet` varchar(5) NOT NULL,
+  `bookFormat` varchar(10) NOT NULL,
   `publishingLocation` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -494,6 +505,9 @@ ALTER TABLE `authorNameAdditions`
 ALTER TABLE `authors`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `bookFormats`
+  ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `centuries`
   ADD PRIMARY KEY (`id`);
 
@@ -626,7 +640,8 @@ ALTER TABLE `publishing`
   ADD PRIMARY KEY (`id`),
   ADD KEY `metadataId` (`metadataId`),
   ADD KEY `publishingLocation` (`publishingLocation`),
-  ADD KEY `pageOrSheet` (`pageOrSheet`);
+  ADD KEY `pageOrSheet` (`pageOrSheet`),
+  ADD KEY `bookFormat` (`bookFormat`);
 
 ALTER TABLE `referenceMarksAboveLines`
   ADD PRIMARY KEY (`id`),
@@ -831,6 +846,7 @@ ALTER TABLE `pages`
   ADD CONSTRAINT `fk_onePageImages_pageCollections` FOREIGN KEY (`pageCollectionId`) REFERENCES `pageCollections` (`id`);
 
 ALTER TABLE `publishing`
+  ADD CONSTRAINT `fk_publishing_bookFormats` FOREIGN KEY (`bookFormat`) REFERENCES `bookFormats` (`id`),
   ADD CONSTRAINT `fk_publishing_locations` FOREIGN KEY (`publishingLocation`) REFERENCES `locations` (`id`),
   ADD CONSTRAINT `fk_publishing_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`),
   ADD CONSTRAINT `fk_publishing_sheetTypes` FOREIGN KEY (`pageOrSheet`) REFERENCES `sheetTypes` (`id`);

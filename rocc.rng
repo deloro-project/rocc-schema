@@ -85,13 +85,19 @@
     <element name="textPage">
       <attribute name="pageID"/>
       <optional>
-        <attribute name="textPageFile"/>
+        <attribute name="textPageFile">
+          <data type="anyURI"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="beginningOfPage"/>
+        <attribute name="beginningOfPage">
+          <data type="integer"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="endOfPage"/>
+        <attribute name="endOfPage">
+          <data type="integer"/>
+        </attribute>
       </optional>
     </element>
   </define>
@@ -302,17 +308,25 @@ Values for annotationLevel attribute are:
           <value>sheet</value>
         </choice>
       </attribute>
+      <attribute name="bookFormat">
+        <choice>
+          <value>duo</value>
+          <value>quarto</value>
+          <value>octavo</value>
+          <value>folio</value>
+        </choice>
+      </attribute>
       <element name="dimensions">
-        <attribute name="units">
-          <choice>
-            <value>mm</value>
-            <value>cm</value>
-          </choice>
-        </attribute>
-        <attribute name="width">
+        <attribute name="contentWidth">
           <data type="decimal"/>
         </attribute>
-        <attribute name="height">
+        <attribute name="contentHeight">
+          <data type="decimal"/>
+        </attribute>
+        <attribute name="pageWidth">
+          <data type="decimal"/>
+        </attribute>
+        <attribute name="pageHeight">
           <data type="decimal"/>
         </attribute>
       </element>
@@ -370,6 +384,9 @@ Values for annotationLevel attribute are:
     <element name="onePageImage">
       <attribute name="pageID"/>
       <attribute name="pageName"/>
+      <attribute name="pageLuminosity">
+        <data type="decimal"/>
+      </attribute>
       <attribute name="pageImageFile">
         <data type="anyURI"/>
       </attribute>
@@ -474,13 +491,15 @@ Values for annotationLevel attribute are:
       <optional>
         <attribute name="objectContent"/>
       </optional>
-      <attribute name="inColumn">
-        <choice>
-          <value>header</value>
-          <value>footer</value>
-          <value>ordinary</value>
-        </choice>
-      </attribute>
+      <optional>
+        <attribute name="inColumn">
+          <choice>
+            <value>header</value>
+            <value>footer</value>
+            <value>ordinary</value>
+          </choice>
+        </attribute>
+      </optional>
       <ref name="objectCoordinates"/>
     </element>
   </define>
@@ -491,6 +510,11 @@ Values for annotationLevel attribute are:
         <attribute name="objectContent"/>
       </optional>
       <attribute name="objectId"/>
+      <optional>
+        <attribute name="objectAccuracy">
+          <data type="decimal"/>
+        </attribute>
+      </optional>
       <ref name="objectCoordinates"/>
     </element>
   </define>

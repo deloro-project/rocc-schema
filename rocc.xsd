@@ -67,9 +67,9 @@
   <xs:element name="textPage">
     <xs:complexType>
       <xs:attribute name="pageID" use="required"/>
-      <xs:attribute name="textPageFile"/>
-      <xs:attribute name="beginningOfPage"/>
-      <xs:attribute name="endOfPage"/>
+      <xs:attribute name="textPageFile" type="xs:anyURI"/>
+      <xs:attribute name="beginningOfPage" type="xs:integer"/>
+      <xs:attribute name="endOfPage" type="xs:integer"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="letterAlignmentsImage2Text">
@@ -266,20 +266,24 @@ Values for annotationLevel attribute are:
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
+      <xs:attribute name="bookFormat" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="duo"/>
+            <xs:enumeration value="quarto"/>
+            <xs:enumeration value="octavo"/>
+            <xs:enumeration value="folio"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element name="dimensions">
     <xs:complexType>
-      <xs:attribute name="units" use="required">
-        <xs:simpleType>
-          <xs:restriction base="xs:token">
-            <xs:enumeration value="mm"/>
-            <xs:enumeration value="cm"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
-      <xs:attribute name="width" use="required" type="xs:decimal"/>
-      <xs:attribute name="height" use="required" type="xs:decimal"/>
+      <xs:attribute name="contentWidth" use="required" type="xs:decimal"/>
+      <xs:attribute name="contentHeight" use="required" type="xs:decimal"/>
+      <xs:attribute name="pageWidth" use="required" type="xs:decimal"/>
+      <xs:attribute name="pageHeight" use="required" type="xs:decimal"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="publishingLocation">
@@ -338,6 +342,7 @@ Values for annotationLevel attribute are:
         <xs:extension base="rocc:difficultyCriteria">
           <xs:attribute name="pageID" use="required"/>
           <xs:attribute name="pageName" use="required"/>
+          <xs:attribute name="pageLuminosity" use="required" type="xs:decimal"/>
           <xs:attribute name="pageImageFile" use="required" type="xs:anyURI"/>
         </xs:extension>
       </xs:complexContent>
@@ -443,7 +448,7 @@ Values for annotationLevel attribute are:
           <xs:attribute name="objectId" use="required"/>
           <xs:attribute name="objectAnnotator" use="required"/>
           <xs:attribute name="objectContent"/>
-          <xs:attribute name="inColumn" use="required">
+          <xs:attribute name="inColumn">
             <xs:simpleType>
               <xs:restriction base="xs:token">
                 <xs:enumeration value="header"/>
@@ -463,6 +468,7 @@ Values for annotationLevel attribute are:
           <xs:attribute name="objectAnnotator" use="required"/>
           <xs:attribute name="objectContent"/>
           <xs:attribute name="objectId" use="required"/>
+          <xs:attribute name="objectAccuracy" type="xs:decimal"/>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>

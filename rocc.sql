@@ -156,9 +156,10 @@ INSERT INTO `difficultyLevels` (`id`, `name`) VALUES
 CREATE TABLE IF NOT EXISTS `dimensions` (
   `id` int(11) NOT NULL,
   `publishingId` int(11) NOT NULL,
-  `units` varchar(2) NOT NULL,
-  `width` decimal(10,0) NOT NULL,
-  `height` decimal(10,0) NOT NULL
+  `contentWidth` decimal(10,0) NOT NULL,
+  `contentHeight` decimal(10,0) NOT NULL,
+  `pageWidth` decimal(10,0) NOT NULL,
+  `pageHeight` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `formatDescriptions` (
@@ -446,14 +447,6 @@ CREATE TABLE IF NOT EXISTS `translations` (
   `secTranslator` varchar(1023) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS `unitTypes` (
-  `id` varchar(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO `unitTypes` (`id`) VALUES
-('cm'),
-('mm');
-
 CREATE TABLE IF NOT EXISTS `writingTypes` (
   `id` varchar(2) NOT NULL,
   `name` varchar(100) NOT NULL
@@ -551,8 +544,7 @@ ALTER TABLE `difficultyLevels`
 
 ALTER TABLE `dimensions`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `publishingId` (`publishingId`),
-  ADD KEY `units` (`units`);
+  ADD KEY `publishingId` (`publishingId`);
 
 ALTER TABLE `formatDescriptions`
   ADD PRIMARY KEY (`id`),
@@ -683,9 +675,6 @@ ALTER TABLE `translations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `metadataId` (`metadataId`);
 
-ALTER TABLE `unitTypes`
-  ADD PRIMARY KEY (`id`);
-
 ALTER TABLE `writingTypes`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `ux_writingTypes_name` (`name`);
@@ -794,7 +783,6 @@ ALTER TABLE `difficultyCriteria`
   ADD CONSTRAINT `fk_difficultyCriteria_marginalWritings` FOREIGN KEY (`marginalWriting`) REFERENCES `marginalWritings` (`id`);
 
 ALTER TABLE `dimensions`
-  ADD CONSTRAINT `fk_dimensions_unitTypes` FOREIGN KEY (`units`) REFERENCES `unitTypes` (`id`),
   ADD CONSTRAINT `fk_dimensions_publishing` FOREIGN KEY (`publishingId`) REFERENCES `publishing` (`id`);
 
 ALTER TABLE `formatDescriptions`

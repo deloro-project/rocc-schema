@@ -220,6 +220,11 @@ CREATE TABLE IF NOT EXISTS `letters` (
   `rightDownVert` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `lettersSequences` (
+  `sequenceId` int(11) NOT NULL,
+  `letterId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `lines` (
   `id` int(11) NOT NULL,
   `pageId` int(11) NOT NULL,
@@ -393,6 +398,14 @@ CREATE TABLE IF NOT EXISTS `scannedCopies` (
   `libraryCode` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `sequences` (
+  `id` int(11) NOT NULL,
+  `alignmentType` varchar(10) NOT NULL,
+  `characterOffset` int(11) NOT NULL,
+  `characterLength` int(11) NOT NULL,
+  `letterLength` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `sheetTypes` (
   `id` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -555,6 +568,10 @@ ALTER TABLE `letters`
   ADD KEY `pageId` (`pageId`),
   ADD KEY `objectAnnotator` (`objectAnnotator`(255));
 
+ALTER TABLE `lettersSequences`
+  ADD PRIMARY KEY (`sequenceId`,`letterId`),
+  ADD KEY `fk_lettersSequences_letters` (`letterId`);
+
 ALTER TABLE `lines`
   ADD PRIMARY KEY (`id`),
   ADD KEY `objectAnnotator` (`objectAnnotator`(255)),
@@ -634,6 +651,10 @@ ALTER TABLE `roccCodeZones`
 ALTER TABLE `scannedCopies`
   ADD PRIMARY KEY (`id`),
   ADD KEY `metadataId` (`metadataId`);
+
+ALTER TABLE `sequences`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `alignmentType` (`alignmentType`);
 
 ALTER TABLE `sheetTypes`
   ADD PRIMARY KEY (`id`);
@@ -718,6 +739,8 @@ ALTER TABLE `roccCodes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `scannedCopies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `sequences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `titles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `translations`
@@ -777,6 +800,10 @@ ALTER TABLE `letterAlignments`
 ALTER TABLE `letters`
   ADD CONSTRAINT `fk_letters_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
 
+ALTER TABLE `lettersSequences`
+  ADD CONSTRAINT `fk_lettersSequences_sequences` FOREIGN KEY (`sequenceId`) REFERENCES `sequences` (`id`),
+  ADD CONSTRAINT `fk_lettersSequences_letters` FOREIGN KEY (`letterId`) REFERENCES `letters` (`id`);
+
 ALTER TABLE `lines`
   ADD CONSTRAINT `fk_lines_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`),
   ADD CONSTRAINT `fk_lines_lineTypes` FOREIGN KEY (`inColumn`) REFERENCES `lineTypes` (`id`);
@@ -827,6 +854,9 @@ ALTER TABLE `roccCodeZones`
 
 ALTER TABLE `scannedCopies`
   ADD CONSTRAINT `fk_scannedCopies_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`);
+
+ALTER TABLE `sequences`
+  ADD CONSTRAINT `fk_sequences_alignmentTypes` FOREIGN KEY (`alignmentType`) REFERENCES `alignmentTypes` (`id`);
 
 ALTER TABLE `titles`
   ADD CONSTRAINT `fk_titles_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);

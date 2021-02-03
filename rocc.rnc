@@ -147,6 +147,7 @@ grammar {
 		   attribute publisher { text },
 		   attribute noOfPagesOrSheets { xsd:integer },
 		   attribute pageOrSheet { "page" | "sheet" },
+		   attribute bookFormat { "duo" | "quarto" | "octavo" | "folio" },
 		   element dimensions {
 		       attribute units { "mm" | "cm" },
 		       attribute width { xsd:decimal },

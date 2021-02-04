@@ -45,3 +45,6 @@ To validate a file against `ROCC` schema use one of the following commands:
   - spin a Docker container from the image named `rocc` built in the previous section,
   - mount the directory at `<path-to-this-repo>` inside the `/work` directory of the container,
   - validate `<your-file>.xml` (from the `<path-to-this-repo>` directory) agains the `rocc.rng` file from this repository.
+
+## Database schema diagram ##
+![Database diagram](./docs/img/rocc.png)

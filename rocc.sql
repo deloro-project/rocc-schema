@@ -431,7 +431,7 @@ CREATE TABLE IF NOT EXISTS `titles` (
   `id` int(11) NOT NULL,
   `pageId` int(11) NOT NULL,
   `objectAnnotator` varchar(256) NOT NULL,
-  `objectContent` varchar(1024) NOT NULL,
+  `content` varchar(1024) NOT NULL,
   `leftUpHoriz` decimal(10,0) NOT NULL,
   `leftUpVert` decimal(10,0) NOT NULL,
   `rightDownHoriz` decimal(10,0) NOT NULL,

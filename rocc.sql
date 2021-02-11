@@ -117,6 +117,14 @@ INSERT INTO `corrections` (`id`) VALUES
 ('many'),
 ('none');
 
+CREATE TABLE IF NOT EXISTS `creationLocations` (
+  `id` int(11) NOT NULL,
+  `provinceId` int(11) NOT NULL,
+  `country` varchar(100) DEFAULT NULL,
+  `town` varchar(100) DEFAULT NULL,
+  `house` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `creations` (
   `id` int(11) NOT NULL,
   `metadataId` int(11) NOT NULL,
@@ -257,14 +265,6 @@ INSERT INTO `lineTypes` (`id`) VALUES
 ('header'),
 ('ordinary');
 
-CREATE TABLE IF NOT EXISTS `locations` (
-  `id` int(11) NOT NULL,
-  `provinceId` int(11) NOT NULL,
-  `country` varchar(100) DEFAULT NULL,
-  `town` varchar(100) DEFAULT NULL,
-  `house` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE IF NOT EXISTS `marginals` (
   `id` int(11) NOT NULL,
   `pageId` int(11) NOT NULL,
@@ -364,6 +364,14 @@ CREATE TABLE IF NOT EXISTS `publishing` (
   `pageOrSheet` varchar(5) NOT NULL,
   `bookFormat` varchar(10) NOT NULL,
   `publishingLocation` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `publishingLocations` (
+  `id` int(11) NOT NULL,
+  `provinceId` int(11) NOT NULL,
+  `country` varchar(100) DEFAULT NULL,
+  `town` varchar(100) DEFAULT NULL,
+  `house` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `referenceMarksAboveLines` (
@@ -522,6 +530,10 @@ ALTER TABLE `contentDescriptions`
 ALTER TABLE `corrections`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `creationLocations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `provinceId` (`provinceId`);
+
 ALTER TABLE `creations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `metadataId` (`metadataId`),
@@ -588,10 +600,6 @@ ALTER TABLE `lines`
 ALTER TABLE `lineTypes`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `locations`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `provinceId` (`provinceId`);
-
 ALTER TABLE `marginals`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pageId` (`pageId`),
@@ -634,6 +642,10 @@ ALTER TABLE `publishing`
   ADD KEY `publishingLocation` (`publishingLocation`),
   ADD KEY `pageOrSheet` (`pageOrSheet`),
   ADD KEY `bookFormat` (`bookFormat`);
+
+ALTER TABLE `publishingLocations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `provinceId` (`provinceId`);
 
 ALTER TABLE `referenceMarksAboveLines`
   ADD PRIMARY KEY (`id`),
@@ -696,6 +708,8 @@ ALTER TABLE `columns`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `contentDescriptions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `creationLocations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `creations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `difficultyCriteria`
@@ -716,8 +730,6 @@ ALTER TABLE `letters`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `lines`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `locations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `marginals`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `modifiers`
@@ -735,6 +747,8 @@ ALTER TABLE `pages`
 ALTER TABLE `provinces`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 ALTER TABLE `publishing`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `publishingLocations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `referenceMarksAboveLines`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
@@ -768,10 +782,13 @@ ALTER TABLE `columns`
 ALTER TABLE `contentDescriptions`
   ADD CONSTRAINT `fk_contentDescriptions_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`);
 
+ALTER TABLE `creationLocations`
+  ADD CONSTRAINT `fk_creationLocations_provinces` FOREIGN KEY (`provinceId`) REFERENCES `provinces` (`id`);
+
 ALTER TABLE `creations`
-  ADD CONSTRAINT `fk_creationInfo_locations` FOREIGN KEY (`locationId`) REFERENCES `locations` (`id`),
-  ADD CONSTRAINT `fk_creationInfo_authors` FOREIGN KEY (`authorId`) REFERENCES `authors` (`id`),
-  ADD CONSTRAINT `fk_creationInfo_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`);
+  ADD CONSTRAINT `fk_creations_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`),
+  ADD CONSTRAINT `fk_creations_authors` FOREIGN KEY (`authorId`) REFERENCES `authors` (`id`),
+  ADD CONSTRAINT `fk_creations_creationLocations` FOREIGN KEY (`locationId`) REFERENCES `creationLocations` (`id`);
 
 ALTER TABLE `creationSecondaryAuthors`
   ADD CONSTRAINT `fk_creationSecondaryAuthors_creations` FOREIGN KEY (`creationId`) REFERENCES `creations` (`id`),
@@ -812,9 +829,6 @@ ALTER TABLE `lines`
   ADD CONSTRAINT `fk_lines_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`),
   ADD CONSTRAINT `fk_lines_lineTypes` FOREIGN KEY (`inColumn`) REFERENCES `lineTypes` (`id`);
 
-ALTER TABLE `locations`
-  ADD CONSTRAINT `fk_locations_provinces` FOREIGN KEY (`provinceId`) REFERENCES `provinces` (`id`);
-
 ALTER TABLE `marginals`
   ADD CONSTRAINT `fk_marginals_pages` FOREIGN KEY (`pageId`) REFERENCES `pages` (`pageId`);
 
@@ -834,10 +848,13 @@ ALTER TABLE `pages`
   ADD CONSTRAINT `fk_onePageImages_pageCollections` FOREIGN KEY (`pageCollectionId`) REFERENCES `pageCollections` (`id`);
 
 ALTER TABLE `publishing`
+  ADD CONSTRAINT `fk_publishing_publishingLocations` FOREIGN KEY (`publishingLocation`) REFERENCES `publishingLocations` (`id`),
   ADD CONSTRAINT `fk_publishing_bookFormats` FOREIGN KEY (`bookFormat`) REFERENCES `bookFormats` (`id`),
-  ADD CONSTRAINT `fk_publishing_locations` FOREIGN KEY (`publishingLocation`) REFERENCES `locations` (`id`),
   ADD CONSTRAINT `fk_publishing_pageCollectionMetadata` FOREIGN KEY (`metadataId`) REFERENCES `pageCollectionMetadata` (`roccId`),
   ADD CONSTRAINT `fk_publishing_sheetTypes` FOREIGN KEY (`pageOrSheet`) REFERENCES `sheetTypes` (`id`);
+
+ALTER TABLE `publishingLocations`
+  ADD CONSTRAINT `fk_publishingLocations_provinces` FOREIGN KEY (`provinceId`) REFERENCES `provinces` (`id`);
 
 ALTER TABLE `referenceMarksAboveLines`
   ADD CONSTRAINT `fk_referenceMarksAboveLines_pages` FOREIGN KEY (`pageid`) REFERENCES `pages` (`pageId`);

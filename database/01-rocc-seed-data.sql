@@ -13,6 +13,7 @@ INSERT INTO `annotationLevels` (`id`, `name`) VALUES
 ('t', 'test');
 
 INSERT INTO `bookFormats` (`id`) VALUES
+(' '),
 ('duo'),
 ('folio'),
 ('octavo'),
@@ -54,11 +55,13 @@ INSERT INTO `marginalWritings` (`id`) VALUES
 ('none');
 
 INSERT INTO `provinces` (`id`, `name`) VALUES
+(4, ' '),
 (1, 'Moldova'),
 (2, 'Țara Românească'),
 (3, 'Transilvania');
 
 INSERT INTO `sheetTypes` (`id`) VALUES
+('n/a'),
 ('page'),
 ('sheet');
 
@@ -66,7 +69,8 @@ INSERT INTO `writingTypes` (`id`, `name`) VALUES
 ('m', 'manuscript'),
 ('p', 'print'),
 ('su', 'semiuncial'),
-('u', 'uncial');
+('u', 'uncial'),
+('', 'unknown');
 
 INSERT INTO `zones` (`id`, `name`) VALUES
 ('BT', 'Banat'),
@@ -74,4 +78,5 @@ INSERT INTO `zones` (`id`, `name`) VALUES
 ('MM', 'Maramureș'),
 ('MD', 'Moldavia'),
 ('T', 'Transylvania'),
+(' ', 'Unknown'),
 ('W', 'Wallachia');

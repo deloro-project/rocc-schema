@@ -5,10 +5,6 @@ CREATE TABLE IF NOT EXISTS `accoladeDirections` (
   `id` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `accoladeDirections` (`id`) VALUES
-('left'),
-('right');
-
 CREATE TABLE IF NOT EXISTS `accolades` (
   `id` int(11) NOT NULL,
   `pageid` int(11) NOT NULL,
@@ -26,20 +22,10 @@ CREATE TABLE IF NOT EXISTS `alignmentTypes` (
   `id` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `alignmentTypes` (`id`) VALUES
-('gold'),
-('test');
-
 CREATE TABLE IF NOT EXISTS `annotationLevels` (
   `id` char(1) NOT NULL,
   `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO `annotationLevels` (`id`, `name`) VALUES
-('g', 'gold'),
-('m', 'mixt'),
-('o', 'original'),
-('t', 'test');
 
 CREATE TABLE IF NOT EXISTS `authorBiographyLines` (
   `id` int(11) NOT NULL,
@@ -64,31 +50,14 @@ CREATE TABLE IF NOT EXISTS `bookFormats` (
   `id` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `bookFormats` (`id`) VALUES
-('duo'),
-('folio'),
-('octavo'),
-('quarto');
-
 CREATE TABLE IF NOT EXISTS `centuries` (
   `id` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO `centuries` (`id`) VALUES
-('XIX'),
-('XVI'),
-('XVII'),
-('XVIII');
 
 CREATE TABLE IF NOT EXISTS `columnPositions` (
   `id` varchar(1) NOT NULL,
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO `columnPositions` (`id`, `name`) VALUES
-('L', 'Left'),
-('R', 'Right'),
-('U', 'Unique');
 
 CREATE TABLE IF NOT EXISTS `columns` (
   `id` int(11) NOT NULL,
@@ -111,11 +80,6 @@ CREATE TABLE IF NOT EXISTS `contentDescriptions` (
 CREATE TABLE IF NOT EXISTS `corrections` (
   `id` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO `corrections` (`id`) VALUES
-('few'),
-('many'),
-('none');
 
 CREATE TABLE IF NOT EXISTS `creationLocations` (
   `id` int(11) NOT NULL,
@@ -155,11 +119,6 @@ CREATE TABLE IF NOT EXISTS `difficultyLevels` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO `difficultyLevels` (`id`, `name`) VALUES
-(1, 'easy'),
-(3, 'hard'),
-(2, 'medium');
 
 CREATE TABLE IF NOT EXISTS `dimensions` (
   `id` int(11) NOT NULL,
@@ -203,10 +162,6 @@ CREATE TABLE IF NOT EXISTS `frontispieces` (
 CREATE TABLE IF NOT EXISTS `halfCenturies` (
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO `halfCenturies` (`id`) VALUES
-(1),
-(2);
 
 CREATE TABLE IF NOT EXISTS `initialLetters` (
   `id` int(11) NOT NULL,
@@ -260,11 +215,6 @@ CREATE TABLE IF NOT EXISTS `lineTypes` (
   `id` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `lineTypes` (`id`) VALUES
-('footer'),
-('header'),
-('ordinary');
-
 CREATE TABLE IF NOT EXISTS `marginals` (
   `id` int(11) NOT NULL,
   `pageId` int(11) NOT NULL,
@@ -279,11 +229,6 @@ CREATE TABLE IF NOT EXISTS `marginals` (
 CREATE TABLE IF NOT EXISTS `marginalWritings` (
   `id` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO `marginalWritings` (`id`) VALUES
-('few'),
-('many'),
-('none');
 
 CREATE TABLE IF NOT EXISTS `modifiers` (
   `id` int(11) NOT NULL,
@@ -349,11 +294,6 @@ CREATE TABLE IF NOT EXISTS `provinces` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
-INSERT INTO `provinces` (`id`, `name`) VALUES
-(1, 'Moldova'),
-(2, 'Țara Românească'),
-(3, 'Transilvania');
 
 CREATE TABLE IF NOT EXISTS `publishing` (
   `id` int(11) NOT NULL,
@@ -431,10 +371,6 @@ CREATE TABLE IF NOT EXISTS `sheetTypes` (
   `id` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `sheetTypes` (`id`) VALUES
-('page'),
-('sheet');
-
 CREATE TABLE IF NOT EXISTS `titles` (
   `id` int(11) NOT NULL,
   `pageId` int(11) NOT NULL,
@@ -460,24 +396,10 @@ CREATE TABLE IF NOT EXISTS `writingTypes` (
   `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `writingTypes` (`id`, `name`) VALUES
-('m', 'manuscript'),
-('p', 'print'),
-('su', 'semiuncial'),
-('u', 'uncial');
-
 CREATE TABLE IF NOT EXISTS `zones` (
   `id` varchar(2) NOT NULL,
   `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO `zones` (`id`, `name`) VALUES
-('BT', 'Banat'),
-('BS', 'Bessarabia'),
-('MM', 'Maramureș'),
-('MD', 'Moldavia'),
-('T', 'Transylvania'),
-('W', 'Wallachia');
 
 
 ALTER TABLE `accoladeDirections`

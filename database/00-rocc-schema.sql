@@ -15,7 +15,7 @@ SET default_table_access_method = heap;
 
 --
 -- TOC entry 200 (class 1259 OID 16406)
--- Name: accoladedirections; Type: TABLE; Schema: public; Owner: deloro
+-- Name: accoladedirections; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.accoladedirections (
@@ -23,11 +23,9 @@ CREATE TABLE public.accoladedirections (
 );
 
 
-ALTER TABLE public.accoladedirections OWNER TO deloro;
-
 --
 -- TOC entry 201 (class 1259 OID 16409)
--- Name: accolades; Type: TABLE; Schema: public; Owner: deloro
+-- Name: accolades; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.accolades (
@@ -47,11 +45,9 @@ CREATE TABLE public.accolades (
 );
 
 
-ALTER TABLE public.accolades OWNER TO deloro;
-
 --
 -- TOC entry 253 (class 1259 OID 17447)
--- Name: accolades_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: accolades_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.accolades ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -66,7 +62,7 @@ ALTER TABLE public.accolades ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 202 (class 1259 OID 16412)
--- Name: alignmenttypes; Type: TABLE; Schema: public; Owner: deloro
+-- Name: alignmenttypes; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.alignmenttypes (
@@ -74,11 +70,9 @@ CREATE TABLE public.alignmenttypes (
 );
 
 
-ALTER TABLE public.alignmenttypes OWNER TO deloro;
-
 --
 -- TOC entry 203 (class 1259 OID 16415)
--- Name: annotationlevels; Type: TABLE; Schema: public; Owner: deloro
+-- Name: annotationlevels; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.annotationlevels (
@@ -87,11 +81,9 @@ CREATE TABLE public.annotationlevels (
 );
 
 
-ALTER TABLE public.annotationlevels OWNER TO deloro;
-
 --
 -- TOC entry 204 (class 1259 OID 16418)
--- Name: annotationprogress; Type: TABLE; Schema: public; Owner: deloro
+-- Name: annotationprogress; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.annotationprogress (
@@ -102,11 +94,9 @@ CREATE TABLE public.annotationprogress (
 );
 
 
-ALTER TABLE public.annotationprogress OWNER TO deloro;
-
 --
 -- TOC entry 254 (class 1259 OID 17449)
--- Name: annotationprogress_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: annotationprogress_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.annotationprogress ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -121,7 +111,7 @@ ALTER TABLE public.annotationprogress ALTER COLUMN id ADD GENERATED ALWAYS AS ID
 
 --
 -- TOC entry 205 (class 1259 OID 16421)
--- Name: authorbiographylines; Type: TABLE; Schema: public; Owner: deloro
+-- Name: authorbiographylines; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.authorbiographylines (
@@ -131,11 +121,9 @@ CREATE TABLE public.authorbiographylines (
 );
 
 
-ALTER TABLE public.authorbiographylines OWNER TO deloro;
-
 --
 -- TOC entry 255 (class 1259 OID 17451)
--- Name: authorbiographylines_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: authorbiographylines_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.authorbiographylines ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -150,7 +138,7 @@ ALTER TABLE public.authorbiographylines ALTER COLUMN id ADD GENERATED ALWAYS AS 
 
 --
 -- TOC entry 206 (class 1259 OID 16424)
--- Name: authornameadditions; Type: TABLE; Schema: public; Owner: deloro
+-- Name: authornameadditions; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.authornameadditions (
@@ -160,11 +148,9 @@ CREATE TABLE public.authornameadditions (
 );
 
 
-ALTER TABLE public.authornameadditions OWNER TO deloro;
-
 --
 -- TOC entry 256 (class 1259 OID 17453)
--- Name: authornameadditions_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: authornameadditions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.authornameadditions ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -179,7 +165,7 @@ ALTER TABLE public.authornameadditions ALTER COLUMN id ADD GENERATED ALWAYS AS I
 
 --
 -- TOC entry 207 (class 1259 OID 16430)
--- Name: authors; Type: TABLE; Schema: public; Owner: deloro
+-- Name: authors; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.authors (
@@ -190,11 +176,9 @@ CREATE TABLE public.authors (
 );
 
 
-ALTER TABLE public.authors OWNER TO deloro;
-
 --
 -- TOC entry 257 (class 1259 OID 17455)
--- Name: authors_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: authors_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.authors ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -209,7 +193,7 @@ ALTER TABLE public.authors ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 208 (class 1259 OID 16436)
--- Name: bookformats; Type: TABLE; Schema: public; Owner: deloro
+-- Name: bookformats; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.bookformats (
@@ -217,11 +201,9 @@ CREATE TABLE public.bookformats (
 );
 
 
-ALTER TABLE public.bookformats OWNER TO deloro;
-
 --
 -- TOC entry 209 (class 1259 OID 16439)
--- Name: centuries; Type: TABLE; Schema: public; Owner: deloro
+-- Name: centuries; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.centuries (
@@ -229,11 +211,9 @@ CREATE TABLE public.centuries (
 );
 
 
-ALTER TABLE public.centuries OWNER TO deloro;
-
 --
 -- TOC entry 210 (class 1259 OID 16442)
--- Name: columnpositions; Type: TABLE; Schema: public; Owner: deloro
+-- Name: columnpositions; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.columnpositions (
@@ -242,11 +222,9 @@ CREATE TABLE public.columnpositions (
 );
 
 
-ALTER TABLE public.columnpositions OWNER TO deloro;
-
 --
 -- TOC entry 211 (class 1259 OID 16445)
--- Name: columns; Type: TABLE; Schema: public; Owner: deloro
+-- Name: columns; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.columns (
@@ -264,11 +242,9 @@ CREATE TABLE public.columns (
 );
 
 
-ALTER TABLE public.columns OWNER TO deloro;
-
 --
 -- TOC entry 258 (class 1259 OID 17457)
--- Name: columns_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: columns_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.columns ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -283,7 +259,7 @@ ALTER TABLE public.columns ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 212 (class 1259 OID 16448)
--- Name: contentdescriptions; Type: TABLE; Schema: public; Owner: deloro
+-- Name: contentdescriptions; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.contentdescriptions (
@@ -294,11 +270,9 @@ CREATE TABLE public.contentdescriptions (
 );
 
 
-ALTER TABLE public.contentdescriptions OWNER TO deloro;
-
 --
 -- TOC entry 259 (class 1259 OID 17459)
--- Name: contentdescriptions_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: contentdescriptions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.contentdescriptions ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -313,7 +287,7 @@ ALTER TABLE public.contentdescriptions ALTER COLUMN id ADD GENERATED ALWAYS AS I
 
 --
 -- TOC entry 213 (class 1259 OID 16454)
--- Name: corrections; Type: TABLE; Schema: public; Owner: deloro
+-- Name: corrections; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.corrections (
@@ -321,11 +295,9 @@ CREATE TABLE public.corrections (
 );
 
 
-ALTER TABLE public.corrections OWNER TO deloro;
-
 --
 -- TOC entry 214 (class 1259 OID 16457)
--- Name: creationlocations; Type: TABLE; Schema: public; Owner: deloro
+-- Name: creationlocations; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.creationlocations (
@@ -337,11 +309,9 @@ CREATE TABLE public.creationlocations (
 );
 
 
-ALTER TABLE public.creationlocations OWNER TO deloro;
-
 --
 -- TOC entry 260 (class 1259 OID 17461)
--- Name: creationlocations_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: creationlocations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.creationlocations ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -356,7 +326,7 @@ ALTER TABLE public.creationlocations ALTER COLUMN id ADD GENERATED ALWAYS AS IDE
 
 --
 -- TOC entry 215 (class 1259 OID 16460)
--- Name: creations; Type: TABLE; Schema: public; Owner: deloro
+-- Name: creations; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.creations (
@@ -368,11 +338,9 @@ CREATE TABLE public.creations (
 );
 
 
-ALTER TABLE public.creations OWNER TO deloro;
-
 --
 -- TOC entry 261 (class 1259 OID 17463)
--- Name: creations_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: creations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.creations ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -387,7 +355,7 @@ ALTER TABLE public.creations ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 216 (class 1259 OID 16463)
--- Name: creationsecondaryauthors; Type: TABLE; Schema: public; Owner: deloro
+-- Name: creationsecondaryauthors; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.creationsecondaryauthors (
@@ -396,11 +364,9 @@ CREATE TABLE public.creationsecondaryauthors (
 );
 
 
-ALTER TABLE public.creationsecondaryauthors OWNER TO deloro;
-
 --
 -- TOC entry 217 (class 1259 OID 16466)
--- Name: difficultycriteria; Type: TABLE; Schema: public; Owner: deloro
+-- Name: difficultycriteria; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.difficultycriteria (
@@ -417,11 +383,9 @@ CREATE TABLE public.difficultycriteria (
 );
 
 
-ALTER TABLE public.difficultycriteria OWNER TO deloro;
-
 --
--- TOC entry 291 (class 1259 OID 20007)
--- Name: difficultycriteria_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- TOC entry 290 (class 1259 OID 20007)
+-- Name: difficultycriteria_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.difficultycriteria ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -436,7 +400,7 @@ ALTER TABLE public.difficultycriteria ALTER COLUMN id ADD GENERATED ALWAYS AS ID
 
 --
 -- TOC entry 218 (class 1259 OID 16469)
--- Name: difficultylevels; Type: TABLE; Schema: public; Owner: deloro
+-- Name: difficultylevels; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.difficultylevels (
@@ -445,11 +409,9 @@ CREATE TABLE public.difficultylevels (
 );
 
 
-ALTER TABLE public.difficultylevels OWNER TO deloro;
-
 --
 -- TOC entry 219 (class 1259 OID 16472)
--- Name: dimensions; Type: TABLE; Schema: public; Owner: deloro
+-- Name: dimensions; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.dimensions (
@@ -462,11 +424,9 @@ CREATE TABLE public.dimensions (
 );
 
 
-ALTER TABLE public.dimensions OWNER TO deloro;
-
 --
 -- TOC entry 262 (class 1259 OID 17467)
--- Name: dimensions_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: dimensions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.dimensions ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -481,7 +441,7 @@ ALTER TABLE public.dimensions ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 220 (class 1259 OID 16475)
--- Name: formatdescriptions; Type: TABLE; Schema: public; Owner: deloro
+-- Name: formatdescriptions; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.formatdescriptions (
@@ -491,11 +451,9 @@ CREATE TABLE public.formatdescriptions (
 );
 
 
-ALTER TABLE public.formatdescriptions OWNER TO deloro;
-
 --
 -- TOC entry 263 (class 1259 OID 17469)
--- Name: formatdescriptions_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: formatdescriptions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.formatdescriptions ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -510,7 +468,7 @@ ALTER TABLE public.formatdescriptions ALTER COLUMN id ADD GENERATED ALWAYS AS ID
 
 --
 -- TOC entry 221 (class 1259 OID 16482)
--- Name: frames; Type: TABLE; Schema: public; Owner: deloro
+-- Name: frames; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.frames (
@@ -531,11 +489,9 @@ CREATE TABLE public.frames (
 );
 
 
-ALTER TABLE public.frames OWNER TO deloro;
-
 --
 -- TOC entry 264 (class 1259 OID 17471)
--- Name: frames_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: frames_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.frames ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -550,7 +506,7 @@ ALTER TABLE public.frames ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 222 (class 1259 OID 16485)
--- Name: frontispieces; Type: TABLE; Schema: public; Owner: deloro
+-- Name: frontispieces; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.frontispieces (
@@ -567,11 +523,9 @@ CREATE TABLE public.frontispieces (
 );
 
 
-ALTER TABLE public.frontispieces OWNER TO deloro;
-
 --
 -- TOC entry 265 (class 1259 OID 17473)
--- Name: frontispieces_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: frontispieces_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.frontispieces ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -586,7 +540,7 @@ ALTER TABLE public.frontispieces ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTIT
 
 --
 -- TOC entry 223 (class 1259 OID 16488)
--- Name: halfcenturies; Type: TABLE; Schema: public; Owner: deloro
+-- Name: halfcenturies; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.halfcenturies (
@@ -594,11 +548,9 @@ CREATE TABLE public.halfcenturies (
 );
 
 
-ALTER TABLE public.halfcenturies OWNER TO deloro;
-
 --
 -- TOC entry 224 (class 1259 OID 16491)
--- Name: initialletters; Type: TABLE; Schema: public; Owner: deloro
+-- Name: initialletters; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.initialletters (
@@ -616,11 +568,9 @@ CREATE TABLE public.initialletters (
 );
 
 
-ALTER TABLE public.initialletters OWNER TO deloro;
-
 --
 -- TOC entry 266 (class 1259 OID 17475)
--- Name: initialletters_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: initialletters_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.initialletters ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -635,7 +585,7 @@ ALTER TABLE public.initialletters ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTI
 
 --
 -- TOC entry 226 (class 1259 OID 16497)
--- Name: letters; Type: TABLE; Schema: public; Owner: deloro
+-- Name: letters; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.letters (
@@ -654,11 +604,9 @@ CREATE TABLE public.letters (
 );
 
 
-ALTER TABLE public.letters OWNER TO deloro;
-
 --
 -- TOC entry 287 (class 1259 OID 17865)
--- Name: letter_statistics; Type: VIEW; Schema: public; Owner: deloro
+-- Name: letter_statistics; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.letter_statistics AS
@@ -670,11 +618,9 @@ CREATE VIEW public.letter_statistics AS
   ORDER BY l.content;
 
 
-ALTER TABLE public.letter_statistics OWNER TO deloro;
-
 --
 -- TOC entry 225 (class 1259 OID 16494)
--- Name: letteralignments; Type: TABLE; Schema: public; Owner: deloro
+-- Name: letteralignments; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.letteralignments (
@@ -686,11 +632,9 @@ CREATE TABLE public.letteralignments (
 );
 
 
-ALTER TABLE public.letteralignments OWNER TO deloro;
-
 --
 -- TOC entry 267 (class 1259 OID 17477)
--- Name: letteralignments_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: letteralignments_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.letteralignments ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -705,7 +649,7 @@ ALTER TABLE public.letteralignments ALTER COLUMN id ADD GENERATED ALWAYS AS IDEN
 
 --
 -- TOC entry 268 (class 1259 OID 17479)
--- Name: letters_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: letters_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.letters ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -720,7 +664,7 @@ ALTER TABLE public.letters ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 233 (class 1259 OID 16524)
--- Name: objectannotators; Type: TABLE; Schema: public; Owner: deloro
+-- Name: objectannotators; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.objectannotators (
@@ -733,11 +677,9 @@ CREATE TABLE public.objectannotators (
 );
 
 
-ALTER TABLE public.objectannotators OWNER TO deloro;
-
 --
 -- TOC entry 236 (class 1259 OID 16537)
--- Name: pagecollectionmetadata; Type: TABLE; Schema: public; Owner: deloro
+-- Name: pagecollectionmetadata; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.pagecollectionmetadata (
@@ -752,11 +694,9 @@ CREATE TABLE public.pagecollectionmetadata (
 );
 
 
-ALTER TABLE public.pagecollectionmetadata OWNER TO deloro;
-
 --
 -- TOC entry 237 (class 1259 OID 16543)
--- Name: pagecollections; Type: TABLE; Schema: public; Owner: deloro
+-- Name: pagecollections; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.pagecollections (
@@ -765,15 +705,13 @@ CREATE TABLE public.pagecollections (
 );
 
 
-ALTER TABLE public.pagecollections OWNER TO deloro;
-
 --
 -- TOC entry 238 (class 1259 OID 16546)
--- Name: pages; Type: TABLE; Schema: public; Owner: deloro
+-- Name: pages; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.pages (
-    pageid integer DEFAULT nextval('public.foo_a_seq'::regclass) NOT NULL,
+    pageid integer NOT NULL,
     pagecollectionid integer NOT NULL,
     pagenumber integer NOT NULL,
     pagename character varying(100) NOT NULL,
@@ -786,11 +724,9 @@ CREATE TABLE public.pages (
 );
 
 
-ALTER TABLE public.pages OWNER TO deloro;
-
 --
--- TOC entry 292 (class 1259 OID 21799)
--- Name: letters_per_page; Type: VIEW; Schema: public; Owner: deloro
+-- TOC entry 291 (class 1259 OID 21799)
+-- Name: letters_per_page; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.letters_per_page AS
@@ -819,11 +755,9 @@ CREATE VIEW public.letters_per_page AS
      JOIN public.objectannotators a ON ((l.annotator_id = a.id)));
 
 
-ALTER TABLE public.letters_per_page OWNER TO deloro;
-
 --
 -- TOC entry 227 (class 1259 OID 16500)
--- Name: letterssequences; Type: TABLE; Schema: public; Owner: deloro
+-- Name: letterssequences; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.letterssequences (
@@ -832,11 +766,9 @@ CREATE TABLE public.letterssequences (
 );
 
 
-ALTER TABLE public.letterssequences OWNER TO deloro;
-
 --
 -- TOC entry 228 (class 1259 OID 16503)
--- Name: lines; Type: TABLE; Schema: public; Owner: deloro
+-- Name: lines; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.lines (
@@ -855,11 +787,9 @@ CREATE TABLE public.lines (
 );
 
 
-ALTER TABLE public.lines OWNER TO deloro;
-
 --
 -- TOC entry 269 (class 1259 OID 17481)
--- Name: lines_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: lines_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.lines ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -874,7 +804,7 @@ ALTER TABLE public.lines ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 229 (class 1259 OID 16509)
--- Name: linetypes; Type: TABLE; Schema: public; Owner: deloro
+-- Name: linetypes; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.linetypes (
@@ -882,11 +812,9 @@ CREATE TABLE public.linetypes (
 );
 
 
-ALTER TABLE public.linetypes OWNER TO deloro;
-
 --
 -- TOC entry 230 (class 1259 OID 16512)
--- Name: marginals; Type: TABLE; Schema: public; Owner: deloro
+-- Name: marginals; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.marginals (
@@ -904,11 +832,9 @@ CREATE TABLE public.marginals (
 );
 
 
-ALTER TABLE public.marginals OWNER TO deloro;
-
 --
 -- TOC entry 270 (class 1259 OID 17483)
--- Name: marginals_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: marginals_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.marginals ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -923,7 +849,7 @@ ALTER TABLE public.marginals ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 231 (class 1259 OID 16515)
--- Name: marginalwritings; Type: TABLE; Schema: public; Owner: deloro
+-- Name: marginalwritings; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.marginalwritings (
@@ -931,11 +857,9 @@ CREATE TABLE public.marginalwritings (
 );
 
 
-ALTER TABLE public.marginalwritings OWNER TO deloro;
-
 --
 -- TOC entry 232 (class 1259 OID 16518)
--- Name: modifiers; Type: TABLE; Schema: public; Owner: deloro
+-- Name: modifiers; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.modifiers (
@@ -953,11 +877,9 @@ CREATE TABLE public.modifiers (
 );
 
 
-ALTER TABLE public.modifiers OWNER TO deloro;
-
 --
 -- TOC entry 271 (class 1259 OID 17485)
--- Name: modifiers_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: modifiers_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.modifiers ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -972,7 +894,7 @@ ALTER TABLE public.modifiers ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 286 (class 1259 OID 17860)
--- Name: object_statistics; Type: VIEW; Schema: public; Owner: deloro
+-- Name: object_statistics; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.object_statistics AS
@@ -984,11 +906,9 @@ SELECT
     NULL::bigint AS num_annotations;
 
 
-ALTER TABLE public.object_statistics OWNER TO deloro;
-
 --
 -- TOC entry 272 (class 1259 OID 17487)
--- Name: objectannotators_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: objectannotators_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.objectannotators ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -1003,7 +923,7 @@ ALTER TABLE public.objectannotators ALTER COLUMN id ADD GENERATED ALWAYS AS IDEN
 
 --
 -- TOC entry 234 (class 1259 OID 16531)
--- Name: ornaments; Type: TABLE; Schema: public; Owner: deloro
+-- Name: ornaments; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.ornaments (
@@ -1021,11 +941,9 @@ CREATE TABLE public.ornaments (
 );
 
 
-ALTER TABLE public.ornaments OWNER TO deloro;
-
 --
 -- TOC entry 273 (class 1259 OID 17489)
--- Name: ornaments_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: ornaments_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.ornaments ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -1040,7 +958,7 @@ ALTER TABLE public.ornaments ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 235 (class 1259 OID 16534)
--- Name: outoflineletters; Type: TABLE; Schema: public; Owner: deloro
+-- Name: outoflineletters; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.outoflineletters (
@@ -1058,11 +976,9 @@ CREATE TABLE public.outoflineletters (
 );
 
 
-ALTER TABLE public.outoflineletters OWNER TO deloro;
-
 --
 -- TOC entry 274 (class 1259 OID 17491)
--- Name: outoflineletters_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: outoflineletters_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.outoflineletters ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -1077,7 +993,7 @@ ALTER TABLE public.outoflineletters ALTER COLUMN id ADD GENERATED ALWAYS AS IDEN
 
 --
 -- TOC entry 242 (class 1259 OID 16565)
--- Name: referencemarksabovelines; Type: TABLE; Schema: public; Owner: deloro
+-- Name: referencemarksabovelines; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.referencemarksabovelines (
@@ -1095,11 +1011,9 @@ CREATE TABLE public.referencemarksabovelines (
 );
 
 
-ALTER TABLE public.referencemarksabovelines OWNER TO deloro;
-
 --
 -- TOC entry 243 (class 1259 OID 16568)
--- Name: referencemarksonmargin; Type: TABLE; Schema: public; Owner: deloro
+-- Name: referencemarksonmargin; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.referencemarksonmargin (
@@ -1117,11 +1031,9 @@ CREATE TABLE public.referencemarksonmargin (
 );
 
 
-ALTER TABLE public.referencemarksonmargin OWNER TO deloro;
-
 --
 -- TOC entry 249 (class 1259 OID 16590)
--- Name: titles; Type: TABLE; Schema: public; Owner: deloro
+-- Name: titles; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.titles (
@@ -1139,11 +1051,9 @@ CREATE TABLE public.titles (
 );
 
 
-ALTER TABLE public.titles OWNER TO deloro;
-
 --
 -- TOC entry 289 (class 1259 OID 17913)
--- Name: page_objects; Type: VIEW; Schema: public; Owner: deloro
+-- Name: page_objects; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.page_objects AS
@@ -1292,11 +1202,9 @@ UNION ALL
   WHERE (referencemarksabovelines.rowdeletiontimestamp IS NULL);
 
 
-ALTER TABLE public.page_objects OWNER TO deloro;
-
 --
 -- TOC entry 275 (class 1259 OID 17493)
--- Name: pagecollections_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: pagecollections_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.pagecollections ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -1310,8 +1218,23 @@ ALTER TABLE public.pagecollections ALTER COLUMN id ADD GENERATED ALWAYS AS IDENT
 
 
 --
+-- TOC entry 292 (class 1259 OID 33514)
+-- Name: pages_pageid_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.pages ALTER COLUMN pageid ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.pages_pageid_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
 -- TOC entry 239 (class 1259 OID 16553)
--- Name: provinces; Type: TABLE; Schema: public; Owner: deloro
+-- Name: provinces; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.provinces (
@@ -1320,11 +1243,9 @@ CREATE TABLE public.provinces (
 );
 
 
-ALTER TABLE public.provinces OWNER TO deloro;
-
 --
 -- TOC entry 276 (class 1259 OID 17495)
--- Name: provinces_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: provinces_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.provinces ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -1339,7 +1260,7 @@ ALTER TABLE public.provinces ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 240 (class 1259 OID 16556)
--- Name: publishing; Type: TABLE; Schema: public; Owner: deloro
+-- Name: publishing; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.publishing (
@@ -1354,11 +1275,9 @@ CREATE TABLE public.publishing (
 );
 
 
-ALTER TABLE public.publishing OWNER TO deloro;
-
 --
 -- TOC entry 277 (class 1259 OID 17497)
--- Name: publishing_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: publishing_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.publishing ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -1373,7 +1292,7 @@ ALTER TABLE public.publishing ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 241 (class 1259 OID 16562)
--- Name: publishinglocations; Type: TABLE; Schema: public; Owner: deloro
+-- Name: publishinglocations; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.publishinglocations (
@@ -1385,11 +1304,9 @@ CREATE TABLE public.publishinglocations (
 );
 
 
-ALTER TABLE public.publishinglocations OWNER TO deloro;
-
 --
 -- TOC entry 278 (class 1259 OID 17499)
--- Name: publishinglocations_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: publishinglocations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.publishinglocations ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -1404,7 +1321,7 @@ ALTER TABLE public.publishinglocations ALTER COLUMN id ADD GENERATED ALWAYS AS I
 
 --
 -- TOC entry 279 (class 1259 OID 17501)
--- Name: referencemarksabovelines_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: referencemarksabovelines_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.referencemarksabovelines ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -1419,7 +1336,7 @@ ALTER TABLE public.referencemarksabovelines ALTER COLUMN id ADD GENERATED ALWAYS
 
 --
 -- TOC entry 280 (class 1259 OID 17503)
--- Name: referencemarksonmargin_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: referencemarksonmargin_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.referencemarksonmargin ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -1434,7 +1351,7 @@ ALTER TABLE public.referencemarksonmargin ALTER COLUMN id ADD GENERATED ALWAYS A
 
 --
 -- TOC entry 244 (class 1259 OID 16571)
--- Name: rocccodes; Type: TABLE; Schema: public; Owner: deloro
+-- Name: rocccodes; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.rocccodes (
@@ -1449,11 +1366,9 @@ CREATE TABLE public.rocccodes (
 );
 
 
-ALTER TABLE public.rocccodes OWNER TO deloro;
-
 --
 -- TOC entry 281 (class 1259 OID 17505)
--- Name: rocccodes_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: rocccodes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.rocccodes ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -1468,7 +1383,7 @@ ALTER TABLE public.rocccodes ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 245 (class 1259 OID 16574)
--- Name: rocccodezones; Type: TABLE; Schema: public; Owner: deloro
+-- Name: rocccodezones; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.rocccodezones (
@@ -1477,11 +1392,9 @@ CREATE TABLE public.rocccodezones (
 );
 
 
-ALTER TABLE public.rocccodezones OWNER TO deloro;
-
 --
 -- TOC entry 246 (class 1259 OID 16577)
--- Name: scannedcopies; Type: TABLE; Schema: public; Owner: deloro
+-- Name: scannedcopies; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.scannedcopies (
@@ -1492,11 +1405,9 @@ CREATE TABLE public.scannedcopies (
 );
 
 
-ALTER TABLE public.scannedcopies OWNER TO deloro;
-
 --
 -- TOC entry 282 (class 1259 OID 17507)
--- Name: scannedcopies_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: scannedcopies_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.scannedcopies ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -1511,7 +1422,7 @@ ALTER TABLE public.scannedcopies ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTIT
 
 --
 -- TOC entry 247 (class 1259 OID 16583)
--- Name: sequences; Type: TABLE; Schema: public; Owner: deloro
+-- Name: sequences; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.sequences (
@@ -1523,11 +1434,9 @@ CREATE TABLE public.sequences (
 );
 
 
-ALTER TABLE public.sequences OWNER TO deloro;
-
 --
 -- TOC entry 283 (class 1259 OID 17509)
--- Name: sequences_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: sequences_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.sequences ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -1542,7 +1451,7 @@ ALTER TABLE public.sequences ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 248 (class 1259 OID 16586)
--- Name: sheettypes; Type: TABLE; Schema: public; Owner: deloro
+-- Name: sheettypes; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.sheettypes (
@@ -1550,11 +1459,9 @@ CREATE TABLE public.sheettypes (
 );
 
 
-ALTER TABLE public.sheettypes OWNER TO deloro;
-
 --
 -- TOC entry 284 (class 1259 OID 17511)
--- Name: titles_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: titles_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.titles ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -1569,7 +1476,7 @@ ALTER TABLE public.titles ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 --
 -- TOC entry 250 (class 1259 OID 16596)
--- Name: translations; Type: TABLE; Schema: public; Owner: deloro
+-- Name: translations; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.translations (
@@ -1582,11 +1489,9 @@ CREATE TABLE public.translations (
 );
 
 
-ALTER TABLE public.translations OWNER TO deloro;
-
 --
 -- TOC entry 285 (class 1259 OID 17513)
--- Name: translations_id_seq; Type: SEQUENCE; Schema: public; Owner: deloro
+-- Name: translations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 ALTER TABLE public.translations ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -1601,7 +1506,7 @@ ALTER TABLE public.translations ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY
 
 --
 -- TOC entry 288 (class 1259 OID 17878)
--- Name: user_annotations; Type: VIEW; Schema: public; Owner: deloro
+-- Name: user_annotations; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.user_annotations AS
@@ -1621,11 +1526,9 @@ CREATE VIEW public.user_annotations AS
      JOIN public.object_statistics os ON ((t.table_name = os.table_name)));
 
 
-ALTER TABLE public.user_annotations OWNER TO deloro;
-
 --
 -- TOC entry 251 (class 1259 OID 16602)
--- Name: writingtypes; Type: TABLE; Schema: public; Owner: deloro
+-- Name: writingtypes; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.writingtypes (
@@ -1634,11 +1537,9 @@ CREATE TABLE public.writingtypes (
 );
 
 
-ALTER TABLE public.writingtypes OWNER TO deloro;
-
 --
 -- TOC entry 252 (class 1259 OID 16605)
--- Name: zones; Type: TABLE; Schema: public; Owner: deloro
+-- Name: zones; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.zones (
@@ -1647,11 +1548,9 @@ CREATE TABLE public.zones (
 );
 
 
-ALTER TABLE public.zones OWNER TO deloro;
-
 --
--- TOC entry 3908 (class 2606 OID 16609)
--- Name: accoladedirections accoladedirections_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3907 (class 2606 OID 16609)
+-- Name: accoladedirections accoladedirections_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.accoladedirections
@@ -1659,8 +1558,8 @@ ALTER TABLE ONLY public.accoladedirections
 
 
 --
--- TOC entry 3910 (class 2606 OID 16611)
--- Name: accolades accolades_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3909 (class 2606 OID 16611)
+-- Name: accolades accolades_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.accolades
@@ -1668,8 +1567,8 @@ ALTER TABLE ONLY public.accolades
 
 
 --
--- TOC entry 3912 (class 2606 OID 16613)
--- Name: alignmenttypes alignmenttypes_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3911 (class 2606 OID 16613)
+-- Name: alignmenttypes alignmenttypes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.alignmenttypes
@@ -1677,8 +1576,8 @@ ALTER TABLE ONLY public.alignmenttypes
 
 
 --
--- TOC entry 3914 (class 2606 OID 16615)
--- Name: annotationlevels annotationlevels_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3913 (class 2606 OID 16615)
+-- Name: annotationlevels annotationlevels_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.annotationlevels
@@ -1686,8 +1585,8 @@ ALTER TABLE ONLY public.annotationlevels
 
 
 --
--- TOC entry 3918 (class 2606 OID 16619)
--- Name: annotationprogress annotationprogress_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3917 (class 2606 OID 16619)
+-- Name: annotationprogress annotationprogress_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.annotationprogress
@@ -1695,8 +1594,8 @@ ALTER TABLE ONLY public.annotationprogress
 
 
 --
--- TOC entry 3920 (class 2606 OID 16621)
--- Name: authorbiographylines authorbiographylines_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3919 (class 2606 OID 16621)
+-- Name: authorbiographylines authorbiographylines_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.authorbiographylines
@@ -1704,8 +1603,8 @@ ALTER TABLE ONLY public.authorbiographylines
 
 
 --
--- TOC entry 3922 (class 2606 OID 16623)
--- Name: authornameadditions authornameadditions_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3921 (class 2606 OID 16623)
+-- Name: authornameadditions authornameadditions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.authornameadditions
@@ -1713,8 +1612,8 @@ ALTER TABLE ONLY public.authornameadditions
 
 
 --
--- TOC entry 3924 (class 2606 OID 16625)
--- Name: authors authors_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3923 (class 2606 OID 16625)
+-- Name: authors authors_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.authors
@@ -1722,8 +1621,8 @@ ALTER TABLE ONLY public.authors
 
 
 --
--- TOC entry 3926 (class 2606 OID 16627)
--- Name: bookformats bookformats_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3925 (class 2606 OID 16627)
+-- Name: bookformats bookformats_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.bookformats
@@ -1731,8 +1630,8 @@ ALTER TABLE ONLY public.bookformats
 
 
 --
--- TOC entry 3928 (class 2606 OID 16629)
--- Name: centuries centuries_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3927 (class 2606 OID 16629)
+-- Name: centuries centuries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.centuries
@@ -1740,8 +1639,8 @@ ALTER TABLE ONLY public.centuries
 
 
 --
--- TOC entry 3930 (class 2606 OID 16631)
--- Name: columnpositions columnpositions_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3929 (class 2606 OID 16631)
+-- Name: columnpositions columnpositions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.columnpositions
@@ -1749,8 +1648,8 @@ ALTER TABLE ONLY public.columnpositions
 
 
 --
--- TOC entry 3934 (class 2606 OID 16635)
--- Name: columns columns_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3933 (class 2606 OID 16635)
+-- Name: columns columns_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.columns
@@ -1758,8 +1657,8 @@ ALTER TABLE ONLY public.columns
 
 
 --
--- TOC entry 3936 (class 2606 OID 16637)
--- Name: contentdescriptions contentdescriptions_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3935 (class 2606 OID 16637)
+-- Name: contentdescriptions contentdescriptions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.contentdescriptions
@@ -1767,8 +1666,8 @@ ALTER TABLE ONLY public.contentdescriptions
 
 
 --
--- TOC entry 3938 (class 2606 OID 16639)
--- Name: corrections corrections_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3937 (class 2606 OID 16639)
+-- Name: corrections corrections_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.corrections
@@ -1776,8 +1675,8 @@ ALTER TABLE ONLY public.corrections
 
 
 --
--- TOC entry 3940 (class 2606 OID 16641)
--- Name: creationlocations creationlocations_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3939 (class 2606 OID 16641)
+-- Name: creationlocations creationlocations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.creationlocations
@@ -1785,8 +1684,8 @@ ALTER TABLE ONLY public.creationlocations
 
 
 --
--- TOC entry 3942 (class 2606 OID 16643)
--- Name: creations creations_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3941 (class 2606 OID 16643)
+-- Name: creations creations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.creations
@@ -1794,8 +1693,8 @@ ALTER TABLE ONLY public.creations
 
 
 --
--- TOC entry 3944 (class 2606 OID 16645)
--- Name: creationsecondaryauthors creationsecondaryauthors_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3943 (class 2606 OID 16645)
+-- Name: creationsecondaryauthors creationsecondaryauthors_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.creationsecondaryauthors
@@ -1803,8 +1702,8 @@ ALTER TABLE ONLY public.creationsecondaryauthors
 
 
 --
--- TOC entry 3946 (class 2606 OID 16647)
--- Name: difficultycriteria difficultycriteria_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3945 (class 2606 OID 16647)
+-- Name: difficultycriteria difficultycriteria_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.difficultycriteria
@@ -1812,8 +1711,8 @@ ALTER TABLE ONLY public.difficultycriteria
 
 
 --
--- TOC entry 3948 (class 2606 OID 16649)
--- Name: difficultylevels difficultylevels_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3947 (class 2606 OID 16649)
+-- Name: difficultylevels difficultylevels_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.difficultylevels
@@ -1821,8 +1720,8 @@ ALTER TABLE ONLY public.difficultylevels
 
 
 --
--- TOC entry 3952 (class 2606 OID 16653)
--- Name: dimensions dimensions_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3951 (class 2606 OID 16653)
+-- Name: dimensions dimensions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.dimensions
@@ -1830,8 +1729,8 @@ ALTER TABLE ONLY public.dimensions
 
 
 --
--- TOC entry 3954 (class 2606 OID 16655)
--- Name: formatdescriptions formatdescriptions_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3953 (class 2606 OID 16655)
+-- Name: formatdescriptions formatdescriptions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.formatdescriptions
@@ -1839,8 +1738,8 @@ ALTER TABLE ONLY public.formatdescriptions
 
 
 --
--- TOC entry 3956 (class 2606 OID 16657)
--- Name: frames frames_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3955 (class 2606 OID 16657)
+-- Name: frames frames_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.frames
@@ -1848,8 +1747,8 @@ ALTER TABLE ONLY public.frames
 
 
 --
--- TOC entry 3958 (class 2606 OID 16659)
--- Name: frontispieces frontispieces_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3957 (class 2606 OID 16659)
+-- Name: frontispieces frontispieces_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.frontispieces
@@ -1857,8 +1756,8 @@ ALTER TABLE ONLY public.frontispieces
 
 
 --
--- TOC entry 3960 (class 2606 OID 16661)
--- Name: halfcenturies halfcenturies_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3959 (class 2606 OID 16661)
+-- Name: halfcenturies halfcenturies_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.halfcenturies
@@ -1866,8 +1765,8 @@ ALTER TABLE ONLY public.halfcenturies
 
 
 --
--- TOC entry 3962 (class 2606 OID 16663)
--- Name: initialletters initialletters_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3961 (class 2606 OID 16663)
+-- Name: initialletters initialletters_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.initialletters
@@ -1875,8 +1774,8 @@ ALTER TABLE ONLY public.initialletters
 
 
 --
--- TOC entry 3964 (class 2606 OID 16665)
--- Name: letteralignments letteralignments_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3963 (class 2606 OID 16665)
+-- Name: letteralignments letteralignments_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.letteralignments
@@ -1884,8 +1783,8 @@ ALTER TABLE ONLY public.letteralignments
 
 
 --
--- TOC entry 3966 (class 2606 OID 16667)
--- Name: letters letters_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3965 (class 2606 OID 16667)
+-- Name: letters letters_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.letters
@@ -1893,8 +1792,8 @@ ALTER TABLE ONLY public.letters
 
 
 --
--- TOC entry 3968 (class 2606 OID 16669)
--- Name: letterssequences letterssequences_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3967 (class 2606 OID 16669)
+-- Name: letterssequences letterssequences_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.letterssequences
@@ -1902,8 +1801,8 @@ ALTER TABLE ONLY public.letterssequences
 
 
 --
--- TOC entry 3970 (class 2606 OID 16671)
--- Name: lines lines_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3969 (class 2606 OID 16671)
+-- Name: lines lines_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.lines
@@ -1911,8 +1810,8 @@ ALTER TABLE ONLY public.lines
 
 
 --
--- TOC entry 3972 (class 2606 OID 16673)
--- Name: linetypes linetypes_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3971 (class 2606 OID 16673)
+-- Name: linetypes linetypes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.linetypes
@@ -1920,8 +1819,8 @@ ALTER TABLE ONLY public.linetypes
 
 
 --
--- TOC entry 3974 (class 2606 OID 16675)
--- Name: marginals marginals_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3973 (class 2606 OID 16675)
+-- Name: marginals marginals_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.marginals
@@ -1929,8 +1828,8 @@ ALTER TABLE ONLY public.marginals
 
 
 --
--- TOC entry 3976 (class 2606 OID 16677)
--- Name: marginalwritings marginalwritings_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3975 (class 2606 OID 16677)
+-- Name: marginalwritings marginalwritings_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.marginalwritings
@@ -1938,8 +1837,8 @@ ALTER TABLE ONLY public.marginalwritings
 
 
 --
--- TOC entry 3978 (class 2606 OID 16679)
--- Name: modifiers modifiers_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3977 (class 2606 OID 16679)
+-- Name: modifiers modifiers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.modifiers
@@ -1947,8 +1846,8 @@ ALTER TABLE ONLY public.modifiers
 
 
 --
--- TOC entry 3980 (class 2606 OID 16681)
--- Name: objectannotators objectannotators_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3979 (class 2606 OID 16681)
+-- Name: objectannotators objectannotators_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.objectannotators
@@ -1956,8 +1855,8 @@ ALTER TABLE ONLY public.objectannotators
 
 
 --
--- TOC entry 3984 (class 2606 OID 16685)
--- Name: ornaments ornaments_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3983 (class 2606 OID 16685)
+-- Name: ornaments ornaments_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.ornaments
@@ -1965,8 +1864,8 @@ ALTER TABLE ONLY public.ornaments
 
 
 --
--- TOC entry 3986 (class 2606 OID 16687)
--- Name: outoflineletters outoflineletters_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3985 (class 2606 OID 16687)
+-- Name: outoflineletters outoflineletters_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.outoflineletters
@@ -1974,8 +1873,8 @@ ALTER TABLE ONLY public.outoflineletters
 
 
 --
--- TOC entry 3988 (class 2606 OID 16689)
--- Name: pagecollectionmetadata pagecollectionmetadata_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3987 (class 2606 OID 16689)
+-- Name: pagecollectionmetadata pagecollectionmetadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.pagecollectionmetadata
@@ -1983,8 +1882,8 @@ ALTER TABLE ONLY public.pagecollectionmetadata
 
 
 --
--- TOC entry 3992 (class 2606 OID 16693)
--- Name: pagecollections pagecollections_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3991 (class 2606 OID 16693)
+-- Name: pagecollections pagecollections_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.pagecollections
@@ -1992,8 +1891,8 @@ ALTER TABLE ONLY public.pagecollections
 
 
 --
--- TOC entry 3994 (class 2606 OID 16695)
--- Name: pages pages_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3993 (class 2606 OID 16695)
+-- Name: pages pages_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.pages
@@ -2001,8 +1900,8 @@ ALTER TABLE ONLY public.pages
 
 
 --
--- TOC entry 3998 (class 2606 OID 16699)
--- Name: provinces provinces_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3997 (class 2606 OID 16699)
+-- Name: provinces provinces_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.provinces
@@ -2010,8 +1909,8 @@ ALTER TABLE ONLY public.provinces
 
 
 --
--- TOC entry 4002 (class 2606 OID 16703)
--- Name: publishing publishing_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4001 (class 2606 OID 16703)
+-- Name: publishing publishing_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.publishing
@@ -2019,8 +1918,8 @@ ALTER TABLE ONLY public.publishing
 
 
 --
--- TOC entry 4004 (class 2606 OID 16705)
--- Name: publishinglocations publishinglocations_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4003 (class 2606 OID 16705)
+-- Name: publishinglocations publishinglocations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.publishinglocations
@@ -2028,8 +1927,8 @@ ALTER TABLE ONLY public.publishinglocations
 
 
 --
--- TOC entry 4006 (class 2606 OID 16707)
--- Name: referencemarksabovelines referencemarksabovelines_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4005 (class 2606 OID 16707)
+-- Name: referencemarksabovelines referencemarksabovelines_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.referencemarksabovelines
@@ -2037,8 +1936,8 @@ ALTER TABLE ONLY public.referencemarksabovelines
 
 
 --
--- TOC entry 4008 (class 2606 OID 16709)
--- Name: referencemarksonmargin referencemarksonmargin_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4007 (class 2606 OID 16709)
+-- Name: referencemarksonmargin referencemarksonmargin_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.referencemarksonmargin
@@ -2046,8 +1945,8 @@ ALTER TABLE ONLY public.referencemarksonmargin
 
 
 --
--- TOC entry 4010 (class 2606 OID 16711)
--- Name: rocccodes rocccodes_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4009 (class 2606 OID 16711)
+-- Name: rocccodes rocccodes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.rocccodes
@@ -2055,8 +1954,8 @@ ALTER TABLE ONLY public.rocccodes
 
 
 --
--- TOC entry 4012 (class 2606 OID 16713)
--- Name: rocccodezones rocccodezones_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4011 (class 2606 OID 16713)
+-- Name: rocccodezones rocccodezones_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.rocccodezones
@@ -2064,8 +1963,8 @@ ALTER TABLE ONLY public.rocccodezones
 
 
 --
--- TOC entry 4014 (class 2606 OID 16715)
--- Name: scannedcopies scannedcopies_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4013 (class 2606 OID 16715)
+-- Name: scannedcopies scannedcopies_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.scannedcopies
@@ -2073,8 +1972,8 @@ ALTER TABLE ONLY public.scannedcopies
 
 
 --
--- TOC entry 4016 (class 2606 OID 16717)
--- Name: sequences sequences_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4015 (class 2606 OID 16717)
+-- Name: sequences sequences_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.sequences
@@ -2082,8 +1981,8 @@ ALTER TABLE ONLY public.sequences
 
 
 --
--- TOC entry 4018 (class 2606 OID 16719)
--- Name: sheettypes sheettypes_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4017 (class 2606 OID 16719)
+-- Name: sheettypes sheettypes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.sheettypes
@@ -2091,8 +1990,8 @@ ALTER TABLE ONLY public.sheettypes
 
 
 --
--- TOC entry 4020 (class 2606 OID 16721)
--- Name: titles titles_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4019 (class 2606 OID 16721)
+-- Name: titles titles_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.titles
@@ -2100,8 +1999,8 @@ ALTER TABLE ONLY public.titles
 
 
 --
--- TOC entry 4022 (class 2606 OID 16723)
--- Name: translations translations_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4021 (class 2606 OID 16723)
+-- Name: translations translations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.translations
@@ -2109,8 +2008,8 @@ ALTER TABLE ONLY public.translations
 
 
 --
--- TOC entry 3916 (class 2606 OID 16617)
--- Name: annotationlevels ux_annotationlevels_name; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3915 (class 2606 OID 16617)
+-- Name: annotationlevels ux_annotationlevels_name; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.annotationlevels
@@ -2118,8 +2017,8 @@ ALTER TABLE ONLY public.annotationlevels
 
 
 --
--- TOC entry 3932 (class 2606 OID 16633)
--- Name: columnpositions ux_columnpositions_name; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3931 (class 2606 OID 16633)
+-- Name: columnpositions ux_columnpositions_name; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.columnpositions
@@ -2127,8 +2026,8 @@ ALTER TABLE ONLY public.columnpositions
 
 
 --
--- TOC entry 3950 (class 2606 OID 16651)
--- Name: difficultylevels ux_difficultylevels_name; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3949 (class 2606 OID 16651)
+-- Name: difficultylevels ux_difficultylevels_name; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.difficultylevels
@@ -2136,8 +2035,8 @@ ALTER TABLE ONLY public.difficultylevels
 
 
 --
--- TOC entry 3982 (class 2606 OID 16683)
--- Name: objectannotators ux_objectannotators_email; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3981 (class 2606 OID 16683)
+-- Name: objectannotators ux_objectannotators_email; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.objectannotators
@@ -2145,8 +2044,8 @@ ALTER TABLE ONLY public.objectannotators
 
 
 --
--- TOC entry 3990 (class 2606 OID 16691)
--- Name: pagecollectionmetadata ux_pagecollectionmetadata_pagecollectionurl; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3989 (class 2606 OID 16691)
+-- Name: pagecollectionmetadata ux_pagecollectionmetadata_pagecollectionurl; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.pagecollectionmetadata
@@ -2154,8 +2053,8 @@ ALTER TABLE ONLY public.pagecollectionmetadata
 
 
 --
--- TOC entry 3996 (class 2606 OID 16697)
--- Name: pages ux_pages_collectionid_pagenum; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3995 (class 2606 OID 16697)
+-- Name: pages ux_pages_collectionid_pagenum; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.pages
@@ -2163,8 +2062,8 @@ ALTER TABLE ONLY public.pages
 
 
 --
--- TOC entry 4000 (class 2606 OID 16701)
--- Name: provinces ux_provinces_name; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 3999 (class 2606 OID 16701)
+-- Name: provinces ux_provinces_name; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.provinces
@@ -2172,8 +2071,8 @@ ALTER TABLE ONLY public.provinces
 
 
 --
--- TOC entry 4024 (class 2606 OID 16727)
--- Name: writingtypes ux_writingtypes_name; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4023 (class 2606 OID 16727)
+-- Name: writingtypes ux_writingtypes_name; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.writingtypes
@@ -2181,8 +2080,8 @@ ALTER TABLE ONLY public.writingtypes
 
 
 --
--- TOC entry 4028 (class 2606 OID 16731)
--- Name: zones ux_zones_name; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4027 (class 2606 OID 16731)
+-- Name: zones ux_zones_name; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.zones
@@ -2190,8 +2089,8 @@ ALTER TABLE ONLY public.zones
 
 
 --
--- TOC entry 4026 (class 2606 OID 16725)
--- Name: writingtypes writingtypes_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4025 (class 2606 OID 16725)
+-- Name: writingtypes writingtypes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.writingtypes
@@ -2199,8 +2098,8 @@ ALTER TABLE ONLY public.writingtypes
 
 
 --
--- TOC entry 4030 (class 2606 OID 16729)
--- Name: zones zones_pkey; Type: CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4029 (class 2606 OID 16729)
+-- Name: zones zones_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.zones
@@ -2208,8 +2107,8 @@ ALTER TABLE ONLY public.zones
 
 
 --
--- TOC entry 4244 (class 2618 OID 17863)
--- Name: object_statistics _RETURN; Type: RULE; Schema: public; Owner: deloro
+-- TOC entry 4243 (class 2618 OID 17863)
+-- Name: object_statistics _RETURN; Type: RULE; Schema: public; Owner: -
 --
 
 CREATE OR REPLACE VIEW public.object_statistics AS
@@ -2355,8 +2254,8 @@ UNION ALL
 
 
 --
--- TOC entry 4031 (class 2606 OID 17515)
--- Name: accolades fk_accolades_accoladedirections; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4030 (class 2606 OID 17515)
+-- Name: accolades fk_accolades_accoladedirections; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.accolades
@@ -2364,8 +2263,8 @@ ALTER TABLE ONLY public.accolades
 
 
 --
--- TOC entry 4033 (class 2606 OID 17790)
--- Name: accolades fk_accolades_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4032 (class 2606 OID 17790)
+-- Name: accolades fk_accolades_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.accolades
@@ -2373,8 +2272,8 @@ ALTER TABLE ONLY public.accolades
 
 
 --
--- TOC entry 4034 (class 2606 OID 17923)
--- Name: accolades fk_accolades_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4033 (class 2606 OID 17923)
+-- Name: accolades fk_accolades_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.accolades
@@ -2382,8 +2281,8 @@ ALTER TABLE ONLY public.accolades
 
 
 --
--- TOC entry 4032 (class 2606 OID 17520)
--- Name: accolades fk_accolades_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4031 (class 2606 OID 17520)
+-- Name: accolades fk_accolades_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.accolades
@@ -2391,8 +2290,8 @@ ALTER TABLE ONLY public.accolades
 
 
 --
--- TOC entry 4035 (class 2606 OID 17600)
--- Name: annotationprogress fk_annotationprogress_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4034 (class 2606 OID 17600)
+-- Name: annotationprogress fk_annotationprogress_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.annotationprogress
@@ -2400,8 +2299,8 @@ ALTER TABLE ONLY public.annotationprogress
 
 
 --
--- TOC entry 4036 (class 2606 OID 17605)
--- Name: annotationprogress fk_annotationprogress_pagecollections; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4035 (class 2606 OID 17605)
+-- Name: annotationprogress fk_annotationprogress_pagecollections; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.annotationprogress
@@ -2409,8 +2308,8 @@ ALTER TABLE ONLY public.annotationprogress
 
 
 --
--- TOC entry 4037 (class 2606 OID 17610)
--- Name: authorbiographylines fk_authorbiographylines_authors; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4036 (class 2606 OID 17610)
+-- Name: authorbiographylines fk_authorbiographylines_authors; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.authorbiographylines
@@ -2418,8 +2317,8 @@ ALTER TABLE ONLY public.authorbiographylines
 
 
 --
--- TOC entry 4038 (class 2606 OID 17615)
--- Name: authornameadditions fk_authornameadditions_authors; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4037 (class 2606 OID 17615)
+-- Name: authornameadditions fk_authornameadditions_authors; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.authornameadditions
@@ -2427,8 +2326,8 @@ ALTER TABLE ONLY public.authornameadditions
 
 
 --
--- TOC entry 4039 (class 2606 OID 17620)
--- Name: columns fk_columns_columnpositions; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4038 (class 2606 OID 17620)
+-- Name: columns fk_columns_columnpositions; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.columns
@@ -2436,8 +2335,8 @@ ALTER TABLE ONLY public.columns
 
 
 --
--- TOC entry 4041 (class 2606 OID 17795)
--- Name: columns fk_columns_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4040 (class 2606 OID 17795)
+-- Name: columns fk_columns_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.columns
@@ -2445,8 +2344,8 @@ ALTER TABLE ONLY public.columns
 
 
 --
--- TOC entry 4042 (class 2606 OID 17928)
--- Name: columns fk_columns_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4041 (class 2606 OID 17928)
+-- Name: columns fk_columns_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.columns
@@ -2454,8 +2353,8 @@ ALTER TABLE ONLY public.columns
 
 
 --
--- TOC entry 4040 (class 2606 OID 17625)
--- Name: columns fk_columns_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4039 (class 2606 OID 17625)
+-- Name: columns fk_columns_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.columns
@@ -2463,8 +2362,8 @@ ALTER TABLE ONLY public.columns
 
 
 --
--- TOC entry 4043 (class 2606 OID 17630)
--- Name: contentdescriptions fk_contentdescriptions_pagecollectionmetadata; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4042 (class 2606 OID 17630)
+-- Name: contentdescriptions fk_contentdescriptions_pagecollectionmetadata; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.contentdescriptions
@@ -2472,8 +2371,8 @@ ALTER TABLE ONLY public.contentdescriptions
 
 
 --
--- TOC entry 4044 (class 2606 OID 17635)
--- Name: creationlocations fk_creationlocations_provinces; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4043 (class 2606 OID 17635)
+-- Name: creationlocations fk_creationlocations_provinces; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.creationlocations
@@ -2481,8 +2380,8 @@ ALTER TABLE ONLY public.creationlocations
 
 
 --
--- TOC entry 4045 (class 2606 OID 17640)
--- Name: creations fk_creations_authors; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4044 (class 2606 OID 17640)
+-- Name: creations fk_creations_authors; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.creations
@@ -2490,8 +2389,8 @@ ALTER TABLE ONLY public.creations
 
 
 --
--- TOC entry 4046 (class 2606 OID 17645)
--- Name: creations fk_creations_creationlocations; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4045 (class 2606 OID 17645)
+-- Name: creations fk_creations_creationlocations; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.creations
@@ -2499,8 +2398,8 @@ ALTER TABLE ONLY public.creations
 
 
 --
--- TOC entry 4047 (class 2606 OID 17650)
--- Name: creations fk_creations_pagecollectionmetadata; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4046 (class 2606 OID 17650)
+-- Name: creations fk_creations_pagecollectionmetadata; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.creations
@@ -2508,8 +2407,8 @@ ALTER TABLE ONLY public.creations
 
 
 --
--- TOC entry 4048 (class 2606 OID 17655)
--- Name: creationsecondaryauthors fk_creationsecondaryauthors_authors; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4047 (class 2606 OID 17655)
+-- Name: creationsecondaryauthors fk_creationsecondaryauthors_authors; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.creationsecondaryauthors
@@ -2517,8 +2416,8 @@ ALTER TABLE ONLY public.creationsecondaryauthors
 
 
 --
--- TOC entry 4049 (class 2606 OID 17660)
--- Name: creationsecondaryauthors fk_creationsecondaryauthors_creations; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4048 (class 2606 OID 17660)
+-- Name: creationsecondaryauthors fk_creationsecondaryauthors_creations; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.creationsecondaryauthors
@@ -2526,8 +2425,8 @@ ALTER TABLE ONLY public.creationsecondaryauthors
 
 
 --
--- TOC entry 4050 (class 2606 OID 17665)
--- Name: difficultycriteria fk_difficultycriteria_corrections; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4049 (class 2606 OID 17665)
+-- Name: difficultycriteria fk_difficultycriteria_corrections; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.difficultycriteria
@@ -2535,8 +2434,8 @@ ALTER TABLE ONLY public.difficultycriteria
 
 
 --
--- TOC entry 4051 (class 2606 OID 17670)
--- Name: difficultycriteria fk_difficultycriteria_marginalwritings; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4050 (class 2606 OID 17670)
+-- Name: difficultycriteria fk_difficultycriteria_marginalwritings; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.difficultycriteria
@@ -2544,8 +2443,8 @@ ALTER TABLE ONLY public.difficultycriteria
 
 
 --
--- TOC entry 4052 (class 2606 OID 17675)
--- Name: difficultycriteria fk_difficultycriteria_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4051 (class 2606 OID 17675)
+-- Name: difficultycriteria fk_difficultycriteria_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.difficultycriteria
@@ -2553,8 +2452,8 @@ ALTER TABLE ONLY public.difficultycriteria
 
 
 --
--- TOC entry 4053 (class 2606 OID 17680)
--- Name: dimensions fk_dimensions_publishing; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4052 (class 2606 OID 17680)
+-- Name: dimensions fk_dimensions_publishing; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.dimensions
@@ -2562,8 +2461,8 @@ ALTER TABLE ONLY public.dimensions
 
 
 --
--- TOC entry 4054 (class 2606 OID 17685)
--- Name: formatdescriptions fk_formatdescriptions_pagecollectionmetadata; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4053 (class 2606 OID 17685)
+-- Name: formatdescriptions fk_formatdescriptions_pagecollectionmetadata; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.formatdescriptions
@@ -2571,8 +2470,8 @@ ALTER TABLE ONLY public.formatdescriptions
 
 
 --
--- TOC entry 4056 (class 2606 OID 17800)
--- Name: frames fk_frames_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4055 (class 2606 OID 17800)
+-- Name: frames fk_frames_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.frames
@@ -2580,8 +2479,8 @@ ALTER TABLE ONLY public.frames
 
 
 --
--- TOC entry 4057 (class 2606 OID 17934)
--- Name: frames fk_frames_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4056 (class 2606 OID 17934)
+-- Name: frames fk_frames_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.frames
@@ -2589,8 +2488,8 @@ ALTER TABLE ONLY public.frames
 
 
 --
--- TOC entry 4055 (class 2606 OID 17690)
--- Name: frames fk_frames_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4054 (class 2606 OID 17690)
+-- Name: frames fk_frames_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.frames
@@ -2598,8 +2497,8 @@ ALTER TABLE ONLY public.frames
 
 
 --
--- TOC entry 4059 (class 2606 OID 17805)
--- Name: frontispieces fk_frontispieces_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4058 (class 2606 OID 17805)
+-- Name: frontispieces fk_frontispieces_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.frontispieces
@@ -2607,8 +2506,8 @@ ALTER TABLE ONLY public.frontispieces
 
 
 --
--- TOC entry 4060 (class 2606 OID 17940)
--- Name: frontispieces fk_frontispieces_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4059 (class 2606 OID 17940)
+-- Name: frontispieces fk_frontispieces_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.frontispieces
@@ -2616,8 +2515,8 @@ ALTER TABLE ONLY public.frontispieces
 
 
 --
--- TOC entry 4058 (class 2606 OID 17695)
--- Name: frontispieces fk_frontispieces_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4057 (class 2606 OID 17695)
+-- Name: frontispieces fk_frontispieces_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.frontispieces
@@ -2625,8 +2524,8 @@ ALTER TABLE ONLY public.frontispieces
 
 
 --
--- TOC entry 4062 (class 2606 OID 17810)
--- Name: initialletters fk_initialletters_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4061 (class 2606 OID 17810)
+-- Name: initialletters fk_initialletters_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.initialletters
@@ -2634,8 +2533,8 @@ ALTER TABLE ONLY public.initialletters
 
 
 --
--- TOC entry 4063 (class 2606 OID 17946)
--- Name: initialletters fk_initialletters_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4062 (class 2606 OID 17946)
+-- Name: initialletters fk_initialletters_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.initialletters
@@ -2643,8 +2542,8 @@ ALTER TABLE ONLY public.initialletters
 
 
 --
--- TOC entry 4061 (class 2606 OID 17700)
--- Name: initialletters fk_initialletters_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4060 (class 2606 OID 17700)
+-- Name: initialletters fk_initialletters_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.initialletters
@@ -2652,8 +2551,8 @@ ALTER TABLE ONLY public.initialletters
 
 
 --
--- TOC entry 4064 (class 2606 OID 17705)
--- Name: letteralignments fk_letteralignments_alignmenttypes; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4063 (class 2606 OID 17705)
+-- Name: letteralignments fk_letteralignments_alignmenttypes; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.letteralignments
@@ -2661,8 +2560,8 @@ ALTER TABLE ONLY public.letteralignments
 
 
 --
--- TOC entry 4065 (class 2606 OID 17710)
--- Name: letteralignments fk_letteralignments_letters; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4064 (class 2606 OID 17710)
+-- Name: letteralignments fk_letteralignments_letters; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.letteralignments
@@ -2670,8 +2569,8 @@ ALTER TABLE ONLY public.letteralignments
 
 
 --
--- TOC entry 4067 (class 2606 OID 17815)
--- Name: letters fk_letters_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4066 (class 2606 OID 17815)
+-- Name: letters fk_letters_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.letters
@@ -2679,8 +2578,8 @@ ALTER TABLE ONLY public.letters
 
 
 --
--- TOC entry 4068 (class 2606 OID 17952)
--- Name: letters fk_letters_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4067 (class 2606 OID 17952)
+-- Name: letters fk_letters_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.letters
@@ -2688,8 +2587,8 @@ ALTER TABLE ONLY public.letters
 
 
 --
--- TOC entry 4066 (class 2606 OID 17715)
--- Name: letters fk_letters_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4065 (class 2606 OID 17715)
+-- Name: letters fk_letters_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.letters
@@ -2697,8 +2596,8 @@ ALTER TABLE ONLY public.letters
 
 
 --
--- TOC entry 4069 (class 2606 OID 17720)
--- Name: letterssequences fk_letterssequences_letters; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4068 (class 2606 OID 17720)
+-- Name: letterssequences fk_letterssequences_letters; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.letterssequences
@@ -2706,8 +2605,8 @@ ALTER TABLE ONLY public.letterssequences
 
 
 --
--- TOC entry 4070 (class 2606 OID 17725)
--- Name: letterssequences fk_letterssequences_sequences; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4069 (class 2606 OID 17725)
+-- Name: letterssequences fk_letterssequences_sequences; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.letterssequences
@@ -2715,8 +2614,8 @@ ALTER TABLE ONLY public.letterssequences
 
 
 --
--- TOC entry 4071 (class 2606 OID 17730)
--- Name: lines fk_lines_linetypes; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4070 (class 2606 OID 17730)
+-- Name: lines fk_lines_linetypes; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.lines
@@ -2724,8 +2623,8 @@ ALTER TABLE ONLY public.lines
 
 
 --
--- TOC entry 4073 (class 2606 OID 17820)
--- Name: lines fk_lines_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4072 (class 2606 OID 17820)
+-- Name: lines fk_lines_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.lines
@@ -2733,8 +2632,8 @@ ALTER TABLE ONLY public.lines
 
 
 --
--- TOC entry 4074 (class 2606 OID 17958)
--- Name: lines fk_lines_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4073 (class 2606 OID 17958)
+-- Name: lines fk_lines_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.lines
@@ -2742,8 +2641,8 @@ ALTER TABLE ONLY public.lines
 
 
 --
--- TOC entry 4072 (class 2606 OID 17735)
--- Name: lines fk_lines_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4071 (class 2606 OID 17735)
+-- Name: lines fk_lines_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.lines
@@ -2751,8 +2650,8 @@ ALTER TABLE ONLY public.lines
 
 
 --
--- TOC entry 4076 (class 2606 OID 17825)
--- Name: marginals fk_marginals_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4075 (class 2606 OID 17825)
+-- Name: marginals fk_marginals_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.marginals
@@ -2760,8 +2659,8 @@ ALTER TABLE ONLY public.marginals
 
 
 --
--- TOC entry 4077 (class 2606 OID 17964)
--- Name: marginals fk_marginals_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4076 (class 2606 OID 17964)
+-- Name: marginals fk_marginals_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.marginals
@@ -2769,8 +2668,8 @@ ALTER TABLE ONLY public.marginals
 
 
 --
--- TOC entry 4075 (class 2606 OID 17740)
--- Name: marginals fk_marginals_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4074 (class 2606 OID 17740)
+-- Name: marginals fk_marginals_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.marginals
@@ -2778,8 +2677,8 @@ ALTER TABLE ONLY public.marginals
 
 
 --
--- TOC entry 4079 (class 2606 OID 17830)
--- Name: modifiers fk_modifiers_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4078 (class 2606 OID 17830)
+-- Name: modifiers fk_modifiers_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.modifiers
@@ -2787,8 +2686,8 @@ ALTER TABLE ONLY public.modifiers
 
 
 --
--- TOC entry 4080 (class 2606 OID 17970)
--- Name: modifiers fk_modifiers_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4079 (class 2606 OID 17970)
+-- Name: modifiers fk_modifiers_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.modifiers
@@ -2796,8 +2695,8 @@ ALTER TABLE ONLY public.modifiers
 
 
 --
--- TOC entry 4078 (class 2606 OID 17745)
--- Name: modifiers fk_modifiers_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4077 (class 2606 OID 17745)
+-- Name: modifiers fk_modifiers_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.modifiers
@@ -2805,8 +2704,8 @@ ALTER TABLE ONLY public.modifiers
 
 
 --
--- TOC entry 4088 (class 2606 OID 17765)
--- Name: pages fk_onepageimages_pagecollections; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4087 (class 2606 OID 17765)
+-- Name: pages fk_onepageimages_pagecollections; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.pages
@@ -2814,8 +2713,8 @@ ALTER TABLE ONLY public.pages
 
 
 --
--- TOC entry 4082 (class 2606 OID 17835)
--- Name: ornaments fk_ornaments_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4081 (class 2606 OID 17835)
+-- Name: ornaments fk_ornaments_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.ornaments
@@ -2823,8 +2722,8 @@ ALTER TABLE ONLY public.ornaments
 
 
 --
--- TOC entry 4083 (class 2606 OID 17976)
--- Name: ornaments fk_ornaments_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4082 (class 2606 OID 17976)
+-- Name: ornaments fk_ornaments_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.ornaments
@@ -2832,8 +2731,8 @@ ALTER TABLE ONLY public.ornaments
 
 
 --
--- TOC entry 4081 (class 2606 OID 17750)
--- Name: ornaments fk_ornaments_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4080 (class 2606 OID 17750)
+-- Name: ornaments fk_ornaments_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.ornaments
@@ -2841,8 +2740,8 @@ ALTER TABLE ONLY public.ornaments
 
 
 --
--- TOC entry 4085 (class 2606 OID 17840)
--- Name: outoflineletters fk_outoflineletters_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4084 (class 2606 OID 17840)
+-- Name: outoflineletters fk_outoflineletters_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.outoflineletters
@@ -2850,8 +2749,8 @@ ALTER TABLE ONLY public.outoflineletters
 
 
 --
--- TOC entry 4086 (class 2606 OID 17982)
--- Name: outoflineletters fk_outoflineletters_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4085 (class 2606 OID 17982)
+-- Name: outoflineletters fk_outoflineletters_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.outoflineletters
@@ -2859,8 +2758,8 @@ ALTER TABLE ONLY public.outoflineletters
 
 
 --
--- TOC entry 4084 (class 2606 OID 17755)
--- Name: outoflineletters fk_outoflineletters_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4083 (class 2606 OID 17755)
+-- Name: outoflineletters fk_outoflineletters_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.outoflineletters
@@ -2868,8 +2767,8 @@ ALTER TABLE ONLY public.outoflineletters
 
 
 --
--- TOC entry 4087 (class 2606 OID 17760)
--- Name: pagecollectionmetadata fk_pagecollectionmetadata_pagecollections; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4086 (class 2606 OID 17760)
+-- Name: pagecollectionmetadata fk_pagecollectionmetadata_pagecollections; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.pagecollectionmetadata
@@ -2877,8 +2776,8 @@ ALTER TABLE ONLY public.pagecollectionmetadata
 
 
 --
--- TOC entry 4089 (class 2606 OID 17525)
--- Name: publishing fk_publishing_bookformats; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4088 (class 2606 OID 17525)
+-- Name: publishing fk_publishing_bookformats; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.publishing
@@ -2886,8 +2785,8 @@ ALTER TABLE ONLY public.publishing
 
 
 --
--- TOC entry 4090 (class 2606 OID 17530)
--- Name: publishing fk_publishing_pagecollectionmetadata; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4089 (class 2606 OID 17530)
+-- Name: publishing fk_publishing_pagecollectionmetadata; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.publishing
@@ -2895,8 +2794,8 @@ ALTER TABLE ONLY public.publishing
 
 
 --
--- TOC entry 4091 (class 2606 OID 17535)
--- Name: publishing fk_publishing_publishinglocations; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4090 (class 2606 OID 17535)
+-- Name: publishing fk_publishing_publishinglocations; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.publishing
@@ -2904,8 +2803,8 @@ ALTER TABLE ONLY public.publishing
 
 
 --
--- TOC entry 4092 (class 2606 OID 17540)
--- Name: publishing fk_publishing_sheettypes; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4091 (class 2606 OID 17540)
+-- Name: publishing fk_publishing_sheettypes; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.publishing
@@ -2913,8 +2812,8 @@ ALTER TABLE ONLY public.publishing
 
 
 --
--- TOC entry 4093 (class 2606 OID 17545)
--- Name: publishinglocations fk_publishinglocations_provinces; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4092 (class 2606 OID 17545)
+-- Name: publishinglocations fk_publishinglocations_provinces; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.publishinglocations
@@ -2922,8 +2821,8 @@ ALTER TABLE ONLY public.publishinglocations
 
 
 --
--- TOC entry 4095 (class 2606 OID 17845)
--- Name: referencemarksabovelines fk_referencemarksabovelines_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4094 (class 2606 OID 17845)
+-- Name: referencemarksabovelines fk_referencemarksabovelines_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.referencemarksabovelines
@@ -2931,8 +2830,8 @@ ALTER TABLE ONLY public.referencemarksabovelines
 
 
 --
--- TOC entry 4096 (class 2606 OID 17988)
--- Name: referencemarksabovelines fk_referencemarksabovelines_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4095 (class 2606 OID 17988)
+-- Name: referencemarksabovelines fk_referencemarksabovelines_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.referencemarksabovelines
@@ -2940,8 +2839,8 @@ ALTER TABLE ONLY public.referencemarksabovelines
 
 
 --
--- TOC entry 4094 (class 2606 OID 17550)
--- Name: referencemarksabovelines fk_referencemarksabovelines_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4093 (class 2606 OID 17550)
+-- Name: referencemarksabovelines fk_referencemarksabovelines_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.referencemarksabovelines
@@ -2949,8 +2848,8 @@ ALTER TABLE ONLY public.referencemarksabovelines
 
 
 --
--- TOC entry 4098 (class 2606 OID 17850)
--- Name: referencemarksonmargin fk_referencemarksonmargin_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4097 (class 2606 OID 17850)
+-- Name: referencemarksonmargin fk_referencemarksonmargin_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.referencemarksonmargin
@@ -2958,8 +2857,8 @@ ALTER TABLE ONLY public.referencemarksonmargin
 
 
 --
--- TOC entry 4099 (class 2606 OID 17994)
--- Name: referencemarksonmargin fk_referencemarksonmargin_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4098 (class 2606 OID 17994)
+-- Name: referencemarksonmargin fk_referencemarksonmargin_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.referencemarksonmargin
@@ -2967,8 +2866,8 @@ ALTER TABLE ONLY public.referencemarksonmargin
 
 
 --
--- TOC entry 4097 (class 2606 OID 17555)
--- Name: referencemarksonmargin fk_referencemarksonmargin_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4096 (class 2606 OID 17555)
+-- Name: referencemarksonmargin fk_referencemarksonmargin_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.referencemarksonmargin
@@ -2976,8 +2875,8 @@ ALTER TABLE ONLY public.referencemarksonmargin
 
 
 --
--- TOC entry 4100 (class 2606 OID 17560)
--- Name: rocccodes fk_rocccodes_annotationlevels; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4099 (class 2606 OID 17560)
+-- Name: rocccodes fk_rocccodes_annotationlevels; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.rocccodes
@@ -2985,8 +2884,8 @@ ALTER TABLE ONLY public.rocccodes
 
 
 --
--- TOC entry 4101 (class 2606 OID 17565)
--- Name: rocccodes fk_rocccodes_centuries; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4100 (class 2606 OID 17565)
+-- Name: rocccodes fk_rocccodes_centuries; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.rocccodes
@@ -2994,8 +2893,8 @@ ALTER TABLE ONLY public.rocccodes
 
 
 --
--- TOC entry 4102 (class 2606 OID 17570)
--- Name: rocccodes fk_rocccodes_difficultylevels; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4101 (class 2606 OID 17570)
+-- Name: rocccodes fk_rocccodes_difficultylevels; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.rocccodes
@@ -3003,8 +2902,8 @@ ALTER TABLE ONLY public.rocccodes
 
 
 --
--- TOC entry 4103 (class 2606 OID 17575)
--- Name: rocccodes fk_rocccodes_halfcenturies; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4102 (class 2606 OID 17575)
+-- Name: rocccodes fk_rocccodes_halfcenturies; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.rocccodes
@@ -3012,8 +2911,8 @@ ALTER TABLE ONLY public.rocccodes
 
 
 --
--- TOC entry 4104 (class 2606 OID 17580)
--- Name: rocccodes fk_rocccodes_pagecollectionmetadata; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4103 (class 2606 OID 17580)
+-- Name: rocccodes fk_rocccodes_pagecollectionmetadata; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.rocccodes
@@ -3021,8 +2920,8 @@ ALTER TABLE ONLY public.rocccodes
 
 
 --
--- TOC entry 4105 (class 2606 OID 17585)
--- Name: rocccodes fk_rocccodes_writingtypes; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4104 (class 2606 OID 17585)
+-- Name: rocccodes fk_rocccodes_writingtypes; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.rocccodes
@@ -3030,8 +2929,8 @@ ALTER TABLE ONLY public.rocccodes
 
 
 --
--- TOC entry 4106 (class 2606 OID 17590)
--- Name: rocccodezones fk_rocccodezones_rocccodes; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4105 (class 2606 OID 17590)
+-- Name: rocccodezones fk_rocccodezones_rocccodes; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.rocccodezones
@@ -3039,8 +2938,8 @@ ALTER TABLE ONLY public.rocccodezones
 
 
 --
--- TOC entry 4107 (class 2606 OID 17595)
--- Name: rocccodezones fk_rocccodezones_zones; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4106 (class 2606 OID 17595)
+-- Name: rocccodezones fk_rocccodezones_zones; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.rocccodezones
@@ -3048,8 +2947,8 @@ ALTER TABLE ONLY public.rocccodezones
 
 
 --
--- TOC entry 4108 (class 2606 OID 17770)
--- Name: scannedcopies fk_scannedcopies_pagecollectionmetadata; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4107 (class 2606 OID 17770)
+-- Name: scannedcopies fk_scannedcopies_pagecollectionmetadata; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.scannedcopies
@@ -3057,8 +2956,8 @@ ALTER TABLE ONLY public.scannedcopies
 
 
 --
--- TOC entry 4109 (class 2606 OID 17775)
--- Name: sequences fk_sequences_alignmenttypes; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4108 (class 2606 OID 17775)
+-- Name: sequences fk_sequences_alignmenttypes; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.sequences
@@ -3066,8 +2965,8 @@ ALTER TABLE ONLY public.sequences
 
 
 --
--- TOC entry 4111 (class 2606 OID 17855)
--- Name: titles fk_titles_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4110 (class 2606 OID 17855)
+-- Name: titles fk_titles_objectannotators; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.titles
@@ -3075,8 +2974,8 @@ ALTER TABLE ONLY public.titles
 
 
 --
--- TOC entry 4112 (class 2606 OID 18000)
--- Name: titles fk_titles_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4111 (class 2606 OID 18000)
+-- Name: titles fk_titles_objectannotators_delete; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.titles
@@ -3084,8 +2983,8 @@ ALTER TABLE ONLY public.titles
 
 
 --
--- TOC entry 4110 (class 2606 OID 17780)
--- Name: titles fk_titles_pages; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4109 (class 2606 OID 17780)
+-- Name: titles fk_titles_pages; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.titles
@@ -3093,8 +2992,8 @@ ALTER TABLE ONLY public.titles
 
 
 --
--- TOC entry 4113 (class 2606 OID 17785)
--- Name: translations fk_translations_pagecollectionmetadata; Type: FK CONSTRAINT; Schema: public; Owner: deloro
+-- TOC entry 4112 (class 2606 OID 17785)
+-- Name: translations fk_translations_pagecollectionmetadata; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.translations

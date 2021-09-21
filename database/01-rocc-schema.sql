@@ -605,6 +605,29 @@ CREATE TABLE public.letters (
 
 
 --
+-- TOC entry 293 (class 1259 OID 33517)
+-- Name: letter_annotations; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public.letter_annotations AS
+ SELECT pcm.pagecollectionid AS page_collection_id,
+    pcm.title AS page_collection_title,
+    p.pageid AS page_id,
+    p.pagenumber AS page_number,
+    concat(pcm.pagecollectionurl, p.pagename) AS page_file_name,
+    l.id AS letter_id,
+    l.content AS letter,
+    l.leftuphoriz AS left_up_horiz,
+    l.leftupvert AS left_up_vert,
+    l.rightdownhoriz AS right_down_horiz,
+    l.rightdownvert AS right_down_vert
+   FROM ((public.letters l
+     JOIN public.pages p ON ((l.pageid = p.pageid)))
+     JOIN public.pagecollectionmetadata pcm ON ((p.pagecollectionid = pcm.pagecollectionid)))
+  WHERE (l.rowdeletiontimestamp IS NULL);
+
+
+--
 -- TOC entry 287 (class 1259 OID 17865)
 -- Name: letter_statistics; Type: VIEW; Schema: public; Owner: -
 --

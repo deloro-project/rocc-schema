@@ -1,78 +1,78 @@
-INSERT INTO accoladedirections (id) VALUES
+INSERT INTO public.accoladedirections (id) VALUES
 ('left'),
 ('right');
 
-INSERT INTO alignmenttypes (id) VALUES
+INSERT INTO public.alignmenttypes (id) VALUES
 ('gold'),
 ('test');
 
-INSERT INTO annotationlevels (id, name) VALUES
+INSERT INTO public.annotationlevels (id, name) VALUES
 ('g', 'gold'),
 ('m', 'mixt'),
 ('o', 'original'),
 ('t', 'test');
 
-INSERT INTO bookformats (id) VALUES
+INSERT INTO public.bookformats (id) VALUES
 (' '),
 ('duo'),
 ('folio'),
 ('octavo'),
 ('quarto');
 
-INSERT INTO centuries (id) VALUES
+INSERT INTO public.centuries (id) VALUES
 ('XIX'),
 ('XVI'),
 ('XVII'),
 ('XVIII');
 
-INSERT INTO columnpositions (id, name) VALUES
+INSERT INTO public.columnpositions (id, name) VALUES
 ('L', 'Left'),
 ('R', 'Right'),
 ('U', 'Unique');
 
-INSERT INTO corrections (id) VALUES
+INSERT INTO public.corrections (id) VALUES
 ('few'),
 ('many'),
 ('none');
 
-INSERT INTO difficultylevels (id, name) VALUES
+INSERT INTO public.difficultylevels (id, name) VALUES
 (1, 'easy'),
 (3, 'hard'),
 (2, 'medium');
 
-INSERT INTO halfcenturies (id) VALUES
+INSERT INTO public.halfcenturies (id) VALUES
 (1),
 (2);
 
-INSERT INTO linetypes (id) VALUES
+INSERT INTO public.linetypes (id) VALUES
 ('footer'),
 ('header'),
 ('ordinary');
 
-INSERT INTO marginalwritings (id) VALUES
+INSERT INTO public.marginalwritings (id) VALUES
 ('few'),
 ('many'),
 ('none');
 
-INSERT INTO provinces (id, name) VALUES
+INSERT INTO public.provinces (id, name) VALUES
 (4, ' '),
 (1, 'Moldova'),
 (2, 'Țara Românească'),
 (3, 'Transilvania');
 
-INSERT INTO sheettypes (id) VALUES
+INSERT INTO public.sheettypes (id) VALUES
 ('n/a'),
 ('page'),
 ('sheet');
 
-INSERT INTO writingtypes (id, name) VALUES
+INSERT INTO public.writingtypes (id, name) VALUES
 ('m', 'manuscript'),
 ('p', 'print'),
 ('su', 'semiuncial'),
 ('u', 'uncial'),
 ('', 'unknown');
 
-INSERT INTO zones (id, name) VALUES
+INSERT INTO public.zones (id, name) VALUES
 ('BT', 'Banat'),
 ('BS', 'Bessarabia'),
 ('MM', 'Maramureș'),

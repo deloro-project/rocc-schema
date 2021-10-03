@@ -811,6 +811,29 @@ CREATE TABLE public.lines (
 
 
 --
+-- TOC entry 294 (class 1259 OID 34120)
+-- Name: line_annotations; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public.line_annotations AS
+ SELECT pcm.pagecollectionid AS page_collection_id,
+    pcm.title AS page_collection_title,
+    p.pageid AS page_id,
+    p.pagenumber AS page_number,
+    concat(pcm.pagecollectionurl, p.pagename) AS page_file_name,
+    l.id AS line_id,
+    l.content AS line,
+    l.leftuphoriz AS left_up_horiz,
+    l.leftupvert AS left_up_vert,
+    l.rightdownhoriz AS right_down_horiz,
+    l.rightdownvert AS right_down_vert
+   FROM ((public.lines l
+     JOIN public.pages p ON ((l.pageid = p.pageid)))
+     JOIN public.pagecollectionmetadata pcm ON ((p.pagecollectionid = pcm.pagecollectionid)))
+  WHERE (l.rowdeletiontimestamp IS NULL);
+
+
+--
 -- TOC entry 269 (class 1259 OID 17481)
 -- Name: lines_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --

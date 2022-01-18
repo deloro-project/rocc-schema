@@ -1404,7 +1404,7 @@ CREATE TABLE public.rocccodes (
     id integer NOT NULL,
     metadataid integer NOT NULL,
     difficultylevel integer NOT NULL,
-    writingtype character(1) NOT NULL,
+    writingtype character(2) NOT NULL,
     annotationlevel character(1) NOT NULL,
     century character varying(5) NOT NULL,
     fiftyyears integer NOT NULL,

@@ -379,7 +379,8 @@ CREATE TABLE public.difficultycriteria (
     interlinewriting boolean NOT NULL,
     palimpsest boolean NOT NULL,
     corrections character varying(4) NOT NULL,
-    marginalwriting character varying(4) NOT NULL
+    marginalwriting character varying(4) NOT NULL,
+    obliquelines boolean NOT NULL
 );
 
 
